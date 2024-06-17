@@ -23,14 +23,10 @@ struct MyDreamsView: View {
                 } else {
                     List {
                         ForEach(filterDreams) { dream in
-                            HStack {
-                                Text(dream.dreamDate.formatted(.dateTime.day().month(.abbreviated)))
-                                Text(dream.title)
-                                Spacer()
-                                Text(dream.icon)
-                            }
+                            MyDreamCardView(dream: dream)
                         }
                     }
+                    .listStyle(.plain)
                     .searchable(text: $searchText,
                                 placement: .navigationBarDrawer(displayMode: .always),
                                 prompt: "Pesquisar sonho")

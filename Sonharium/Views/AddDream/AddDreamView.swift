@@ -22,68 +22,87 @@ struct AddDreamView: View {
     @State private var status = Status.normalDream
     // conseguir mudar propriedades(cor) do SegmentedPicker - pelo init()
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "purple")
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "roxo")
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     }
     //
     var body: some View {
         NavigationStack {
             //
-            VStack {
-                DatePicker("Sonhei no dia...", selection: $dreamDate, displayedComponents: DatePickerComponents.date)
-                    .bold()
-                    .frame(width: 350, height: 50)
+            ZStack {
+                // fundo roxo
+                Rectangle()
+                    .fill(Color("fundoAddDream"))
+                    .ignoresSafeArea(.all)
                 //
-                TextField("Escolha um título para o seu sonho", text: $title)
-                    .font(.system(size: 17))
-                    .padding(8)
-                    .frame(width: 350, height: 40, alignment: .leading)
-                    // .background(Color.gray) // TIRAR
-                //
-                TextField("O que aconteceu? Descreva como foi...", text: $desc)
-                    .font(.system(size: 17))
-                    .padding(8)
-                    .frame(width: 350, height: 200, alignment: .topLeading)
-                    // .background(Color.gray) // TIRAR
-                //
-                Text("Qual tipo de sonho você teve hoje?")
-                    .font(.system(size: 17))
-                    .frame(width: 393, height: 40)
-                    .bold()
-                //
-                Picker("", selection: $status) {
-                    ForEach(Status.allCases) { status in
-                        Text(status.descr).tag(status)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .frame(width: 350, height: 28, alignment: .center)
-                //
-                Image("mascote")
-                    // .background(Color.pink) // TIRAR
-                    .frame(width: 150, height: 150, alignment: .center)
-                //
-                HStack {
-                    Button("Gerar imagem do sonho") {
-                        // colocar a ação
-                    }
-                    .buttonStyle(.borderedProminent)
+                VStack {
+                    DatePicker("Sonhei no dia...", selection: $dreamDate,
+                               displayedComponents: DatePickerComponents.date)
+                        .bold()
+                        .font(.title3)
+                        .foregroundStyle(Color("fundoText"))
+                        .frame(width: 350, height: 50)
                     //
-                    Button("Gravar") {
-                        // colocar a ação
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(Color("fundoText"))
+                            .frame(width: 360, height: 45)
+                        TextField("Escolha um título para o seu sonho", text: $title)
+                            .font(.system(size: 17))
+                            .padding(8)
+                            .frame(width: 350, height: 40, alignment: .leading)
                     }
-                    .buttonStyle(.borderedProminent)
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancelar") {
-                        dismiss()
+                    //
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(Color("fundoText"))
+                            .frame(width: 360, height: 205)
+                        TextField("O que aconteceu? Descreva como foi...", text: $desc)
+                            .font(.system(size: 17))
+                            .padding(8)
+                            .frame(width: 350, height: 200, alignment: .topLeading)
+                    }
+                    //
+                    Text("Qual tipo de sonho você teve hoje?")
+                        .font(.system(size: 17))
+                        .foregroundStyle(Color("fundoText"))
+                        .frame(width: 393, height: 40)
+                        .bold()
+                    //
+                    Picker("", selection: $status) {
+                        ForEach(Status.allCases) { status in
+                            Text(status.descr).tag(status)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .frame(width: 350, height: 28, alignment: .center)
+                    //
+                    Image("mascote")
+                        // .background(Color.pink) // TIRAR
+                        .frame(width: 150, height: 150, alignment: .center)
+                    //
+                    HStack {
+                        Button("Gerar imagem do sonho") {
+                            // colocar a ação
+                        }
+                        .buttonStyle(.borderedProminent)
+                        //
+                        Button("Gravar") {
+                            // colocar a ação
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Criar sonho") {
-                        addDream()
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Cancelar") {
+                            dismiss()
+                        }
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Criar sonho") {
+                            addDream()
+                        }
                     }
                 }
             }
