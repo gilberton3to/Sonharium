@@ -4,6 +4,7 @@
 //  Created by Marcelle Ribeiro Queiroz on 11/06/24.
 //
 
+import Foundation
 import SwiftUI
 import SwiftData
 
