@@ -16,30 +16,31 @@ struct MyDreamsView: View {
     @State var searchText: String = ""  // barra de pesquisa
     //
     var body: some View {
-        NavigationStack {
-            VStack {
-                if dreams.isEmpty {
-                    ContentUnavailableView("Ainda não há sonho", systemImage: "cloud")
-                } else {
-                    List {
-                        ForEach(filterDreams) { dream in
-                            MyDreamCardView(dream: dream)
-                        }
+            NavigationStack {
+                    VStack {
+                            if dreams.isEmpty {
+                                ContentUnavailableView("Ainda não há sonho", systemImage: "cloud")
+                            } else {
+                                List {
+                                    ForEach(filterDreams) { dream in
+                                        MyDreamCardView(dream: dream)
+                                            .listRowSeparator(.hidden)
+                                    }
+                                }
+                                .listStyle(.plain)
+                                .searchable(text: $searchText,
+                                            placement: .navigationBarDrawer(displayMode: .always),
+                                            prompt: "Pesquisar sonho")
+                            }
                     }
-                    .listStyle(.plain)
-                    .searchable(text: $searchText,
-                                placement: .navigationBarDrawer(displayMode: .always),
-                                prompt: "Pesquisar sonho")
-                }
             }
-        }
-        .navigationTitle("Meus Sonhos")
+            .navigationTitle("Meus Sonhos")
     }
     var filterDreams: [Dream] {
         if searchText.isEmpty { // se não pesquisar nada, mostrar a lista com todos os sonhos
             return dreams
         }
-        return dreams.filter { // filtrar por Título e Descrição
+        return dreams.filter { // filtra por Título e Descrição
             $0.title.localizedCaseInsensitiveContains(searchText) || $0.desc.localizedCaseInsensitiveContains(searchText)  }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30AAD99C2C220EAC00D9DEC4 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD99B2C220EAC00D9DEC4 /* teste.swift */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30AAD99B2C220EAC00D9DEC4 /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 		BBDD59E72C209D1600A5DE9C /* Sonharium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonharium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonharium.swift; sourceTree = "<group>"; };
 		BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				BBDD5A2F2C209F2B00A5DE9C /* AddDreamView.swift */,
+				30AAD99B2C220EAC00D9DEC4 /* teste.swift */,
 			);
 			path = AddDream;
 			sourceTree = "<group>";
@@ -190,8 +193,8 @@
 		BBDD5A192C209E2C00A5DE9C /* MyDreams */ = {
 			isa = PBXGroup;
 			children = (
-				BBDD5A252C209ED900A5DE9C /* MyDreamsView.swift */,
 				BBDD5A272C209EE600A5DE9C /* MyDreamCardView.swift */,
+				BBDD5A252C209ED900A5DE9C /* MyDreamsView.swift */,
 			);
 			path = MyDreams;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				BBDD5A202C209E9600A5DE9C /* SettingsView.swift in Sources */,
 				BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */,
 				BBDD5A302C209F2B00A5DE9C /* AddDreamView.swift in Sources */,
+				30AAD99C2C220EAC00D9DEC4 /* teste.swift in Sources */,
 				BBDD5A2E2C209F1500A5DE9C /* DreamCardView.swift in Sources */,
 				BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */,
 				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,

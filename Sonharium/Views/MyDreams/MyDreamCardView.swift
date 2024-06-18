@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MyDreamCardView: View {
     //
@@ -15,33 +16,62 @@ struct MyDreamCardView: View {
             // fundo roxo
             RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(Color("roxo"))
-                .frame(width: 360, height: 140)
+                // .border(Color.pink)
             //
-            HStack(alignment: .top) {
-                VStack(alignment: .leading) {
-                    Text(dream.dreamDate.formatted(.dateTime.day())) // DATA
-                        .font(.system(size: 35))
-                        .foregroundStyle(Color.white)
-                        .bold()
-                        .frame(width: 103, height: 140, alignment: .center)
+            HStack(alignment: .top, spacing: 0) {
+                VStack(alignment: .center, spacing: 8) {
+                    VStack {
+                        Text(dream.dreamDate.formatted(.dateTime.day()))
+                            .font(.system(size: 35))
+                            .foregroundStyle(Color.white)
+                            .bold()
+                            .padding(.top, 16)
+                            // .border(Color.green)
+                        Text(dream.dreamDate.formatted(.dateTime.month(.abbreviated)))
+                            .font(.system(size: 17))
+                            .foregroundStyle(Color.white)
+                            // .border(Color.green)
+                    }
+                    Image("mascote")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.bottom, 16)
+                        // .border(Color.red)
                 }
-                VStack(alignment: .leading) {
+                .frame(width: 89, alignment: .center)
+                //
+                VStack(alignment: .leading, spacing: 8) {
                     Text(dream.title)
-                        .font(.system(size: 24))
+                        .font(.system(size: 22))
                         .foregroundStyle(Color.white)// tipo de fonte
                         .bold()        // estilo da fonte
-                        .frame(width: 257, height: 59, alignment: .leading)
+                        .padding(.top, 16)
+                        .padding(.trailing, 16)
+                        // .border(Color.yellow)
+                    //
                     Text(dream.desc)
                         .lineLimit(3) // número máx de linhas da descrição
                         .font(.system(size: 17))
                         .foregroundStyle(Color.white)
-                        .frame(width: 210, height: 81, alignment: .topLeading)
+                        .padding(.bottom, 16)
+                        .padding(.trailing, 16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        // .border(Color.orange)
                 }
+                .padding(8)
             }
         }
+        .frame(height: 145)
     }
 }
-// #Preview {
-//    MyDreamCardView()
-//        .background(.black) // ver o espaçamento do card
-// }
+ #Preview {
+     Group {
+         // swiftlint:disable force_try
+         let container = try! ModelContainer(for: Dream.self, configurations: .init(isStoredInMemoryOnly: true))
+         MyDreamCardView(
+            dream: Dream.init(dreamDate: .now,
+                            title: "titulo titulo titulo",
+                            desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
+                        ).modelContainer(container)
+     }
+ }

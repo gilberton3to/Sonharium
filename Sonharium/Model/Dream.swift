@@ -3,39 +3,46 @@
 //
 //  Created by Marcelle Ribeiro Queiroz on 10/06/24.
 //
+import Foundation
 import SwiftData
-import SwiftUI
 
 @Model
 class Dream {
-    var dreamDate = Date()      // data do sonho
-    var title: String           // título do sonho
-    var desc: String            // descrição do sonho
-    var status: Status          // tipo de sonho - Normal Dream, Nightmare, Lucid Dream, Daydream
+    var dreamDate = Date()    // data do sonho
+    var slept = Date()        // hora que dormiu
+    var wokeUp = Date()       // hora que acordou
+    var title: String         // título do sonho
+    var desc: String          // descrição do sonho
+    var status: Status        // tipo de sonho - Normal Dream, Nightmare, Lucid Dream, Daydream
     init(
         dreamDate: Date = Date.now,
+        slept: Date = Date.now,
+        wokeUp: Date = Date.now,
         title: String,
         desc: String,
         status: Status = .normalDream
     ) {
         self.dreamDate = dreamDate
+        self.slept = slept
+        self.wokeUp = wokeUp
         self.title = title
         self.desc = desc
         self.status = status
     }
-    //
-    var icon: Image {
-        switch status {
-        case .normalDream:
-            Image(systemName: "cloud")
-        case .nightmare:
-            Image(systemName: "heart.slash")
-        case .lucidDream:
-            Image(systemName: "brain.head.profile")
-        case .dayDream:
-            Image(systemName: "sun.max")
-        }
-    }
+    // COLOCAR AS IMAGENS DO MASCOTE PARA CADA TIPO DE SONHO
+    // Codigo abaixo ta no status agora
+//    var icon: Image {
+//        switch status {
+//        case .normalDream:
+//            Image(systemName: "cloud")
+//        case .nightmare:
+//            Image(systemName: "heart.slash")
+//        case .lucidDream:
+//            Image(systemName: "brain.head.profile")
+//        case .dayDream:
+//            Image(systemName: "sun.max")
+//        }
+//    }
 }
 //
 enum Status: Int, Codable, Identifiable, CaseIterable {
@@ -47,12 +54,25 @@ enum Status: Int, Codable, Identifiable, CaseIterable {
         switch self {
         case .normalDream:
             "Habitual"
-        case .nightmare:
-            "Pesadelo"
         case .lucidDream:
             "Lúcido"
         case .dayDream:
-            "Fantasioso"
+            "Vívido"
+        case .nightmare:
+            "Pesadelo"
+        }
+    }
+    
+    var iconName: String {
+        switch self {
+        case .normalDream:
+            "cloud"
+        case .nightmare:
+            "heart.slash"
+        case .lucidDream:
+            "brain.head.profile"
+        case .dayDream:
+            "sun.max"
         }
     }
 }
