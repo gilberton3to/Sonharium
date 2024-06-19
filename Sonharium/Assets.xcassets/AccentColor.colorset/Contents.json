@@ -4,6 +4,13 @@
       "color" : {
         "platform" : "universal",
         "reference" : "labelColor"
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.694",
+          "green" : "0.416",
+          "red" : "0.404"
+        }
       },
       "idiom" : "universal"
     }

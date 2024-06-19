@@ -1,7 +1,7 @@
 //
 //  EditDreamView.swift
 //
-//  Created by Marcelle Ribeiro Queiroz on 11/06/24.
+//  Created by Gilberto Neto on 17/06/24.
 //
 // clica no card sonho -> modal/sheet do sonho -> pode VISUALIZAR e/ou EDITAR
 

@@ -9,9 +9,11 @@ import SwiftData
 
 @main
 struct Sonharium: App {
+    @StateObject private var authManager = AuthenticationManager()
     var body: some Scene {
         WindowGroup {
-            HomeDreamView()
+            SplashScreenView()
+                .environmentObject(authManager)
         }
         .modelContainer(for: Dream.self)
     }
