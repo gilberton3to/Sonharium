@@ -14,27 +14,33 @@ struct MyDreamsView: View {
     @Query(sort: \Dream.dreamDate, order: .reverse) private var dreams: [Dream]
     //
     @State var searchText: String = ""  // barra de pesquisa
+    @State private var dreamSelected: Dream?
     //
     var body: some View {
         NavigationStack {
             VStack {
                 if dreams.isEmpty {
-                    ContentUnavailableView("Ainda não há sonho", systemImage: "cloud")
+                    NoDrems()
                 } else {
                     List {
                         ForEach(filterDreams) { dream in
-                            HStack {
-                                Text(dream.dreamDate.formatted(.dateTime.day().month(.abbreviated)))
-                                Text(dream.title)
-                                Spacer()
-                                Text(dream.icon)
+                            Button {
+                               dreamSelected = dream
+                            } label: {
+                                MyDreamCardView(dream: dream)
                             }
                         }
                     }
-                    .searchable(text: $searchText,
-                                placement: .navigationBarDrawer(displayMode: .always),
-                                prompt: "Pesquisar sonho")
+                    .listRowSeparator(.hidden)
+                    .listStyle(.plain)
                 }
+            }
+            .searchable(text: $searchText,
+                        placement: .navigationBarDrawer(displayMode: .always),
+                        prompt: "Pesquisar sonho")
+            .sheet(item: $dreamSelected) { dream in
+                EditDreamView(dream: dream)
+                    .presentationDetents([.large])
             }
         }
         .navigationTitle("Meus Sonhos")
@@ -43,7 +49,7 @@ struct MyDreamsView: View {
         if searchText.isEmpty { // se não pesquisar nada, mostrar a lista com todos os sonhos
             return dreams
         }
-        return dreams.filter { // filtrar por Título e Descrição
+        return dreams.filter { // filtra por Título e Descrição
             $0.title.localizedCaseInsensitiveContains(searchText) || $0.desc.localizedCaseInsensitiveContains(searchText)  }
     }
 }
@@ -55,3 +61,4 @@ struct MyDreamsView: View {
 // Query - select, pesquisa
 // sort - ordenação .title (ordem alfabética)
 // se não usar sort - exibe por ordem de inserção .forward
+// ContentUnavailableView("Ainda não há sonho", systemImage: "cloud")

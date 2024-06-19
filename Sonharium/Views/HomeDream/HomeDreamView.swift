@@ -10,6 +10,7 @@ import SwiftData
 struct HomeDreamView: View {
     @EnvironmentObject var authManager: AuthenticationManager
     @State private var createNewDream = false
+    @State private var editDream = false
     var body: some View {
         NavigationView {
             VStack {
@@ -19,7 +20,15 @@ struct HomeDreamView: View {
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 //
-                ContentUnavailableView("Adicione um sonho", systemImage: "pencil")
+//                NavigationLink(destination: EditDreamView(dream)) {
+//                    ZStack {
+//                        Rectangle()
+//                            .fill(.gray)
+//                            .frame(width: 300, height: 500)
+//                        Text("CARD COM O SONHO PREENCHIDO")
+//                    }
+//                }
+
                 //
                 NavigationLink(destination: ContentView()) {
                     Image(systemName: "gearshape")
