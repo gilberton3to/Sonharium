@@ -1,7 +1,7 @@
 //
 //  CalendarView.swift
 //
-//  Created by Marcelle Ribeiro Queiroz on 15/06/24.
+//  Created by Gilberto Neto 17/06/24.
 //
 
 import SwiftUI
