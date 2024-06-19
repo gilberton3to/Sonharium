@@ -20,7 +20,7 @@ struct MyDreamsView: View {
         NavigationStack {
             VStack {
                 if dreams.isEmpty {
-                    ContentUnavailableView("Ainda não há sonho", systemImage: "cloud")
+                    NoDrems()
                 } else {
                     List {
                         ForEach(filterDreams) { dream in
@@ -33,14 +33,14 @@ struct MyDreamsView: View {
                     }
                     .listRowSeparator(.hidden)
                     .listStyle(.plain)
-                    .searchable(text: $searchText,
-                                placement: .navigationBarDrawer(displayMode: .always),
-                                prompt: "Pesquisar sonho")
-                    .sheet(item: $dreamSelected) { dream in
-                        EditDreamView(dream: dream)
-                            .presentationDetents([.large])
-                    }
                 }
+            }
+            .searchable(text: $searchText,
+                        placement: .navigationBarDrawer(displayMode: .always),
+                        prompt: "Pesquisar sonho")
+            .sheet(item: $dreamSelected) { dream in
+                EditDreamView(dream: dream)
+                    .presentationDetents([.large])
             }
         }
         .navigationTitle("Meus Sonhos")
@@ -61,3 +61,4 @@ struct MyDreamsView: View {
 // Query - select, pesquisa
 // sort - ordenação .title (ordem alfabética)
 // se não usar sort - exibe por ordem de inserção .forward
+// ContentUnavailableView("Ainda não há sonho", systemImage: "cloud")

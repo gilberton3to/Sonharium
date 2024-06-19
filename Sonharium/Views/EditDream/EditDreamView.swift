@@ -14,6 +14,7 @@ struct EditDreamView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     //
+    @State private var showAlert = false
     @State private var selectedStatus = Status.normalDream
     //
     @Bindable var dream: Dream
@@ -155,11 +156,25 @@ struct EditDreamView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Deletar") {
-                            deleteDream()
+                            showAlert = true
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Deletar sonho"),
+                                message: Text("Todos os dados deste sonho vão ser apagados do histórico."),
+                                primaryButton: .default(
+                                    Text("Cancelar"),
+                                    action: cancelAlert
+                                ),
+                                secondaryButton: .destructive(
+                                    Text("Deletar"),
+                                    action: deleteDream
+                                )
+                            )
                         }
                     }
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button("Salvar") {
+                        Button("Ok") {
                             updateDream()
                         }
                     }
@@ -175,6 +190,9 @@ struct EditDreamView: View {
     func deleteDream() {       // FUNÇÃO DELETAR SONHO
         context.delete(dream)
         dismiss()
+    }
+    func cancelAlert() {
+        showAlert = false
     }
 }
 #Preview {
