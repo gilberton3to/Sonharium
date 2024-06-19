@@ -15,7 +15,6 @@ struct EditDreamView: View {
     @Environment(\.dismiss) var dismiss
     //
     @State private var showAlert = false
-    @State private var selectedStatus = Status.normalDream
     //
     @Bindable var dream: Dream
     //
@@ -112,26 +111,26 @@ struct EditDreamView: View {
                             VStack(alignment: .leading) {
                                 ForEach(Status.allCases, id: \.rawValue) { status in
                                     Button {
-                                        selectedStatus = status
+                                        dream.status = status
                                     } label: {
                                         Text(status.descr)
                                             .frame(width: 100, height: 32)
                                             .background {
                                                 RoundedRectangle(cornerRadius: 8)
-                                                    .fill(status == selectedStatus ? .purple : .white)
+                                                    .fill(status == dream.status ? .purple : .white)
                                             }
-                                            .foregroundStyle(status == selectedStatus ? .white : .black)
+                                            .foregroundStyle(status == dream.status ? .white : .black)
                                             .font(
                                                 .system(
                                                     size: 17,
-                                                    weight: status == selectedStatus ? .bold : .regular,
+                                                    weight: status == dream.status ? .bold : .regular,
                                                     design: .rounded
                                                 )
                                             )
                                     }
                                 }
                             }
-                            Image(systemName: selectedStatus.iconName) // MASCOTE
+                            Image(systemName: dream.status.iconName) // MASCOTE
                                 .font(.largeTitle)
                                 .frame(width: 160, height: 152)
                                 .background {
@@ -202,7 +201,9 @@ struct EditDreamView: View {
         EditDreamView(
            dream: Dream.init(dreamDate: .now,
                            title: "titulo titulo titulo",
-                           desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
+                           desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao",
+                             status: .nightmare
+                            )
                        ).modelContainer(container)
     }
 }
