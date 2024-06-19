@@ -29,20 +29,6 @@ class Dream {
         self.desc = desc
         self.status = status
     }
-    // COLOCAR AS IMAGENS DO MASCOTE PARA CADA TIPO DE SONHO
-    // Codigo abaixo ta no status agora
-//    var icon: Image {
-//        switch status {
-//        case .normalDream:
-//            Image(systemName: "cloud")
-//        case .nightmare:
-//            Image(systemName: "heart.slash")
-//        case .lucidDream:
-//            Image(systemName: "brain.head.profile")
-//        case .dayDream:
-//            Image(systemName: "sun.max")
-//        }
-//    }
 }
 //
 enum Status: Int, Codable, Identifiable, CaseIterable {
@@ -62,17 +48,30 @@ enum Status: Int, Codable, Identifiable, CaseIterable {
             "Pesadelo"
         }
     }
-    
-    var iconName: String {
+    var iconName: String { // COLOCAR AS IMAGENS DO MASCOTE PARA CADA TIPO DE SONHO
         switch self {
-        case .normalDream:
+        case .normalDream:          // HABITUAL
             "cloud"
-        case .nightmare:
-            "heart.slash"
-        case .lucidDream:
+        case .lucidDream:           // LÚCIDO
             "brain.head.profile"
-        case .dayDream:
+        case .dayDream:             // VÍVIDO
             "sun.max"
+        case .nightmare:            // PESADELO
+            "heart.slash"
         }
     }
 }
+//
+// Codigo abaixo ta no status agora
+//    var icon: Image {
+//        switch status {
+//        case .normalDream:
+//            Image(systemName: "cloud")
+//        case .nightmare:
+//            Image(systemName: "heart.slash")
+//        case .lucidDream:
+//            Image(systemName: "brain.head.profile")
+//        case .dayDream:
+//            Image(systemName: "sun.max")
+//        }
+//    }

@@ -14,7 +14,7 @@ struct MyDreamCardView: View {
     var body: some View {
         ZStack {
             // fundo roxo
-            RoundedRectangle(cornerRadius: 30, style: .continuous)
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(Color("roxo"))
                 // .border(Color.pink)
             //
@@ -22,46 +22,47 @@ struct MyDreamCardView: View {
                 VStack(alignment: .center, spacing: 8) {
                     VStack {
                         Text(dream.dreamDate.formatted(.dateTime.day()))
-                            .font(.system(size: 35))
+                            .font(.system(size: 35, design: .rounded))
                             .foregroundStyle(Color.white)
                             .bold()
                             .padding(.top, 16)
                             // .border(Color.green)
                         Text(dream.dreamDate.formatted(.dateTime.month(.abbreviated)))
-                            .font(.system(size: 17))
+                            .font(.system(size: 17, design: .rounded))
                             .foregroundStyle(Color.white)
+                            .bold()
                             // .border(Color.green)
-                    }
+                    }  // DATA E MÊS
                     Image("mascote")
                         .resizable()
                         .scaledToFit()
                         .padding(.bottom, 16)
                         // .border(Color.red)
-                }
+                } // DATA + MÊS + MASCOTE
                 .frame(width: 89, alignment: .center)
                 //
                 VStack(alignment: .leading, spacing: 8) {
                     Text(dream.title)
-                        .font(.system(size: 22))
-                        .foregroundStyle(Color.white)// tipo de fonte
-                        .bold()        // estilo da fonte
+                        .font(.system(size: 22, design: .rounded))
+                        .foregroundStyle(Color.white)
+                        .bold()
                         .padding(.top, 16)
                         .padding(.trailing, 16)
                         // .border(Color.yellow)
                     //
                     Text(dream.desc)
                         .lineLimit(3) // número máx de linhas da descrição
-                        .font(.system(size: 17))
+                        .font(.system(size: 17, design: .rounded))
                         .foregroundStyle(Color.white)
                         .padding(.bottom, 16)
                         .padding(.trailing, 16)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         // .border(Color.orange)
-                }
+                } // TÍTULO + DESCRIÇÃO
                 .padding(8)
             }
         }
-        .frame(height: 145)
+        .frame(height: 145) // fixa só a altura do card!
     }
 }
  #Preview {

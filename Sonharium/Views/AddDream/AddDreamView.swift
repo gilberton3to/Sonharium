@@ -16,12 +16,11 @@ struct AddDreamView: View {
     @State private var dreamDate = Date()
     @State private var slept = Date()
     @State private var wokeUp = Date()
-    //
-    var closedRange = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
-    //
     @State private var title = ""
     @State private var desc = ""
     @State private var selectedStatus = Status.normalDream
+    //
+    var closedRange = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
     //
     var body: some View {
         NavigationStack {
@@ -38,7 +37,7 @@ struct AddDreamView: View {
                         //
                         VStack(alignment: .center) {
                             Text("Sonhei no dia...")
-                                .font(.system(size: 17))
+                                .font(.system(size: 17, design: .rounded))
                                 .bold()
                                 .foregroundStyle(Color.white)
                             DatePicker("",
@@ -52,7 +51,7 @@ struct AddDreamView: View {
                         //
                         VStack(alignment: .center) {
                             Text("Dormi às:")
-                                .font(.system(size: 17))
+                                .font(.system(size: 17, design: .rounded))
                                 .bold()
                                 .foregroundStyle(Color.white)
                             DatePicker("",
@@ -66,7 +65,7 @@ struct AddDreamView: View {
                         //
                         VStack(alignment: .center) {
                             Text("Acordei às:")
-                                .font(.system(size: 17))
+                                .font(.system(size: 17, design: .rounded))
                                 .bold()
                                 .foregroundStyle(Color.white)
                             DatePicker("",
@@ -78,7 +77,7 @@ struct AddDreamView: View {
                         .frame(width: 100)
                         // .border(Color.green)
                         //
-                    }
+                    } // DATA E HORAS
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
@@ -88,10 +87,10 @@ struct AddDreamView: View {
                         TextField("Escolha um título para o seu sonho",
                                   text: $title,
                                   axis: .vertical)
-                            .font(.system(size: 17))
+                            .font(.system(size: 17, design: .rounded))
                             .padding(8)
                             .frame(width: 350, height: 40, alignment: .leading)
-                    }
+                    } // TÍTULO
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
@@ -101,65 +100,60 @@ struct AddDreamView: View {
                         TextField("O que aconteceu? Descreva como foi...",
                                   text: $desc,
                                   axis: .vertical)
-                            .font(.system(size: 17))
+                            .font(.system(size: 17, design: .rounded))
                             .padding(8)
                             .frame(width: 350, height: 200, alignment: .topLeading)
-                    }
+                    } // DESCRIÇÃO
                     //
                     Text("Qual tipo de sonho você teve hoje?")
-                        .font(.system(size: 17))
+                        .font(.system(size: 17, design: .rounded))
                         .foregroundStyle(Color("fundoText"))
                         .bold()
-                    HStack(spacing: 24) {
-                        // ButtonDream
-                        VStack(alignment: .leading) {
-                            ForEach(Status.allCases, id: \.rawValue) { status in
-                                Button {
-                                    selectedStatus = status
-                                } label: {
-                                    Text(status.descr)
-                                        .frame(width: 100, height: 32)
-                                        .background {
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .fill(status == selectedStatus ? .purple : .white)
-                                        }
-                                        .foregroundStyle(status == selectedStatus ? .white : .black)
-                                        .font(
-                                            .system(
-                                                size: 17,
-                                                weight: status == selectedStatus ? .bold : .regular
+                    VStack(spacing: 50) {
+                        HStack(spacing: 24) {
+                            // TIPOS DE SONHO
+                            VStack(alignment: .leading) {
+                                ForEach(Status.allCases, id: \.rawValue) { status in
+                                    Button {
+                                        selectedStatus = status
+                                    } label: {
+                                        Text(status.descr)
+                                            .frame(width: 100, height: 32)
+                                            .background {
+                                                RoundedRectangle(cornerRadius: 8)
+                                                    .fill(status == selectedStatus ? .purple : .white)
+                                            }
+                                            .foregroundStyle(status == selectedStatus ? .white : .black)
+                                            .font(
+                                                .system(
+                                                    size: 17,
+                                                    weight: status == selectedStatus ? .bold : .regular,
+                                                    design: .rounded
+                                                )
                                             )
-                                        )
+                                    }
                                 }
                             }
-                        }
-                        //
-                        Image(systemName: selectedStatus.iconName)
-                            .font(.largeTitle)
-                            .frame(width: 160, height: 152)
-                            .background {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(.purple)
-                            }
-                            .foregroundStyle(.white)
-                    }
-                    //
-                    VStack(spacing: 8) {
-                        HStack(spacing: 35) {
+                            Image(systemName: selectedStatus.iconName) // MASCOTE
+                                .font(.largeTitle)
+                                .frame(width: 160, height: 152)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .fill(.purple)
+                                }
+                                .foregroundStyle(.white)
+                        } // STATUS SONHO
+                        HStack(spacing: 8) {
                             Button("Desenhar") {
-                                // colocar a ação
+                                // colocar ação DESENHAR
                             }
                             .buttonStyle(.borderedProminent)
                             //
-                            Button("Gravar") {
-                                // colocar a ação
+                            Button("Gravar áudio") {
+                                // colocar ação GRAVAR ÁUDIO
                             }
                             .buttonStyle(.borderedProminent)
-                        }
-                        Button("Gerar emoção do sonho") {
-                            // colocar ação do botão
-                        }
-                        .buttonStyle(.borderedProminent)
+                        } // DESENHAR + GRAVAR - BOTÕES
                     }
                 }
                 .toolbar {
@@ -169,11 +163,11 @@ struct AddDreamView: View {
                         }
                     }
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button("Criar sonho") {
+                        Button("Criar") {
                             addDream()
                         }
                     }
-                }
+                }  // CANCELAR E SALVAR SONHO
             }
         }
     }
@@ -192,6 +186,7 @@ struct AddDreamView: View {
     AddDreamView()
         .modelContainer(for: Dream.self, inMemory: true)
 }
+//
 //    func addDream() {  // CRIA O SONHO
 //        let dream = Dream(title: title, desc: desc, type: type)
 //        context.insert(dream) //ADICIONA O SONHO NO data context
@@ -204,24 +199,3 @@ struct AddDreamView: View {
 //        dream.title = "Editar sonho"
 //        try? context.save()    //SALVA O SONHO DEPOIS DE EDITAR
 //    }
-//
-// pesquisar depois: public init
-// conseguir mudar propriedades(cor) do SegmentedPicker - pelo init()
-// init() {
-//    UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(named: "roxo")
-//    UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-// }
-//
-//   .colorScheme(.dark)
-//   .background(Color.orange.opacity(0.2), in: RoundedRectangle(cornerRadius: 20))
-//
-//  init() {
-// UIDatePicker.appearance().backgroundColor = UIColor(Color("roxo")) // changes bg color
-// }
-// Picker("", selection: $status) {
-//    ForEach(Status.allCases) { status in
-//        Text(status.descr).tag(status)
-//    }
-// }
-// .pickerStyle(SegmentedPickerStyle())
-// .frame(width: 350, height: 28, alignment: .center)
