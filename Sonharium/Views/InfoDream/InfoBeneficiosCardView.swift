@@ -16,8 +16,7 @@ struct InfoBeneficiosCardView: View {
                 .frame(width: 349, height: 210)
                 .overlay(
                     RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color.strokePurple, lineWidth: 5) 
-                )
+                        .stroke(Color.strokePurple, lineWidth: 5))
             Text(text)
                 .fontWeight(.heavy)
                 .padding(.bottom, 90)

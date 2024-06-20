@@ -263,7 +263,6 @@
 				BBDD59E32C209D1600A5DE9C /* Sources */,
 				BBDD59E42C209D1600A5DE9C /* Frameworks */,
 				BBDD59E52C209D1600A5DE9C /* Resources */,
-				BBDD5A332C20A0E000A5DE9C /* ShellScript */,
 				BBDD5A332C20A0E000A5DE9C /* Run Script */,
 			);
 			buildRules = (
@@ -420,8 +419,6 @@
 				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
 				12C920E92C21C18A00CFF2D9 /* NightmareView.swift in Sources */,
 				30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */,
-				BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */,
-				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
 				BBDD5A372C21F9A300A5DE9C /* CustomCellViewTwo.swift in Sources */,
 				BBDD5A222C209EB300A5DE9C /* InfoDreamView.swift in Sources */,
 				BBDD5A3B2C2314A300A5DE9C /* AuthenticationManager.swift in Sources */,
@@ -442,15 +439,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BBDD59FE2C209D1700A5DE9C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BBDD5A072C209D1700A5DE9C /* SonhariumUITests.swift in Sources */,
-				BBDD5A092C209D1700A5DE9C /* SonhariumUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -458,11 +446,6 @@
 			isa = PBXTargetDependency;
 			target = BBDD59E62C209D1600A5DE9C /* Sonharium */;
 			targetProxy = BBDD59F92C209D1700A5DE9C /* PBXContainerItemProxy */;
-		};
-		BBDD5A042C209D1700A5DE9C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BBDD59E62C209D1600A5DE9C /* Sonharium */;
-			targetProxy = BBDD5A032C209D1700A5DE9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

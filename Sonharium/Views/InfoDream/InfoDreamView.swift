@@ -40,7 +40,7 @@ struct InfoDreamView: View {
     var array: [Test] = [
         Test(
             content: "O que é ter um sonho lúcido?",
-            color: .lucido,
+            color: .red,
             label: "Lúcido",
             desc: "Os sonhos lúcidos acontecem \n quando permanecemos conscientes \n enquanto dormimos. Ou seja, você \n sabe que está dormindo durante o sonho. Eles tipicamente ocorrem \n durante o sono REM, um estágio mais pesado de sono.",
             tips: "Reduz a ansiedade",
@@ -50,7 +50,7 @@ struct InfoDreamView: View {
         ),
         Test(
             content: "O que é ter um sonho vívido?",
-            color: .vivido,
+            color: .red,
             label: "Vívido",
             desc: "O sonho vivido é uma experiência que\n ocorre durante o sono, na qual a pessoa\n tem a sensação de estar vivenciando uma situação real. Durante esse tipo de sonho, os sentidos e emoções são intensos, fazendo com que a pessoa sinta, veja, ouça e até mesmo cheire coisas que não estão presentes no ambiente físico.",
             tips: "Reduz a ansiedade",
@@ -60,7 +60,7 @@ struct InfoDreamView: View {
         ),
         Test(
             content: "O que é ter um pesadelo?",
-            color: .pesadelo,
+            color: .red,
             label: "Pesadelo",
             desc: "O sonho vivido é uma experiência que\n ocorre durante o sono, na qual a pessoa\n tem a sensação de estar vivenciando uma situação real. Durante esse tipo de sonho, os sentidos e emoções são intensos, fazendo com que a pessoa sinta, veja, ouça e até mesmo cheire coisas que não estão presentes no ambiente físico.",
             tips: "Reduz a ansiedade",
@@ -70,12 +70,12 @@ struct InfoDreamView: View {
         ),
         Test(
             content: "O que é ter um sonho habitual?",
-            color: .habitual,
+            color: .red,
             label: "Habitual",
             desc: "O sonho vivido é uma experiência que\n ocorre durante o sono, na qual a pessoa\n tem a sensação de estar vivenciando uma situação real. Durante esse tipo de sonho, os sentidos e emoções são intensos, fazendo com que a pessoa sinta, veja, ouça e até mesmo cheire coisas que não estão presentes no ambiente físico.",
             tips: "Reduz a ansiedade",
             tips2: "Traz reflexões",
-            background: .habitual,
+            background: .red,
             fontColor: .white
         )
     ]
@@ -99,7 +99,7 @@ struct InfoDreamView: View {
                                             RoundedRectangle(cornerRadius: 11).fill(.white)
                                                     RoundedRectangle(cornerRadius: 11)
                                                         .fill(model.color.opacity(20))
-                                                        .stroke(selectedModel == model ? .blue : .clear, lineWidth: 5)
+                                                        .stroke(selectedModel == model ? .white : .clear, lineWidth: 5)
                             
                                         }
                                         .frame(width: 100, height: 100)
