@@ -105,6 +105,7 @@ struct EditDreamView: View {
                         .font(.system(size: 17, design: .rounded))
                         .foregroundStyle(Color("fundoText"))
                         .bold()
+                    //
                     VStack(spacing: 50) {
                         HStack(spacing: 24) {
                             // TIPOS DE SONHO
