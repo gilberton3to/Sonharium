@@ -13,13 +13,13 @@
 		12C920E72C21C16E00CFF2D9 /* FantasyDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */; };
 		12C920E92C21C18A00CFF2D9 /* NightmareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920E82C21C18A00CFF2D9 /* NightmareView.swift */; };
 		12C920EB2C21C1A100CFF2D9 /* OrdinaryDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */; };
+		30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCD852C234662009A1D38 /* NoDrems.swift */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
 		BBDD59FD2C209D1700A5DE9C /* SonhariumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59FC2C209D1700A5DE9C /* SonhariumTests.swift */; };
 		BBDD5A072C209D1700A5DE9C /* SonhariumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A062C209D1700A5DE9C /* SonhariumUITests.swift */; };
 		BBDD5A092C209D1700A5DE9C /* SonhariumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A082C209D1700A5DE9C /* SonhariumUITestsLaunchTests.swift */; };
-		BBDD5A202C209E9600A5DE9C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A1F2C209E9600A5DE9C /* SettingsView.swift */; };
 		BBDD5A222C209EB300A5DE9C /* InfoDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A212C209EB300A5DE9C /* InfoDreamView.swift */; };
 		BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A232C209EC500A5DE9C /* EditDreamView.swift */; };
 		BBDD5A262C209ED900A5DE9C /* MyDreamsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A252C209ED900A5DE9C /* MyDreamsView.swift */; };
@@ -29,6 +29,11 @@
 		BBDD5A2E2C209F1500A5DE9C /* DreamCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */; };
 		BBDD5A302C209F2B00A5DE9C /* AddDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A2F2C209F2B00A5DE9C /* AddDreamView.swift */; };
 		BBDD5A322C209F4300A5DE9C /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A312C209F4300A5DE9C /* Dream.swift */; };
+		BBDD5A352C20BDB600A5DE9C /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A342C20BDB600A5DE9C /* CustomCellView.swift */; };
+		BBDD5A372C21F9A300A5DE9C /* CustomCellViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A362C21F9A300A5DE9C /* CustomCellViewTwo.swift */; };
+		BBDD5A392C2210AD00A5DE9C /* FaceIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A382C2210AD00A5DE9C /* FaceIdView.swift */; };
+		BBDD5A3B2C2314A300A5DE9C /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A3A2C2314A300A5DE9C /* AuthenticationManager.swift */; };
+		BBDD5A3D2C235A4200A5DE9C /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,7 @@
 		12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantasyDreamView.swift; sourceTree = "<group>"; };
 		12C920E82C21C18A00CFF2D9 /* NightmareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightmareView.swift; sourceTree = "<group>"; };
 		12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinaryDreamView.swift; sourceTree = "<group>"; };
+		30FDCD852C234662009A1D38 /* NoDrems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDrems.swift; sourceTree = "<group>"; };
 		BBDD59E72C209D1600A5DE9C /* Sonharium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonharium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonharium.swift; sourceTree = "<group>"; };
 		BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,7 +71,6 @@
 		BBDD5A022C209D1700A5DE9C /* SonhariumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SonhariumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD5A062C209D1700A5DE9C /* SonhariumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonhariumUITests.swift; sourceTree = "<group>"; };
 		BBDD5A082C209D1700A5DE9C /* SonhariumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonhariumUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BBDD5A1F2C209E9600A5DE9C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BBDD5A212C209EB300A5DE9C /* InfoDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDreamView.swift; sourceTree = "<group>"; };
 		BBDD5A232C209EC500A5DE9C /* EditDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamView.swift; sourceTree = "<group>"; };
 		BBDD5A252C209ED900A5DE9C /* MyDreamsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDreamsView.swift; sourceTree = "<group>"; };
@@ -75,6 +80,11 @@
 		BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamCardView.swift; sourceTree = "<group>"; };
 		BBDD5A2F2C209F2B00A5DE9C /* AddDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDreamView.swift; sourceTree = "<group>"; };
 		BBDD5A312C209F4300A5DE9C /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
+		BBDD5A342C20BDB600A5DE9C /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
+		BBDD5A362C21F9A300A5DE9C /* CustomCellViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewTwo.swift; sourceTree = "<group>"; };
+		BBDD5A382C2210AD00A5DE9C /* FaceIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdView.swift; sourceTree = "<group>"; };
+		BBDD5A3A2C2314A300A5DE9C /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +202,8 @@
 		BBDD5A182C209E2200A5DE9C /* HomeDream */ = {
 			isa = PBXGroup;
 			children = (
+				BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */,
+				BBDD5A382C2210AD00A5DE9C /* FaceIdView.swift */,
 				BBDD5A292C209EF500A5DE9C /* HomeDreamView.swift */,
 				BBDD5A2B2C209F0800A5DE9C /* CalendarView.swift */,
 				BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */,
@@ -204,6 +216,7 @@
 			children = (
 				BBDD5A252C209ED900A5DE9C /* MyDreamsView.swift */,
 				BBDD5A272C209EE600A5DE9C /* MyDreamCardView.swift */,
+				30FDCD852C234662009A1D38 /* NoDrems.swift */,
 			);
 			path = MyDreams;
 			sourceTree = "<group>";
@@ -233,7 +246,9 @@
 		BBDD5A1E2C209E6700A5DE9C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				BBDD5A1F2C209E9600A5DE9C /* SettingsView.swift */,
+				BBDD5A342C20BDB600A5DE9C /* CustomCellView.swift */,
+				BBDD5A362C21F9A300A5DE9C /* CustomCellViewTwo.swift */,
+				BBDD5A3A2C2314A300A5DE9C /* AuthenticationManager.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -249,7 +264,7 @@
 				BBDD59E42C209D1600A5DE9C /* Frameworks */,
 				BBDD59E52C209D1600A5DE9C /* Resources */,
 				BBDD5A332C20A0E000A5DE9C /* ShellScript */,
-				12C920E22C21A8DD00CFF2D9 /* Run Script */,
+				BBDD5A332C20A0E000A5DE9C /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -366,8 +381,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12C920E22C21A8DD00CFF2D9 /* Run Script */ = {
+		BBDD5A332C20A0E000A5DE9C /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -384,23 +400,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		BBDD5A332C20A0E000A5DE9C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -408,7 +407,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBDD5A202C209E9600A5DE9C /* SettingsView.swift in Sources */,
+				BBDD5A352C20BDB600A5DE9C /* CustomCellView.swift in Sources */,
+				BBDD5A392C2210AD00A5DE9C /* FaceIdView.swift in Sources */,
+				BBDD5A3D2C235A4200A5DE9C /* SplashScreenView.swift in Sources */,
 				BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */,
 				12C920EB2C21C1A100CFF2D9 /* OrdinaryDreamView.swift in Sources */,
 				12C920E72C21C16E00CFF2D9 /* FantasyDreamView.swift in Sources */,
@@ -418,7 +419,12 @@
 				BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */,
 				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
 				12C920E92C21C18A00CFF2D9 /* NightmareView.swift in Sources */,
+				30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */,
+				BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */,
+				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
+				BBDD5A372C21F9A300A5DE9C /* CustomCellViewTwo.swift in Sources */,
 				BBDD5A222C209EB300A5DE9C /* InfoDreamView.swift in Sources */,
+				BBDD5A3B2C2314A300A5DE9C /* AuthenticationManager.swift in Sources */,
 				BBDD5A2C2C209F0800A5DE9C /* CalendarView.swift in Sources */,
 				BBDD5A262C209ED900A5DE9C /* MyDreamsView.swift in Sources */,
 				BBDD5A282C209EE600A5DE9C /* MyDreamCardView.swift in Sources */,
@@ -588,6 +594,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock the phone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -626,6 +633,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock the phone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -660,7 +668,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = team7.SonhariumTests;
@@ -683,7 +691,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = team7.SonhariumTests;
@@ -705,7 +713,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = team7.SonhariumUITests;
@@ -727,7 +735,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = team7.SonhariumUITests;

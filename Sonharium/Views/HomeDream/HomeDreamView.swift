@@ -8,9 +8,11 @@ import SwiftUI
 import SwiftData
 
 struct HomeDreamView: View {
+    @EnvironmentObject var authManager: AuthenticationManager
     @State private var createNewDream = false
+    @State private var editDream = false
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 NavigationLink(destination: MyDreamsView()) {
                     Image(systemName: "magnifyingglass")
@@ -18,7 +20,22 @@ struct HomeDreamView: View {
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 //
-                ContentUnavailableView("Adicione um sonho", systemImage: "pencil")
+//                NavigationLink(destination: EditDreamView(dream)) {
+//                    ZStack {
+//                        Rectangle()
+//                            .fill(.gray)
+//                            .frame(width: 300, height: 500)
+//                        Text("CARD COM O SONHO PREENCHIDO")
+//                    }
+//                }
+
+                //
+                NavigationLink(destination: ContentView()) {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.blue)
+                }.padding()
                 //
                 Button("Tive um sonho!") {
                     createNewDream = true
@@ -31,9 +48,11 @@ struct HomeDreamView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 #Preview {
     HomeDreamView()
+        .environmentObject(AuthenticationManager())
         .modelContainer(for: Dream.self, inMemory: true)
 }

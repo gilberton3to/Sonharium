@@ -5,45 +5,74 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MyDreamCardView: View {
     //
+    let dream: Dream
+    //
     var body: some View {
-        HStack(alignment: .top) {
-            VStack(alignment: .leading) {
-                Text("25")
-                    .font(.title)
-                    .bold()
-                    .frame(width: 58, height: 20)
-                Image("mascote")
-                    .resizable() // conseguir mudar o tamanho
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .frame(width: 58, height: 65)
-            }
-            VStack(alignment: .leading) {
-                Text("Título do sonho")
-                    .font(.system(size: 24)) // tipo de fonte
-                    .bold()        // estilo da fonte
-                    .frame(width: 230, height: 15, alignment: .leading)
-                Text("Descrição do sonho bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla")
-                    .lineLimit(2) // número máx de linhas da descrição
-                    .font(.system(size: 18))
-                    .frame(width: 230, height: 60, alignment: .leading)
+        ZStack {
+            // fundo roxo
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(Color("roxo"))
+                // .border(Color.pink)
+            //
+            HStack(alignment: .top, spacing: 0) {
+                VStack(alignment: .center, spacing: 8) {
+                    VStack {
+                        Text(dream.dreamDate.formatted(.dateTime.day()))
+                            .font(.system(size: 35, design: .rounded))
+                            .foregroundStyle(Color.white)
+                            .bold()
+                            .padding(.top, 16)
+                            // .border(Color.green)
+                        Text(dream.dreamDate.formatted(.dateTime.month(.abbreviated)))
+                            .font(.system(size: 17, design: .rounded))
+                            .foregroundStyle(Color.white)
+                            .bold()
+                            // .border(Color.green)
+                    }  // DATA E MÊS
+                    Image("mascote")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.bottom, 16)
+                        // .border(Color.red)
+                } // DATA + MÊS + MASCOTE
+                .frame(width: 89, alignment: .center)
+                //
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(dream.title)
+                        .font(.system(size: 22, design: .rounded))
+                        .foregroundStyle(Color.white)
+                        .bold()
+                        .padding(.top, 16)
+                        .padding(.trailing, 16)
+                        // .border(Color.yellow)
+                    //
+                    Text(dream.desc)
+                        .lineLimit(3) // número máx de linhas da descrição
+                        .font(.system(size: 17, design: .rounded))
+                        .foregroundStyle(Color.white)
+                        .padding(.bottom, 16)
+                        .padding(.trailing, 16)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        // .border(Color.orange)
+                } // TÍTULO + DESCRIÇÃO
+                .padding(8)
             }
         }
-        .foregroundStyle(Color.white) // cor do texto (todos do card)
-        .padding(8) // espaçamento
-        .background {
-            RoundedRectangle(cornerRadius: 30, style: .continuous) // deixar redondo
-                .fill(Color("purple")) // cor do card
-                .frame(width: 348, height: 142.06) // frame do card
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 16)
+        .frame(height: 145) // fixa só a altura do card!
     }
 }
-
-#Preview {
-    MyDreamCardView()
-        .background(.black) // ver o espaçamento do card
-}
+ #Preview {
+     Group {
+         // swiftlint:disable force_try
+         let container = try! ModelContainer(for: Dream.self, configurations: .init(isStoredInMemoryOnly: true))
+         MyDreamCardView(
+            dream: Dream.init(dreamDate: .now,
+                            title: "titulo titulo titulo",
+                            desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
+                        ).modelContainer(container)
+     }
+ }
