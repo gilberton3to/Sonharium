@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122C5AE72C20B0BB00FC1D02 /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */; };
+		122C5AE92C20BC1F00FC1D02 /* InfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */; };
+		122C5AEB2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */; };
+		12C920E72C21C16E00CFF2D9 /* FantasyDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */; };
+		12C920E92C21C18A00CFF2D9 /* NightmareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920E82C21C18A00CFF2D9 /* NightmareView.swift */; };
+		12C920EB2C21C1A100CFF2D9 /* OrdinaryDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
@@ -43,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
+		122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardView.swift; sourceTree = "<group>"; };
+		122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBeneficiosCardView.swift; sourceTree = "<group>"; };
+		12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantasyDreamView.swift; sourceTree = "<group>"; };
+		12C920E82C21C18A00CFF2D9 /* NightmareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightmareView.swift; sourceTree = "<group>"; };
+		12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinaryDreamView.swift; sourceTree = "<group>"; };
 		BBDD59E72C209D1600A5DE9C /* Sonharium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonharium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonharium.swift; sourceTree = "<group>"; };
 		BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,6 +220,12 @@
 			isa = PBXGroup;
 			children = (
 				BBDD5A212C209EB300A5DE9C /* InfoDreamView.swift */,
+				12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */,
+				12C920E82C21C18A00CFF2D9 /* NightmareView.swift */,
+				12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */,
+				122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */,
+				122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */,
+				122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */,
 			);
 			path = InfoDream;
 			sourceTree = "<group>";
@@ -231,6 +249,7 @@
 				BBDD59E42C209D1600A5DE9C /* Frameworks */,
 				BBDD59E52C209D1600A5DE9C /* Resources */,
 				BBDD5A332C20A0E000A5DE9C /* ShellScript */,
+				12C920E22C21A8DD00CFF2D9 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -347,6 +366,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		12C920E22C21A8DD00CFF2D9 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		BBDD5A332C20A0E000A5DE9C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,14 +410,20 @@
 			files = (
 				BBDD5A202C209E9600A5DE9C /* SettingsView.swift in Sources */,
 				BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */,
+				12C920EB2C21C1A100CFF2D9 /* OrdinaryDreamView.swift in Sources */,
+				12C920E72C21C16E00CFF2D9 /* FantasyDreamView.swift in Sources */,
 				BBDD5A302C209F2B00A5DE9C /* AddDreamView.swift in Sources */,
 				BBDD5A2E2C209F1500A5DE9C /* DreamCardView.swift in Sources */,
+				122C5AE92C20BC1F00FC1D02 /* InfoCardView.swift in Sources */,
 				BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */,
 				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
+				12C920E92C21C18A00CFF2D9 /* NightmareView.swift in Sources */,
 				BBDD5A222C209EB300A5DE9C /* InfoDreamView.swift in Sources */,
 				BBDD5A2C2C209F0800A5DE9C /* CalendarView.swift in Sources */,
 				BBDD5A262C209ED900A5DE9C /* MyDreamsView.swift in Sources */,
 				BBDD5A282C209EE600A5DE9C /* MyDreamCardView.swift in Sources */,
+				122C5AEB2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift in Sources */,
+				122C5AE72C20B0BB00FC1D02 /* InfoButtonView.swift in Sources */,
 				BBDD5A322C209F4300A5DE9C /* Dream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
