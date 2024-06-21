@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		120310332C245670009A39D4 /* InfosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120310322C245670009A39D4 /* InfosView.swift */; };
 		122C5AE72C20B0BB00FC1D02 /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */; };
 		122C5AE92C20BC1F00FC1D02 /* InfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */; };
 		122C5AEB2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */; };
 		129835472C25AE3300CA8CD9 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129835462C25AE3300CA8CD9 /* DrawView.swift */; };
-		12C920E72C21C16E00CFF2D9 /* FantasyDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */; };
-		12C920E92C21C18A00CFF2D9 /* NightmareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920E82C21C18A00CFF2D9 /* NightmareView.swift */; };
-		12C920EB2C21C1A100CFF2D9 /* OrdinaryDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */; };
 		30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCD852C234662009A1D38 /* NoDrems.swift */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
@@ -47,14 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		120310322C245670009A39D4 /* InfosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosView.swift; sourceTree = "<group>"; };
 		122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
 		122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardView.swift; sourceTree = "<group>"; };
 		122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBeneficiosCardView.swift; sourceTree = "<group>"; };
 		129835462C25AE3300CA8CD9 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
-		12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FantasyDreamView.swift; sourceTree = "<group>"; };
-		12C920E82C21C18A00CFF2D9 /* NightmareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightmareView.swift; sourceTree = "<group>"; };
-		12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinaryDreamView.swift; sourceTree = "<group>"; };
 		30FDCD852C234662009A1D38 /* NoDrems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDrems.swift; sourceTree = "<group>"; };
 		BBDD59E72C209D1600A5DE9C /* Sonharium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonharium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonharium.swift; sourceTree = "<group>"; };
@@ -229,10 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				BBDD5A212C209EB300A5DE9C /* InfoDreamView.swift */,
-				120310322C245670009A39D4 /* InfosView.swift */,
-				12C920E62C21C16E00CFF2D9 /* FantasyDreamView.swift */,
-				12C920E82C21C18A00CFF2D9 /* NightmareView.swift */,
-				12C920EA2C21C1A100CFF2D9 /* OrdinaryDreamView.swift */,
 				122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */,
 				122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */,
 				122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */,
@@ -406,14 +394,11 @@
 				129835472C25AE3300CA8CD9 /* DrawView.swift in Sources */,
 				BBDD5A3D2C235A4200A5DE9C /* SplashScreenView.swift in Sources */,
 				BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */,
-				12C920EB2C21C1A100CFF2D9 /* OrdinaryDreamView.swift in Sources */,
-				12C920E72C21C16E00CFF2D9 /* FantasyDreamView.swift in Sources */,
 				BBDD5A302C209F2B00A5DE9C /* AddDreamView.swift in Sources */,
 				BBDD5A2E2C209F1500A5DE9C /* DreamCardView.swift in Sources */,
 				122C5AE92C20BC1F00FC1D02 /* InfoCardView.swift in Sources */,
 				BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */,
 				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
-				12C920E92C21C18A00CFF2D9 /* NightmareView.swift in Sources */,
 				30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */,
 				BBDD5A372C21F9A300A5DE9C /* CustomCellViewTwo.swift in Sources */,
 				BBDD5A222C209EB300A5DE9C /* InfoDreamView.swift in Sources */,
@@ -421,7 +406,6 @@
 				BBDD5A2C2C209F0800A5DE9C /* CalendarView.swift in Sources */,
 				BBDD5A262C209ED900A5DE9C /* MyDreamsView.swift in Sources */,
 				BBDD5A282C209EE600A5DE9C /* MyDreamCardView.swift in Sources */,
-				120310332C245670009A39D4 /* InfosView.swift in Sources */,
 				122C5AEB2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift in Sources */,
 				122C5AE72C20B0BB00FC1D02 /* InfoButtonView.swift in Sources */,
 				BBDD5A322C209F4300A5DE9C /* Dream.swift in Sources */,
