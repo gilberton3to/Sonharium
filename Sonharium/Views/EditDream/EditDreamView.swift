@@ -15,9 +15,13 @@ struct EditDreamView: View {
     @Environment(\.dismiss) var dismiss
     //
     @State private var showAlert = false
+    @State private var createDrawDream = false
     //
     @Bindable var dream: Dream
     //
+    
+   // @State private var lines: [Line] = []
+    
     var body: some View {
         NavigationStack {
             //
@@ -140,11 +144,6 @@ struct EditDreamView: View {
                                 .foregroundStyle(.white)
                         } // STATUS SONHO
                         HStack(spacing: 8) {
-                            Button("Desenhar") {
-                                // colocar ação DESENHAR
-                            }
-                            .buttonStyle(.borderedProminent)
-                            //
                             Button("Gravar áudio") {
                                 // colocar ação GRAVAR ÁUDIO
                             }
@@ -181,8 +180,12 @@ struct EditDreamView: View {
             }
         }
     }
+    
     //
-    func updateDream() {       // FUNÇÃO SALVAR SONHO
+    @MainActor
+    func updateDream() { // FUNÇÃO SALVAR SONHO
+//        let draw = ImageRenderer(content: DrawView(lines: lines)).uiImage?.pngData()
+//        dream.draw = draw
         try? context.save()
         dismiss()
     }

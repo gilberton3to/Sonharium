@@ -72,7 +72,7 @@ struct MyDreamCardView: View {
          MyDreamCardView(
             dream: Dream.init(dreamDate: .now,
                             title: "titulo titulo titulo",
-                            desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
+                              desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
                         ).modelContainer(container)
      }
  }

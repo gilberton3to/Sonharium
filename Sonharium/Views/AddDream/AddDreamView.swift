@@ -13,12 +13,15 @@ struct AddDreamView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     //
+    @State private var createDrawDream = false
+    //
     @State private var dreamDate = Date()
     @State private var slept = Date()
     @State private var wokeUp = Date()
     @State private var title = ""
     @State private var desc = ""
     @State private var selectedStatus = Status.normalDream
+    // @State private var lines: [Line] = []
     //
     var closedRange = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
     //
@@ -144,11 +147,6 @@ struct AddDreamView: View {
                                 .foregroundStyle(.white)
                         } // STATUS SONHO
                         HStack(spacing: 8) {
-                            Button("Desenhar") {
-                                // colocar ação DESENHAR
-                            }
-                            .buttonStyle(.borderedProminent)
-                            //
                             Button("Gravar áudio") {
                                 // colocar ação GRAVAR ÁUDIO
                             }
@@ -172,12 +170,16 @@ struct AddDreamView: View {
         }
     }
     //
-    func addDream() {  // função de criar um novo soho
+    @MainActor func addDream() {  // função de criar um novo soho
+        // pega linhas -> draw
+       // let draw = ImageRenderer(content: DrawView(lines: lines)).uiImage?.pngData()
         let newDream = Dream(
             dreamDate: dreamDate,
             title: title,
             desc: desc,
-            status: selectedStatus)
+            status: selectedStatus
+            // draw: draw
+        )
         context.insert(newDream) // adiciona o sonho no data context
         dismiss()
     }
