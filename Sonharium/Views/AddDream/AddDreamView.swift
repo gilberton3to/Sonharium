@@ -10,6 +10,8 @@ import SwiftData
 
 struct AddDreamView: View {
     //
+    @ObservedObject var audio: AudioRecorder
+    //
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     //
@@ -146,12 +148,27 @@ struct AddDreamView: View {
                                 }
                                 .foregroundStyle(.white)
                         } // STATUS SONHO
-                        HStack(spacing: 8) {
-                            Button("Gravar áudio") {
-                                // colocar ação GRAVAR ÁUDIO
-                            }
-                            .buttonStyle(.borderedProminent)
-                        } // DESENHAR + GRAVAR - BOTÕES
+//                        HStack(spacing: 8) {
+//                            Button("Desenhar") {
+//                                // colocar ação DESENHAR
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                            //
+//                            Button(action: {
+//                                if audio.recording {
+//                                    audio.stopRecording()
+//                                } else {
+//                                    audio.startRecording()
+//                                }
+//                            }, label: {
+//                                Text("Gravar Áudio")
+//                            })
+//                            .buttonStyle(.borderedProminent)
+//                            Text(audio.recording ? "Recording..." : "Click to record")
+//                                .font(.caption)
+//                                .bold()
+//                                .foregroundStyle(audio.recording ? .green : .blue)
+//                        } // DESENHAR + GRAVAR - BOTÕES
                     }
                 }
                 .toolbar {
@@ -185,7 +202,7 @@ struct AddDreamView: View {
     }
 }
 #Preview {
-    AddDreamView()
+    AddDreamView(audio: AudioRecorder())
         .modelContainer(for: Dream.self, inMemory: true)
 }
 //
