@@ -32,7 +32,7 @@ class AuthenticationManager: ObservableObject {
                         self.statusMessage = "Desbloqueado"
                         self.isUnlocked = true
                     } else {
-                        self.statusMessage = "Há um problema!"
+                        self.statusMessage = "Tente novamente!"
                     }
                 }
             }

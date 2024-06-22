@@ -139,17 +139,17 @@ struct EditDreamView: View {
                                 }
                                 .foregroundStyle(.white)
                         } // STATUS SONHO
-                        HStack(spacing: 8) {
-                            Button("Desenhar") {
-                                // colocar ação DESENHAR
-                            }
-                            .buttonStyle(.borderedProminent)
-                            //
-                            Button("Gravar áudio") {
-                                // colocar ação GRAVAR ÁUDIO
-                            }
-                            .buttonStyle(.borderedProminent)
-                        } // DESENHAR + GRAVAR - BOTÕES
+//                        HStack(spacing: 8) {
+//                            Button("Desenhar") {
+//                                // colocar ação DESENHAR
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                            //
+//                            Button("Gravar áudio") {
+//                                // colocar ação GRAVAR ÁUDIO
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                        } // DESENHAR + GRAVAR - BOTÕES
                     }
                 }
                 .toolbar {
@@ -196,7 +196,6 @@ struct EditDreamView: View {
 }
 #Preview {
     Group {
-        // swiftlint:disable force_try
         let container = try! ModelContainer(for: Dream.self, configurations: .init(isStoredInMemoryOnly: true))
         EditDreamView(
            dream: Dream.init(dreamDate: .now,
