@@ -14,6 +14,7 @@ class Dream {
     var title: String         // título do sonho
     var desc: String          // descrição do sonho
     var status: Status        // tipo de sonho - Normal Dream, Nightmare, Lucid Dream, Daydream
+    // var draw: Data?
     init(
         dreamDate: Date = Date.now,
         slept: Date = Date.now,
@@ -21,6 +22,7 @@ class Dream {
         title: String,
         desc: String,
         status: Status = .normalDream
+        // draw: Data? = nil
     ) {
         self.dreamDate = dreamDate
         self.slept = slept
@@ -28,6 +30,7 @@ class Dream {
         self.title = title
         self.desc = desc
         self.status = status
+       // self.draw = draw
     }
 }
 //

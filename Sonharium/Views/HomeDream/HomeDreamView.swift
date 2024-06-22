@@ -36,6 +36,12 @@ struct HomeDreamView: View {
                         .frame(width: 30, height: 30)
                         .foregroundColor(.blue)
                 }.padding()
+                NavigationLink(destination: InfoDreamView()) {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.blue)
+                }
                 //
                 Button("Tive um sonho!") {
                     createNewDream = true
