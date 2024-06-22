@@ -1,5 +1,5 @@
 //
-//  AboutDevelopers.swift
+//  CustomCellViewTwo.swift
 //  Sonharium
 //
 //  Created by Gilberto Neto on 18/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 //
-struct AboutView: View {
+struct CustomCellViewTwo: View {
     //
     let profileImage: String
     var name: String
@@ -26,7 +26,7 @@ struct AboutView: View {
     }
 }
 //
-struct DevView: View {
+struct ContentViewTwo: View {
     //
     @Environment(\.dismiss) var dismiss
     //
@@ -67,5 +67,5 @@ struct DevView: View {
 }
 
 #Preview {
-    DevView().environmentObject(AuthenticationManager())
+    ContentViewTwo().environmentObject(AuthenticationManager())
 }
