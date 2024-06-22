@@ -13,7 +13,7 @@ struct FaceIdView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.accentColor
+                Color.fundo
                     .ignoresSafeArea()
                 VStack {
                     Image(systemName: "lock.fill")
