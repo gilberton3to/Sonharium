@@ -29,7 +29,7 @@ struct ContentViewTwo: View {
         }
     var body: some View {
                 List {
-                    Section(header: Text("Desenvolvedores").foregroundColor(.purplesettings)) {
+                    Section(header: Text("Desenvolvedores").foregroundColor(.accentColor)) {
                             CustomCellViewTwo(profileImage: "gil", name: "Gilberto Neto")
                                 .frame(height: 30)
                             CustomCellViewTwo(profileImage: "marcelle", name: "Marcelle Queiroz")
@@ -39,11 +39,11 @@ struct ContentViewTwo: View {
                             CustomCellViewTwo(profileImage: "rafi", name: "Rafí Teixeira")
                                 .frame(height: 30)
                         }
-                    Section(header: Text("App").foregroundColor(.purplesettings)) {
+                    Section(header: Text("App").foregroundColor(.accentColor)) {
                                     CustomCellView(iconName: "star.fill", text: "Escreva uma avaliação")
                                         .frame(height: 30)
                     }
-                    Section(header: Text("Mais informações").foregroundColor(.purplesettings)) {
+                    Section(header: Text("Mais informações").foregroundColor(.accentColor)) {
                         CustomCellView(iconName: "at.circle.fill", text: "Site")
                             .frame(height: 30)
                     }
@@ -52,7 +52,7 @@ struct ContentViewTwo: View {
                 .navigationTitle("Sobre")
 //                .navigationBarBackButtonHidden()
                 .scrollContentBackground(.hidden)
-                .background(.purplelight)
+                .background(.fundo)
                 .scrollDisabled(true)
     }
 }

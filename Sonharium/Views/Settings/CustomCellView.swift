@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//import UIKit
+import UIKit
 
 struct CustomCellView: View {
     var iconName: String
@@ -15,7 +15,7 @@ struct CustomCellView: View {
         HStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.purplesettings)
+                    .fill(Color.accentColor)
                     .frame(width: 30, height: 30)
                 Image(systemName: iconName)
                     .foregroundColor(.white)
@@ -36,8 +36,8 @@ struct DetailView: View {
 }
 
 func setupNavigationBarAppearance() {
-    UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.purpletitle]
-    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.purpletitle]
+    UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.standard]
+    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.standard]
 }
 
 struct ContentView: View {
@@ -52,12 +52,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Notificações").foregroundColor(.purplesettings)) {
+                Section(header: Text("Notificações").foregroundColor(.accentColor)) {
                     Toggle(isOn: $isScheduled) {
                         HStack {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 6)
-                                    .fill(Color.purplesettings)
+                                    .fill(Color.accentColor)
                                     .frame(width: 30, height: 30)
                                 Image(systemName: "bell.fill")
                                     .foregroundColor(.white)
@@ -66,7 +66,7 @@ struct ContentView: View {
                             Text("Lembrete Diário")
                         }
                     }
-                    .tint(.purplesettings)
+                    .tint(.accentColor)
                     .onChange(of: isScheduled) {
                         handleIsScheduledChange(isScheduled: isScheduled)
                     }
@@ -87,14 +87,14 @@ struct ContentView: View {
                         .padding(.trailing, 20)
                     }
                 }
-                Section(header: Text("Segurança").foregroundColor(.purplesettings)) {
+                Section(header: Text("Segurança").foregroundColor(.accentColor)) {
                     Toggle(isOn: $authManager.isFaceIDEnabled) {
                         CustomCellView(iconName: "lock.fill", text: "Bloqueio com Face ID")
                             .frame(height: 30)
                     }
-                    .tint(.purplesettings)
+                    .tint(.accentColor)
                 }
-                Section(header: Text("Desenvolvimento").foregroundColor(.purplesettings)) {
+                Section(header: Text("Desenvolvimento").foregroundColor(.accentColor)) {
                     NavigationLink(destination: ContentViewTwo()) {
                         CustomCellView(iconName: "info.circle.fill", text: "Sobre")
                             .frame(height: 30)
@@ -102,7 +102,7 @@ struct ContentView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(.purplelight)
+            .background(.fundo)
             .navigationTitle("Configurações")
             .scrollDisabled(true)
         }

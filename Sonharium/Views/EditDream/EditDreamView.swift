@@ -19,9 +19,7 @@ struct EditDreamView: View {
     //
     @Bindable var dream: Dream
     //
-    
    // @State private var lines: [Line] = []
-    
     var body: some View {
         NavigationStack {
             //
@@ -185,7 +183,6 @@ struct EditDreamView: View {
             }
         }
     }
-    
     //
     @MainActor
     func updateDream() { // FUNÇÃO SALVAR SONHO
