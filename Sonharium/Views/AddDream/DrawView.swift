@@ -5,15 +5,15 @@
 ////  Created by Melissa Freire Guedes on 21/06/24.
 ////
 //
-//import SwiftUI
-//import SwiftData
+// import SwiftUI
+// import SwiftData
 ////
-//struct Line {
+// struct Line {
 //    var points: [CGPoint]
 //    var color: Color
-//}
+// }
 ////
-//struct DrawView: View {
+// struct DrawView: View {
 //    //
 //    let lines: [Line]
 //    //
@@ -29,9 +29,9 @@
 //        .frame(width: 300, height: 300)
 //        .border(.black)
 //    }
-//}
+// }
 ////
-//struct CanvasDrawingExample: View {
+// struct CanvasDrawingExample: View {
 //    //
 //    
 //    var dream: Dream? = nil
@@ -98,9 +98,9 @@
 //                .foregroundColor(.gray)
 //        }
 //    }
-//}
-//struct CanvasDrawingExample_Previews: PreviewProvider {
+// }
+// struct CanvasDrawingExample_Previews: PreviewProvider {
 //    static var previews: some View {
 //        CanvasDrawingExample(lines: .constant([]))
 //    }
-//}
+// }
