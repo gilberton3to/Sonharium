@@ -4,7 +4,6 @@
 //
 //  Created by Gilberto Neto on 17/06/24.
 //
-// swiftlint: disable all
 import SwiftUI
 class Test: Identifiable, Equatable {
     var background: Color
@@ -79,9 +78,7 @@ struct InfoDreamView: View {
             fontColor: .white
         )
     ]
-    
     @State var selectedModel: Test?
-    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -100,7 +97,6 @@ struct InfoDreamView: View {
                                                     RoundedRectangle(cornerRadius: 11)
                                                         .fill(model.color.opacity(20))
                                                         .stroke(selectedModel == model ? .white : .clear, lineWidth: 5)
-                            
                                         }
                                         .frame(width: 100, height: 100)
                                     }
@@ -112,14 +108,12 @@ struct InfoDreamView: View {
                                 }
                             }
                             .padding(.vertical)
-                            
                         }
                     }
                 }
                 .scrollIndicators(.hidden)
                 .contentMargins(.leading, 10, for: .scrollContent)
                 .contentMargins(.trailing, 10, for: .scrollContent)
-                
                 ScrollView(.vertical) {
                     VStack {
                         Text(selectedModel?.content ?? "Sem tips")
@@ -191,4 +185,3 @@ struct InfoDreamView: View {
 #Preview {
     InfoDreamView()
 }
-// swiftlint: enable all
