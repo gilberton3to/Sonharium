@@ -6,53 +6,63 @@
 //
 
 import SwiftUI
-
-struct CustomCellViewTwo: View {
+//
+struct AboutView: View {
+    //
     let profileImage: String
     var name: String
+    //
     var body: some View {
             HStack {
                 Image(profileImage)
                     .resizable()
                     .cornerRadius(50)
                     .frame(width: 31, height: 31)
+                //
                 Text(name)
+                    .font(.system(size: 17, design: .rounded))
                 Spacer()
-            }
+            } // foto e nome
     }
 }
-
+//
 struct ContentViewTwo: View {
+    //
     @Environment(\.dismiss) var dismiss
+    //
     init() {
             setupNavigationBarAppearance()
         }
+    //
     var body: some View {
                 List {
-                    Section(header: Text("Desenvolvedores").foregroundColor(.purplesettings)) {
-                            CustomCellViewTwo(profileImage: "gil", name: "Gilberto Neto")
+                    //
+                    Section(header: Text("Desenvolvedores").foregroundColor(Color("AccentColor"))) {
+                            AboutView(profileImage: "gil", name: "Gilberto Neto")
                                 .frame(height: 30)
-                            CustomCellViewTwo(profileImage: "marcelle", name: "Marcelle Queiroz")
+                            AboutView(profileImage: "marcelle", name: "Marcelle Queiroz")
                                 .frame(height: 30)
-                            CustomCellViewTwo(profileImage: "melissa", name: "Melissa Guedes")
+                            AboutView(profileImage: "melissa", name: "Melissa Guedes")
                                 .frame(height: 30)
-                            CustomCellViewTwo(profileImage: "rafi", name: "Rafí Teixeira")
+                            AboutView(profileImage: "rafi", name: "Rafí Teixeira")
                                 .frame(height: 30)
                         }
-                    Section(header: Text("App").foregroundColor(.purplesettings)) {
-                                    CustomCellView(iconName: "star.fill", text: "Escreva uma avaliação")
+                    //
+                    Section(header: Text("App").foregroundColor(Color("AccentColor"))) {
+                                    SettingsView(iconName: "star.fill", text: "Escreva uma avaliação")
                                         .frame(height: 30)
                     }
-                    Section(header: Text("Mais informações").foregroundColor(.purplesettings)) {
-                        CustomCellView(iconName: "at.circle.fill", text: "Site")
+                    //
+                    Section(header: Text("Mais informações").foregroundColor(Color("AccentColor"))) {
+                        SettingsView(iconName: "at.circle.fill", text: "Site")
                             .frame(height: 30)
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Sobre")
-//                .navigationBarBackButtonHidden()
+                .navigationBarBackButtonHidden()
                 .scrollContentBackground(.hidden)
-                .background(.purplelight)
+                .background(Color("fundo"))
                 .scrollDisabled(true)
     }
 }
