@@ -22,7 +22,7 @@ struct EditDreamView: View {
         NavigationStack {
             //
             ZStack {
-                // fundo roxo
+                // fundo
                 Image("fundo")
                     .resizable()
                     .scaledToFill()
@@ -35,49 +35,46 @@ struct EditDreamView: View {
                             Text("Sonhei no dia...")
                                 .font(.system(size: 17, design: .rounded))
                                 .bold()
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.dreamDate,
                                        displayedComponents: DatePickerComponents.date)
                             .padding(.trailing, 16)
-                            .colorScheme(.dark)
+                            .colorScheme(.light)
                         } // sonhei no dia
                         .frame(width: 140)
                         // .border(Color.green)
-                        //
                         VStack(alignment: .center) {
                             Text("Dormi às:")
                                 .font(.system(size: 17, design: .rounded))
                                 .bold()
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.slept,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
                             .padding(.trailing, 16)
-                            .colorScheme(.dark)
+                            .colorScheme(.light)
                         } // dormi às
                         .frame(width: 100)
                         // .border(Color.green)
-                        //
                         VStack(alignment: .center) {
                             Text("Acordei às:")
                                 .font(.system(size: 17, design: .rounded))
                                 .bold()
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.wokeUp,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
                             .padding(.trailing, 16)
-                            .colorScheme(.dark)
-                        }
+                            .colorScheme(.light)
+                        } // acordei às
                         .frame(width: 100)
                         // .border(Color.green)
-                        //
                     } // DATA E HORAS
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("fundoText"))
+                            .fill(Color("card"))
                             .frame(width: 360, height: 45)
                         //
                         TextField("Escolha um título para o seu sonho",
@@ -90,7 +87,7 @@ struct EditDreamView: View {
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("fundoText"))
+                            .fill(Color("card"))
                             .frame(width: 360, height: 205)
                         //
                         TextField("O que aconteceu? Descreva como foi...",
@@ -103,7 +100,7 @@ struct EditDreamView: View {
                     //
                     Text("Qual tipo de sonho você teve hoje?")
                         .font(.system(size: 17, design: .rounded))
-                        .foregroundStyle(Color("fundoText"))
+                        .foregroundStyle(Color("AccentColor"))
                         .bold()
                     //
                     VStack(spacing: 50) {
@@ -118,13 +115,13 @@ struct EditDreamView: View {
                                             .frame(width: 100, height: 32)
                                             .background {
                                                 RoundedRectangle(cornerRadius: 8)
-                                                    .fill(status == dream.status ? .purple : .white)
+                                                    .fill(status == dream.status ? Color("AccentColor") : Color("card"))
                                             }
-                                            .foregroundStyle(status == dream.status ? .white : .black)
+                                            .foregroundStyle(status == dream.status ? Color("card") : Color("AccentColor"))
                                             .font(
                                                 .system(
                                                     size: 17,
-                                                    weight: status == dream.status ? .bold : .regular,
+                                                    weight: status == dream.status ? .semibold : .medium,
                                                     design: .rounded
                                                 )
                                             )
@@ -136,24 +133,21 @@ struct EditDreamView: View {
                                 .frame(width: 160, height: 152)
                                 .background {
                                     RoundedRectangle(cornerRadius: 8)
-                                        .fill(.purple)
+                                        .fill(Color("card"))
                                 }
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Color("AccentColor"))
                         } // STATUS SONHO
                         HStack(spacing: 8) {
-                            Button("Desenhar") {
-                                // colocar ação DESENHAR
-                            }
-                            .buttonStyle(.borderedProminent)
-                            //
                             Button("Gravar áudio") {
                                 // colocar ação GRAVAR ÁUDIO
                             }
                             .buttonStyle(.borderedProminent)
-                        } // DESENHAR + GRAVAR - BOTÕES
+                        } // GRAVAR - BOTÕES
                     }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .toolbar {
+                    //
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Deletar") {
                             showAlert = true
@@ -172,14 +166,16 @@ struct EditDreamView: View {
                                 )
                             )
                         }
-                    }
+                    } // DELETAR
+                    //
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Ok") {
                             updateDream()
                         }
-                    }
+                    } // OK
                 }  // DELETAR E SALVAR SONHO
             }
+            .background(Color("fundo"))
         }
     }
     //

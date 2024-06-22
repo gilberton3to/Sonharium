@@ -26,7 +26,7 @@ struct AboutView: View {
     }
 }
 //
-struct ContentViewTwo: View {
+struct DevView: View {
     //
     @Environment(\.dismiss) var dismiss
     //
@@ -48,15 +48,14 @@ struct ContentViewTwo: View {
                                 .frame(height: 30)
                         }
                     //
-                    Section(header: Text("App").foregroundColor(Color("AccentColor"))) {
-                                    SettingsView(iconName: "star.fill", text: "Escreva uma avaliação")
-                                        .frame(height: 30)
-                    }
+//                    Section(header: Text("App").foregroundColor(Color("AccentColor"))) {
+//                        ContentView
+//                    }
                     //
-                    Section(header: Text("Mais informações").foregroundColor(Color("AccentColor"))) {
-                        SettingsView(iconName: "at.circle.fill", text: "Site")
-                            .frame(height: 30)
-                    }
+//                    Section(header: Text("Mais informações").foregroundColor(Color("AccentColor"))) {
+//                        ContentView(iconName: "at.circle.fill", text: "Site")
+//                            .frame(height: 30)
+//                    }
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Sobre")
@@ -68,5 +67,5 @@ struct ContentViewTwo: View {
 }
 
 #Preview {
-    ContentViewTwo().environmentObject(AuthenticationManager())
+    DevView().environmentObject(AuthenticationManager())
 }

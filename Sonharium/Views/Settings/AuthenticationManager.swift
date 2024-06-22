@@ -9,6 +9,7 @@ import SwiftUI
 import LocalAuthentication
 
 class AuthenticationManager: ObservableObject {
+    //
     @Published var isFaceIDEnabled: Bool {
         didSet {
             UserDefaults.standard.set(isFaceIDEnabled, forKey: "isFaceIDEnabled")
@@ -16,14 +17,16 @@ class AuthenticationManager: ObservableObject {
     }
     @Published var isUnlocked: Bool = false
     @Published var statusMessage: String = "Bloqueado"
-
+    //
     init() {
         self.isFaceIDEnabled = UserDefaults.standard.bool(forKey: "isFaceIDEnabled")
     }
-
+    //
     func authenticate() {
+        //
         let context = LAContext()
         var error: NSError?
+        //
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
                                    localizedReason: "This is for security reasons") { success, _ in

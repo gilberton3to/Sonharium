@@ -15,7 +15,7 @@ struct MyDreamCardView: View {
         ZStack {
             // fundo roxo
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(Color("roxo"))
+                .fill(Color("AccentColor"))
                 // .border(Color.pink)
             //
             HStack(alignment: .top, spacing: 0) {
@@ -33,10 +33,10 @@ struct MyDreamCardView: View {
                             .bold()
                             // .border(Color.green)
                     }  // DATA E MÊS
-                    Image("mascote")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.bottom, 16)
+//                    Image("mascote")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .padding(.bottom, 16)
                         // .border(Color.red)
                 } // DATA + MÊS + MASCOTE
                 .frame(width: 89, alignment: .center)
@@ -62,6 +62,7 @@ struct MyDreamCardView: View {
                 .padding(8)
             }
         }
+        .background(Color("fundo"))
         .frame(height: 145) // fixa só a altura do card!
     }
 }

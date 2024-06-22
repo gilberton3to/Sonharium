@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-
+//
 struct InfoButtonView: View {
     let label: String
     let action: () -> Void
     var body: some View {
         Button(action: action) {
             Text(label).font(.system(size: 12, weight: .semibold, design: .rounded))
-
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.small)
@@ -21,10 +20,11 @@ struct InfoButtonView: View {
         .foregroundColor(.white)
         .overlay(
                     RoundedRectangle(cornerRadius: 40)
-                        .stroke(Color.buttonDarkPurple, lineWidth: 4)
+                        .stroke(Color.black, lineWidth: 4)
                 )
     }
 }
+//
 #Preview {
     InfoButtonView(label: "Informações", action: {})
 }

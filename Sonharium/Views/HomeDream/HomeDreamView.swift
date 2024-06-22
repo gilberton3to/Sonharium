@@ -6,7 +6,7 @@
 
 import SwiftUI
 import SwiftData
-
+//
 struct HomeDreamView: View {
     //
     @EnvironmentObject var authManager: AuthenticationManager
@@ -23,7 +23,7 @@ struct HomeDreamView: View {
                 HStack(spacing: 150) {
                     NavigationLink(destination: InfoDreamView()) {
                         Text("Informações")
-                    }
+                    } // INFORMAÇÕES
                     .buttonStyle(.borderedProminent)
                     //
                     HStack(spacing: 16) {
@@ -32,16 +32,17 @@ struct HomeDreamView: View {
                                 .resizable()
                                 .frame(width: 25, height: 25)
                                 .foregroundColor(.blue)
-                        }
+                        } // PESQUISA
                         NavigationLink(destination: ContentView()) {
                             Image(systemName: "gearshape")
                                 .resizable()
                                 .frame(width: 25, height: 25)
                                 .foregroundColor(.blue)
-                        }
+                        } // CONFIGURAÇÕES
                     }
                 }
                 // CALENDÁRIO
+                //
                 ScrollView(.horizontal) {
                     HStack(spacing: 8) {
                         ForEach(dreams) { dream in
@@ -61,10 +62,9 @@ struct HomeDreamView: View {
                 .sheet(isPresented: $createNewDream) {
                     AddDreamView()
                         .presentationDetents([.large])
-                }
+                } // MODAL CRIAR SONHO
             }
         }
-        .navigationBarBackButtonHidden()
     }
 }
 #Preview {

@@ -16,14 +16,14 @@ struct DreamCardView: View {
         ZStack {
             // FUNDO DO CARD
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(Color("roxo"))
+                .fill(Color("AccentColor"))
                 .frame(width: 316, height: 441)
                 .border(Color.pink)
             //
             VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(Color("fundoText"))
+                        .fill(Color("card"))
                         .frame(width: 255, height: 160)
                     //
                     Image("mascote")
@@ -34,11 +34,11 @@ struct DreamCardView: View {
                     VStack(alignment: .center, spacing: -5) {
                         Text(dream.dreamDate.formatted(.dateTime.day()))
                             .font(.system(size: 32, design: .rounded))
-                            .foregroundStyle(Color("roxo"))
+                            .foregroundStyle(Color("AccentColor"))
                             .bold()
                         Text(dream.dreamDate.formatted(.dateTime.month()))
                             .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(Color("roxo"))
+                            .foregroundStyle(Color("AccentColor"))
                             .bold()
                     }
                     .offset(x: -90, y: -40)
@@ -46,7 +46,7 @@ struct DreamCardView: View {
                 //
                 Text(dream.title)
                     .font(.system(size: 25, design: .rounded))
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color("card"))
                     .bold()
                     .frame(width: 255, alignment: .leading)
                     .padding(.leading)
@@ -54,7 +54,7 @@ struct DreamCardView: View {
                 Text(dream.desc)
                     .lineLimit(6) // número máx de linhas da descrição
                     .font(.system(size: 17, design: .rounded))
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color("card"))
                     .frame(width: 255, height: 125, alignment: .topLeading)
                     .padding(.leading)
             }

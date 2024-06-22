@@ -13,16 +13,16 @@ struct FaceIdView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.purplelight
+                Color("backgound")
                     .ignoresSafeArea()
                 VStack {
                     Image(systemName: "lock.fill")
                         .resizable()
                         .frame(width: 25, height: 36)
-                        .foregroundStyle(Color.purplestandard)
+                        .foregroundStyle(Color.black)
                     Text(authManager.statusMessage)
                         .bold()
-                        .foregroundStyle(Color.purplestandard)
+                        .foregroundStyle(Color.black)
                         .padding()
                     ZStack {
                         RoundedRectangle(cornerRadius: 30)
@@ -45,7 +45,7 @@ struct FaceIdView: View {
         .scrollDisabled(true)
     }
 }
-
+//
 #Preview {
     FaceIdView().environmentObject(AuthenticationManager())
 }

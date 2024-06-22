@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-struct SettingsView: View {
+struct CustomCellView: View {
     //
     var iconName: String
     var text: String
@@ -58,25 +58,24 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                //
                 Section(header: Text("Notificações").foregroundColor(Color("AccentColor"))) {
                     NavigationLink(destination: DetailView(text: "Lembretes")) {
-                        SettingsView(iconName: "bell.fill", text: "Lembretes")
+                        CustomCellView(iconName: "bell.fill", text: "Lembretes")
                             .frame(height: 30)
                     }
                 }
                 //
                 Section(header: Text("Segurança").foregroundColor(Color("AccentColor"))) {
                     Toggle(isOn: $authManager.isFaceIDEnabled) {
-                        SettingsView(iconName: "lock.fill", text: "Bloqueio com Face ID")
+                        CustomCellView(iconName: "lock.fill", text: "Bloqueio com Face ID")
                             .frame(height: 30)
                     }
                     .tint(Color("AccentColor"))
                 }
                 //
                 Section(header: Text("Desenvolvimento").foregroundColor(Color("AccentColor"))) {
-                    NavigationLink(destination: ContentViewTwo()) {
-                        SettingsView(iconName: "info.circle.fill", text: "Sobre")
+                    NavigationLink(destination: ContentView()) {
+                        CustomCellView(iconName: "info.circle.fill", text: "Sobre")
                             .frame(height: 30)
                     }
                 }
