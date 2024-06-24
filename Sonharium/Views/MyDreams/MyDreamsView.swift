@@ -35,6 +35,7 @@ struct MyDreamsView: View {
                     .listStyle(.plain)
                 }
             }
+            .background(Color("fundo"))
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always),
                         prompt: "Pesquisar sonho")

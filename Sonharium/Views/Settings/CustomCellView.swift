@@ -9,50 +9,57 @@ import SwiftUI
 import UIKit
 
 struct CustomCellView: View {
+    //
     var iconName: String
     var text: String
+    //
     var body: some View {
-        HStack {
+        HStack(spacing: 16) {
             ZStack {
+                //
                 RoundedRectangle(cornerRadius: 6)
-                    .fill(Color.accentColor)
+                    .fill(Color.standard)
                     .frame(width: 30, height: 30)
+                //
                 Image(systemName: iconName)
                     .foregroundColor(.white)
                     .font(.system(size: 18))
-            }
-            Text(text)
+            } // fundo + ícone
+            Text(text)   // texto Lembretes, Bloqueio, Sobre
+                .font(.system(size: 17, design: .rounded))
             Spacer()
         }
     }
 }
-
+//
 struct DetailView: View {
+    //
     var text: String
+    //
     var body: some View {
         Text("Detalhes sobre \(text)")
             .navigationTitle(text)
     }
 }
-
+// MUDAR COR DA NAVIGATIONBAR
 func setupNavigationBarAppearance() {
     UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.standard]
     UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.standard]
 }
-
+//
 struct ContentView: View {
+    //
     @EnvironmentObject var authManager: AuthenticationManager
     @AppStorage("isScheduled") var isScheduled = false
     @AppStorage("notificationTimeString") var notificationTimeString = ""
-
     init() {
         setupNavigationBarAppearance()
     }
-
+    //
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Notificações").foregroundColor(.accentColor)) {
+                Section(header: Text("Notificações").foregroundColor(.standard)) {
                     Toggle(isOn: $isScheduled) {
                         HStack {
                             ZStack {
@@ -94,7 +101,7 @@ struct ContentView: View {
                     }
                     .tint(.accentColor)
                 }
-                Section(header: Text("Desenvolvimento").foregroundColor(.accentColor)) {
+                Section(header: Text("Desenvolvimento").foregroundColor(.standard)) {
                     NavigationLink(destination: ContentViewTwo()) {
                         CustomCellView(iconName: "info.circle.fill", text: "Sobre")
                             .frame(height: 30)
@@ -130,7 +137,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environmentObject(AuthenticationManager())
     }
 }
-
 //        .toolbar {
 //            ToolbarItem(placement: .topBarLeading) {
 //                Button {

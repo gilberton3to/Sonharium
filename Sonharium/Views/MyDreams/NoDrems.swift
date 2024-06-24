@@ -10,20 +10,22 @@ import SwiftUI
 struct NoDrems: View {
     var body: some View {
         ZStack {
-            // fundo roxo
+            // fundo
             Image("fundo")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea(.all)
             //
             VStack(spacing: 24) {
-                Image("mascoteTriste")
+                Image("mascote")
                 //
-                Text("Ainda não há sonho")
-                    .font(.system(size: 24, design: .rounded))
+                Text("Ainda não há sonhos!")
+                    .font(.system(size: 25, design: .rounded))
+                    .foregroundStyle(Color("AccentColor"))
                     .bold()
             }
         }
+        .background(Color("fundo"))
     }
 }
 

@@ -6,13 +6,69 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DreamCardView: View {
+    //
+    let dream: Dream
+    //
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            // FUNDO DO CARD
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(Color("AccentColor"))
+                .frame(width: 316, height: 441)
+                .border(Color.pink)
+            //
+            VStack {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .fill(Color("card"))
+                        .frame(width: 255, height: 160)
+                    //
+                    Image("mascote")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 140, height: 140)
+                    //
+                    VStack(alignment: .center, spacing: -5) {
+                        Text(dream.dreamDate.formatted(.dateTime.day()))
+                            .font(.system(size: 32, design: .rounded))
+                            .foregroundStyle(Color("AccentColor"))
+                            .bold()
+                        Text(dream.dreamDate.formatted(.dateTime.month()))
+                            .font(.system(size: 17, design: .rounded))
+                            .foregroundStyle(Color("AccentColor"))
+                            .bold()
+                    }
+                    .offset(x: -90, y: -40)
+                } // DATA + MASCOTE
+                //
+                Text(dream.title)
+                    .font(.system(size: 25, design: .rounded))
+                    .foregroundStyle(Color("card"))
+                    .bold()
+                    .frame(width: 255, alignment: .leading)
+                    .padding(.leading)
+                //
+                Text(dream.desc)
+                    .lineLimit(6) // número máx de linhas da descrição
+                    .font(.system(size: 17, design: .rounded))
+                    .foregroundStyle(Color("card"))
+                    .frame(width: 255, height: 125, alignment: .topLeading)
+                    .padding(.leading)
+            }
+        }
     }
 }
-
-#Preview {
-    DreamCardView()
-}
+ #Preview {
+     Group {
+         // swiftlint:disable force_try
+         let container = try! ModelContainer(for: Dream.self, configurations: .init(isStoredInMemoryOnly: true))
+         DreamCardView(
+            dream: Dream.init(dreamDate: .now,
+                            title: "titulo titulo titulo",
+                            desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçaodescriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
+                        ).modelContainer(container)
+     }
+ }

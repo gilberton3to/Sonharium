@@ -15,6 +15,7 @@ struct AddDreamView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     //
+    @State private var showAlert = false
     @State private var createDrawDream = false
     //
     @State private var dreamDate = Date()
@@ -31,7 +32,7 @@ struct AddDreamView: View {
         NavigationStack {
             //
             ZStack {
-                // fundo roxo
+                // FUNDO
                 Image("fundo")
                     .resizable()
                     .scaledToFill()
@@ -44,75 +45,74 @@ struct AddDreamView: View {
                             Text("Sonhei no dia...")
                                 .font(.system(size: 17, design: .rounded))
                                 .bold()
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dreamDate,
                                        displayedComponents: DatePickerComponents.date)
                             .padding(.trailing, 16)
-                            .colorScheme(.dark)
-                        }
+                            .colorScheme(.light)
+                        } // sonhei no dia
                         .frame(width: 140)
                         // .border(Color.green)
-                        //
                         VStack(alignment: .center) {
                             Text("Dormi às:")
                                 .font(.system(size: 17, design: .rounded))
                                 .bold()
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $slept,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
                             .padding(.trailing, 16)
-                            .colorScheme(.dark)
-                        }
+                            .colorScheme(.light)
+                        } // dormi às
                         .frame(width: 100)
                         // .border(Color.green)
-                        //
                         VStack(alignment: .center) {
                             Text("Acordei às:")
                                 .font(.system(size: 17, design: .rounded))
                                 .bold()
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $wokeUp,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
                             .padding(.trailing, 16)
-                            .colorScheme(.dark)
-                        }
+                            .colorScheme(.light)
+                        } // acordei às
                         .frame(width: 100)
                         // .border(Color.green)
-                        //
                     } // DATA E HORAS
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("fundoText"))
+                            .fill(Color("card"))
                             .frame(width: 360, height: 45)
                         //
                         TextField("Escolha um título para o seu sonho",
                                   text: $title,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
+                            .foregroundStyle(.secondary)
                             .padding(8)
                             .frame(width: 350, height: 40, alignment: .leading)
                     } // TÍTULO
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("fundoText"))
+                            .fill(Color("card"))
                             .frame(width: 360, height: 205)
                         //
                         TextField("O que aconteceu? Descreva como foi...",
                                   text: $desc,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
+                            .foregroundStyle(.secondary)
                             .padding(8)
                             .frame(width: 350, height: 200, alignment: .topLeading)
                     } // DESCRIÇÃO
                     //
                     Text("Qual tipo de sonho você teve hoje?")
                         .font(.system(size: 17, design: .rounded))
-                        .foregroundStyle(Color("fundoText"))
+                        .foregroundStyle(Color("AccentColor"))
                         .bold()
                     VStack(spacing: 50) {
                         HStack(spacing: 24) {
@@ -126,13 +126,13 @@ struct AddDreamView: View {
                                             .frame(width: 100, height: 32)
                                             .background {
                                                 RoundedRectangle(cornerRadius: 8)
-                                                    .fill(status == selectedStatus ? .purple : .white)
+                                                    .fill(status == selectedStatus ? Color("AccentColor") : Color("card"))
                                             }
-                                            .foregroundStyle(status == selectedStatus ? .white : .black)
+                                            .foregroundStyle(status == selectedStatus ? Color("card") : Color("AccentColor"))
                                             .font(
                                                 .system(
                                                     size: 17,
-                                                    weight: status == selectedStatus ? .bold : .regular,
+                                                    weight: status == selectedStatus ? .semibold : .medium,
                                                     design: .rounded
                                                 )
                                             )
@@ -144,9 +144,9 @@ struct AddDreamView: View {
                                 .frame(width: 160, height: 152)
                                 .background {
                                     RoundedRectangle(cornerRadius: 8)
-                                        .fill(.purple)
+                                        .fill(Color("card"))
                                 }
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Color("AccentColor"))
                         } // STATUS SONHO
 //                        HStack(spacing: 8) {
 //                            Button("Desenhar") {
@@ -171,6 +171,7 @@ struct AddDreamView: View {
 //                        } // DESENHAR + GRAVAR - BOTÕES
                     }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Cancelar") {
@@ -181,9 +182,17 @@ struct AddDreamView: View {
                         Button("Criar") {
                             addDream()
                         }
+                        .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Não foi possível registrar sonho."),
+                                    message: Text("Preencha com um título " +
+                                                    "e uma descrição.")
+                                )
+                            }
                     }
                 }  // CANCELAR E SALVAR SONHO
             }
+            .background(Color("fundo"))
         }
     }
     //
@@ -194,11 +203,14 @@ struct AddDreamView: View {
             dreamDate: dreamDate,
             title: title,
             desc: desc,
-            status: selectedStatus
-            // draw: draw
-        )
-        context.insert(newDream) // adiciona o sonho no data context
-        dismiss()
+            status: selectedStatus)
+        //
+        if title.isEmpty || desc.isEmpty {
+            showAlert = true
+        } else {
+            context.insert(newDream) // adiciona o sonho no data context
+            dismiss()
+        }
     }
 }
 #Preview {
