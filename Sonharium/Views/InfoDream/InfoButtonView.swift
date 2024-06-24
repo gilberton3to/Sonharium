@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//
+
 struct InfoButtonView: View {
     let label: String
     let action: () -> Void
@@ -20,11 +20,10 @@ struct InfoButtonView: View {
         .foregroundColor(.white)
         .overlay(
                     RoundedRectangle(cornerRadius: 40)
-                        .stroke(Color.black, lineWidth: 4)
+                        .stroke(Color.standard, lineWidth: 4)
                 )
     }
 }
-//
 #Preview {
     InfoButtonView(label: "Informações", action: {})
 }
