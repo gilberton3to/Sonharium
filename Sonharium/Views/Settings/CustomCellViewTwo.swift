@@ -57,7 +57,7 @@ struct ContentViewTwo: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Sobre")
-                .navigationBarBackButtonHidden()
+//                .navigationBarBackButtonHidden()
                 .scrollContentBackground(.hidden)
                 .background(.fundo)
                 .scrollDisabled(true)

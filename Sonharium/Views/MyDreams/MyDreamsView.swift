@@ -17,32 +17,32 @@ struct MyDreamsView: View {
     @State private var dreamSelected: Dream?
     //
     var body: some View {
-        NavigationStack {
-            VStack {
-                if dreams.isEmpty {
-                    NoDrems()
-                } else {
-                    List {
-                        ForEach(filterDreams) { dream in
-                            Button {
-                               dreamSelected = dream
-                            } label: {
-                                MyDreamCardView(dream: dream)
-                            }
+        VStack {
+            if dreams.isEmpty {
+                NoDrems()
+            } else {
+                List {
+                    ForEach(filterDreams) { dream in
+                        Button {
+                           dreamSelected = dream
+                        } label: {
+                            MyDreamCardView(dream: dream)
                         }
+                        .listRowBackground(Color.clear)
                     }
-                    .listRowSeparator(.hidden)
-                    .listStyle(.plain)
                 }
+                .listRowSeparator(.hidden)
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .background(Color.fundo)
             }
-            .background(Color("fundo"))
-            .searchable(text: $searchText,
-                        placement: .navigationBarDrawer(displayMode: .always),
-                        prompt: "Pesquisar sonho")
-            .sheet(item: $dreamSelected) { dream in
-                EditDreamView(dream: dream)
-                    .presentationDetents([.large])
-            }
+        }
+        .searchable(text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Pesquisar sonho")
+        .sheet(item: $dreamSelected) { dream in
+            EditDreamView(dream: dream)
+                .presentationDetents([.large])
         }
         .navigationTitle("Meus Sonhos")
     }

@@ -18,7 +18,7 @@ struct DreamCardView: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(Color("AccentColor"))
                 .frame(width: 316, height: 441)
-                .border(Color.pink)
+//                .border(Color.pink)
             //
             VStack {
                 ZStack {

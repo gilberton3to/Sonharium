@@ -211,25 +211,25 @@ struct InfoDreamView: View {
             .onAppear {
                 selectedModel = array.first
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    HStack {
-                        NavigationLink(destination: MyDreamsView()) {
-                            InfoButtonView(label: "Sonhos", action: {})
-                        }
-                            .padding(5)
-                        InfoButtonView(label: "Informações", action: {})
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack {
-                        Image(systemName: "magnifyingglass").font(.system(size: 20, weight: .semibold, design: .rounded))
-                            .foregroundColor(.standard)
-                        Image(systemName: "gear").font(.system(size: 20, weight: .semibold, design: .rounded))
-                            .foregroundColor(.standard)
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    HStack {
+//                        NavigationLink(destination: MyDreamsView()) {
+//                            InfoButtonView(label: "Sonhos", action: {})
+//                        }
+//                            .padding(5)
+//                        InfoButtonView(label: "Informações", action: {})
+//                    }
+//                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    HStack {
+//                        Image(systemName: "magnifyingglass").font(.system(size: 20, weight: .semibold, design: .rounded))
+//                            .foregroundColor(.standard)
+//                        Image(systemName: "gear").font(.system(size: 20, weight: .semibold, design: .rounded))
+//                            .foregroundColor(.standard)
+//                    }
+//                }
+            // }
         }
     }
 }
