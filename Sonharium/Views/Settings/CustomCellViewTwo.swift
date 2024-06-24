@@ -39,11 +39,11 @@ struct ContentViewTwo: View {
                     Section(header: Text("Desenvolvedores").foregroundColor(.standard)) {
                             CustomCellViewTwo(profileImage: "gil", name: "Gilberto Neto")
                                 .frame(height: 30)
-                            AboutView(profileImage: "marcelle", name: "Marcelle Queiroz")
+                            CustomCellViewTwo(profileImage: "marcelle", name: "Marcelle Queiroz")
                                 .frame(height: 30)
-                            AboutView(profileImage: "melissa", name: "Melissa Guedes")
+                        CustomCellViewTwo(profileImage: "melissa", name: "Melissa Guedes")
                                 .frame(height: 30)
-                            AboutView(profileImage: "rafi", name: "Rafí Teixeira")
+                        CustomCellViewTwo(profileImage: "rafi", name: "Rafí Teixeira")
                                 .frame(height: 30)
                         }
                     Section(header: Text("App").foregroundColor(.accentColor)) {

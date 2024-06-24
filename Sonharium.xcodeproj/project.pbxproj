@@ -29,8 +29,8 @@
 		BBDD5A2E2C209F1500A5DE9C /* DreamCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */; };
 		BBDD5A302C209F2B00A5DE9C /* AddDreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A2F2C209F2B00A5DE9C /* AddDreamView.swift */; };
 		BBDD5A322C209F4300A5DE9C /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A312C209F4300A5DE9C /* Dream.swift */; };
-		BBDD5A352C20BDB600A5DE9C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A342C20BDB600A5DE9C /* SettingsView.swift */; };
-		BBDD5A372C21F9A300A5DE9C /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A362C21F9A300A5DE9C /* AboutView.swift */; };
+		BBDD5A352C20BDB600A5DE9C /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A342C20BDB600A5DE9C /* CustomCellView.swift */; };
+		BBDD5A372C21F9A300A5DE9C /* CustomCellViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A362C21F9A300A5DE9C /* CustomCellViewTwo.swift */; };
 		BBDD5A392C2210AD00A5DE9C /* FaceIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A382C2210AD00A5DE9C /* FaceIdView.swift */; };
 		BBDD5A3B2C2314A300A5DE9C /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A3A2C2314A300A5DE9C /* AuthenticationManager.swift */; };
 		BBDD5A3D2C235A4200A5DE9C /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */; };
@@ -76,8 +76,8 @@
 		BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamCardView.swift; sourceTree = "<group>"; };
 		BBDD5A2F2C209F2B00A5DE9C /* AddDreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDreamView.swift; sourceTree = "<group>"; };
 		BBDD5A312C209F4300A5DE9C /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
-		BBDD5A342C20BDB600A5DE9C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		BBDD5A362C21F9A300A5DE9C /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		BBDD5A342C20BDB600A5DE9C /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
+		BBDD5A362C21F9A300A5DE9C /* CustomCellViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewTwo.swift; sourceTree = "<group>"; };
 		BBDD5A382C2210AD00A5DE9C /* FaceIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdView.swift; sourceTree = "<group>"; };
 		BBDD5A3A2C2314A300A5DE9C /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -261,8 +261,8 @@
 		BBDD5A1E2C209E6700A5DE9C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				BBDD5A342C20BDB600A5DE9C /* SettingsView.swift */,
-				BBDD5A362C21F9A300A5DE9C /* AboutView.swift */,
+				BBDD5A342C20BDB600A5DE9C /* CustomCellView.swift */,
+				BBDD5A362C21F9A300A5DE9C /* CustomCellViewTwo.swift */,
 				BBDD5A3A2C2314A300A5DE9C /* AuthenticationManager.swift */,
 			);
 			path = Settings;
@@ -433,7 +433,7 @@
 				BBDD5A242C209EC500A5DE9C /* EditDreamView.swift in Sources */,
 				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
 				30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */,
-				BBDD5A372C21F9A300A5DE9C /* AboutView.swift in Sources */,
+				BBDD5A372C21F9A300A5DE9C /* CustomCellViewTwo.swift in Sources */,
 				BBDD5A222C209EB300A5DE9C /* InfoDreamView.swift in Sources */,
 				BBDD5A3B2C2314A300A5DE9C /* AuthenticationManager.swift in Sources */,
 				BBDD5A2C2C209F0800A5DE9C /* CalendarView.swift in Sources */,

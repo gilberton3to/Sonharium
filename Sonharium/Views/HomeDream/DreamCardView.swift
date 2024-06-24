@@ -63,7 +63,6 @@ struct DreamCardView: View {
 }
  #Preview {
      Group {
-         // swiftlint:disable force_try
          let container = try! ModelContainer(for: Dream.self, configurations: .init(isStoredInMemoryOnly: true))
          DreamCardView(
             dream: Dream.init(dreamDate: .now,
