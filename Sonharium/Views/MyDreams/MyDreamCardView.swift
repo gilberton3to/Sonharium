@@ -21,16 +21,18 @@ struct MyDreamCardView: View {
             HStack(alignment: .top, spacing: 0) {
                 VStack(alignment: .center, spacing: 8) {
                     VStack {
+                        //
                         Text(dream.dreamDate.formatted(.dateTime.day()))
                             .font(.system(size: 35, design: .rounded))
                             .foregroundStyle(Color.white)
-                            .bold()
+                            .fontWeight(.heavy)
                             .padding(.top, 16)
                             // .border(Color.green)
+                        //
                         Text(dream.dreamDate.formatted(.dateTime.month(.abbreviated)))
                             .font(.system(size: 17, design: .rounded))
                             .foregroundStyle(Color.white)
-                            .bold()
+                            .fontWeight(.bold)
                             // .border(Color.green)
                     }  // DATA E MÊS
 //                    Image("mascote")
@@ -42,12 +44,13 @@ struct MyDreamCardView: View {
                 .frame(width: 89, alignment: .center)
                 //
                 VStack(alignment: .leading, spacing: 8) {
+                    //
                     Text(dream.title)
                         .font(.system(size: 22, design: .rounded))
                         .foregroundStyle(Color.white)
                         .bold()
-                        .padding(.top, 16)
                         .padding(.trailing, 16)
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
                         // .border(Color.yellow)
                     //
                     Text(dream.desc)
@@ -56,13 +59,12 @@ struct MyDreamCardView: View {
                         .foregroundStyle(Color.white)
                         .padding(.bottom, 16)
                         .padding(.trailing, 16)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
                         // .border(Color.orange)
                 } // TÍTULO + DESCRIÇÃO
                 .padding(8)
             }
         }
-//        .background(Color("fundo"))
         .frame(height: 145) // fixa só a altura do card!
     }
 }

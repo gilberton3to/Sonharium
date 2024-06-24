@@ -16,6 +16,7 @@ struct EditDreamView: View {
     //
     @State private var showAlert = false
     @State private var createDrawDream = false
+    @State private var infoDream = false
     //
     @Bindable var dream: Dream
     //
@@ -36,7 +37,7 @@ struct EditDreamView: View {
                         VStack(alignment: .center) {
                             Text("Sonhei no dia...")
                                 .font(.system(size: 17, design: .rounded))
-                                .bold()
+                                .fontWeight(.semibold)
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.dreamDate,
@@ -49,7 +50,7 @@ struct EditDreamView: View {
                         VStack(alignment: .center) {
                             Text("Dormi às:")
                                 .font(.system(size: 17, design: .rounded))
-                                .bold()
+                                .fontWeight(.semibold)
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.slept,
@@ -62,7 +63,7 @@ struct EditDreamView: View {
                         VStack(alignment: .center) {
                             Text("Acordei às:")
                                 .font(.system(size: 17, design: .rounded))
-                                .bold()
+                                .fontWeight(.semibold)
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.wokeUp,
@@ -83,6 +84,7 @@ struct EditDreamView: View {
                                   text: $dream.title,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
+                            .foregroundStyle(.black)
                             .padding(8)
                             .frame(width: 350, height: 40, alignment: .leading)
                     } // TÍTULO
@@ -96,14 +98,15 @@ struct EditDreamView: View {
                                   text: $dream.desc,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
+                            .foregroundStyle(.black)
                             .padding(8)
                             .frame(width: 350, height: 200, alignment: .topLeading)
                     } // DESCRIÇÃO
                     //
                     Text("Qual tipo de sonho você teve hoje?")
-                        .font(.system(size: 17, design: .rounded))
+                        .font(.system(size: 20, design: .rounded))
                         .foregroundStyle(Color("AccentColor"))
-                        .bold()
+                        .fontWeight(.semibold)
                     //
                     VStack(spacing: 50) {
                         HStack(spacing: 24) {
@@ -150,6 +153,16 @@ struct EditDreamView: View {
 //                            }
 //                            .buttonStyle(.borderedProminent)
 //                        } // DESENHAR + GRAVAR - BOTÕES
+                    }
+                    //
+                    Button("Saiba mais sobre os tipos de sonho") {
+                        infoDream = true
+                    }
+                    .padding()
+                    .buttonStyle(.bordered)
+                    .sheet(isPresented: $infoDream) {
+                        InfoDreamView()
+                            .presentationDetents([.large])
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

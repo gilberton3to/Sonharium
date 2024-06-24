@@ -11,7 +11,7 @@ struct InfoBeneficiosCardView: View {
     var text: String
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 30, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
                 .fill(.fundo)
                 .frame(width: 349, height: 210)
                 .overlay(
