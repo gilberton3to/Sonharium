@@ -62,7 +62,7 @@ struct MyDreamCardView: View {
                 .padding(8)
             }
         }
-        .background(Color("fundo"))
+//        .background(Color("fundo"))
         .frame(height: 145) // fixa só a altura do card!
     }
 }

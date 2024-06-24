@@ -24,11 +24,12 @@ struct SplashScreenView: View {
             }
         } else {
             VStack {
-                Image(systemName: "sparkles")
-                    .font(.system(size: 80))
-                    .foregroundColor(.blue)
+//                Image(systemName: "sparkles")
+//                    .font(.system(size: 80))
+//                    .foregroundColor(.blue)
                 Text("Sonharium")
-                    .foregroundColor(.blue.opacity(0.8))
+                    .foregroundColor(.standard.opacity(0.8))
+                    .font(.system(size: 35))
             }
             .scaleEffect(size)
             .opacity(opacity)

@@ -1,0 +1,15 @@
+{
+  "originHash" : "dbd32556fbc72a6984ebe9b9aac7e4a6fb3df89c21c1e5661e81403b4f902eef",
+  "pins" : [
+    {
+      "identity" : "calendarweek",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/GabrielaBezerra/CalendarWeek",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ac51ac4229c47edf0f20971966f158741f9db099"
+      }
+    }
+  ],
+  "version" : 3
+}
