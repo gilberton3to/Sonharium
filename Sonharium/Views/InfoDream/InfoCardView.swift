@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//
+
 struct InfoCardView: View {
     let label: String
     let color: Color
@@ -16,11 +16,11 @@ struct InfoCardView: View {
                 .fill(color)
                 .frame(width: 110, height: 110)
             Text(label).fontWeight(.heavy)
-                .foregroundStyle(Color.red)
+                .foregroundStyle(.standard)
         }
     }
 }
-//
+
 #Preview {
-    InfoCardView(label: "Lúcido", color: Color.red)
+    InfoCardView(label: "Lúcido", color: .lucido)
 }

@@ -11,12 +11,12 @@ struct InfoBeneficiosCardView: View {
     var text: String
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .fill(.red)
+            RoundedRectangle(cornerRadius: 30, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)
+                .fill(.fundo)
                 .frame(width: 349, height: 210)
                 .overlay(
                     RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color.black, lineWidth: 5))
+                        .stroke(Color.standard, lineWidth: 5))
             Text(text)
                 .fontWeight(.heavy)
                 .padding(.bottom, 90)
@@ -25,7 +25,6 @@ struct InfoBeneficiosCardView: View {
         }
     }
 }
-//
 #Preview {
     InfoBeneficiosCardView(text: "Reduz a ansiedade")
 }
