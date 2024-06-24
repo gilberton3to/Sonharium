@@ -68,12 +68,11 @@ struct MyDreamCardView: View {
 }
  #Preview {
      Group {
-         // swiftlint:disable force_try
          let container = try! ModelContainer(for: Dream.self, configurations: .init(isStoredInMemoryOnly: true))
          MyDreamCardView(
             dream: Dream.init(dreamDate: .now,
                             title: "titulo titulo titulo",
-                            desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
+                              desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
                         ).modelContainer(container)
      }
  }

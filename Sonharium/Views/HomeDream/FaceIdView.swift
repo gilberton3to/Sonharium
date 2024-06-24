@@ -13,16 +13,16 @@ struct FaceIdView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("backgound")
+                Color.fundo
                     .ignoresSafeArea()
                 VStack {
                     Image(systemName: "lock.fill")
                         .resizable()
                         .frame(width: 25, height: 36)
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.standard)
                     Text(authManager.statusMessage)
                         .bold()
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.standard)
                         .padding()
                     ZStack {
                         RoundedRectangle(cornerRadius: 30)

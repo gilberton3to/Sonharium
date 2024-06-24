@@ -18,7 +18,7 @@ struct CustomCellView: View {
             ZStack {
                 //
                 RoundedRectangle(cornerRadius: 6)
-                    .fill(Color("AccentColor"))
+                    .fill(Color.standard)
                     .frame(width: 30, height: 30)
                 //
                 Image(systemName: iconName)
@@ -43,14 +43,15 @@ struct DetailView: View {
 }
 // MUDAR COR DA NAVIGATIONBAR
 func setupNavigationBarAppearance() {
-    UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("AccentColor"))]
-    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("AccentColor"))]
+    UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.standard]
+    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.standard]
 }
 //
 struct ContentView: View {
     //
     @EnvironmentObject var authManager: AuthenticationManager
-    //
+    @AppStorage("isScheduled") var isScheduled = false
+    @AppStorage("notificationTimeString") var notificationTimeString = ""
     init() {
         setupNavigationBarAppearance()
     }
@@ -58,33 +59,76 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Notificações").foregroundColor(Color("AccentColor"))) {
-                    NavigationLink(destination: DetailView(text: "Lembretes")) {
-                        CustomCellView(iconName: "bell.fill", text: "Lembretes")
-                            .frame(height: 30)
+                Section(header: Text("Notificações").foregroundColor(.standard)) {
+                    Toggle(isOn: $isScheduled) {
+                        HStack {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(Color.accentColor)
+                                    .frame(width: 30, height: 30)
+                                Image(systemName: "bell.fill")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 18))
+                            }
+                            Text("Lembrete Diário")
+                        }
+                    }
+                    .tint(.accentColor)
+                    .onChange(of: isScheduled) {
+                        handleIsScheduledChange(isScheduled: isScheduled)
+                    }
+                    if isScheduled {
+                        DatePicker("Horário", selection: Binding(
+                            get: {
+                                // Get the notification time schedule set by user
+                                DateHelper.dateFormatter.date(from: notificationTimeString) ?? Date()
+                            },
+                            set: {
+                                // On value set, change the notification time
+                                notificationTimeString = DateHelper.dateFormatter.string(from: $0)
+                                handleNotificationTimeChange()
+                            }
+                        ), displayedComponents: .hourAndMinute)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        .padding(.leading, 20)
+                        .padding(.trailing, 20)
                     }
                 }
-                //
-                Section(header: Text("Segurança").foregroundColor(Color("AccentColor"))) {
+                Section(header: Text("Segurança").foregroundColor(.accentColor)) {
                     Toggle(isOn: $authManager.isFaceIDEnabled) {
                         CustomCellView(iconName: "lock.fill", text: "Bloqueio com Face ID")
                             .frame(height: 30)
                     }
-                    .tint(Color("AccentColor"))
+                    .tint(.accentColor)
                 }
-                //
-                Section(header: Text("Desenvolvimento").foregroundColor(Color("AccentColor"))) {
-                    NavigationLink(destination: ContentView()) {
+                Section(header: Text("Desenvolvimento").foregroundColor(.standard)) {
+                    NavigationLink(destination: ContentViewTwo()) {
                         CustomCellView(iconName: "info.circle.fill", text: "Sobre")
                             .frame(height: 30)
                     }
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(Color("fundo"))
+            .background(.fundo)
             .navigationTitle("Configurações")
             .scrollDisabled(true)
         }
+    }
+}
+
+private extension ContentView {
+    private func handleIsScheduledChange(isScheduled: Bool) {
+        if isScheduled {
+            NotificationManager.requestNotificationAuthorization()
+            NotificationManager.scheduleNotification(notificationTimeString: notificationTimeString)
+        } else {
+            NotificationManager.cancelNotification()
+        }
+    }
+    private func handleNotificationTimeChange() {
+        NotificationManager.cancelNotification()
+        NotificationManager.requestNotificationAuthorization()
+        NotificationManager.scheduleNotification(notificationTimeString: notificationTimeString)
     }
 }
 

@@ -10,10 +10,13 @@ import SwiftData
 
 struct AddDreamView: View {
     //
+    @ObservedObject var audio: AudioRecorder
+    //
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     //
     @State private var showAlert = false
+    @State private var createDrawDream = false
     //
     @State private var dreamDate = Date()
     @State private var slept = Date()
@@ -21,6 +24,7 @@ struct AddDreamView: View {
     @State private var title = ""
     @State private var desc = ""
     @State private var selectedStatus = Status.normalDream
+    // @State private var lines: [Line] = []
     //
     var closedRange = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
     //
@@ -144,6 +148,27 @@ struct AddDreamView: View {
                                 }
                                 .foregroundStyle(Color("AccentColor"))
                         } // STATUS SONHO
+//                        HStack(spacing: 8) {
+//                            Button("Desenhar") {
+//                                // colocar ação DESENHAR
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                            //
+//                            Button(action: {
+//                                if audio.recording {
+//                                    audio.stopRecording()
+//                                } else {
+//                                    audio.startRecording()
+//                                }
+//                            }, label: {
+//                                Text("Gravar Áudio")
+//                            })
+//                            .buttonStyle(.borderedProminent)
+//                            Text(audio.recording ? "Recording..." : "Click to record")
+//                                .font(.caption)
+//                                .bold()
+//                                .foregroundStyle(audio.recording ? .green : .blue)
+//                        } // DESENHAR + GRAVAR - BOTÕES
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -171,7 +196,9 @@ struct AddDreamView: View {
         }
     }
     //
-    func addDream() {  // função de criar um novo soho
+    @MainActor func addDream() {  // função de criar um novo soho
+        // pega linhas -> draw
+       // let draw = ImageRenderer(content: DrawView(lines: lines)).uiImage?.pngData()
         let newDream = Dream(
             dreamDate: dreamDate,
             title: title,
@@ -187,7 +214,7 @@ struct AddDreamView: View {
     }
 }
 #Preview {
-    AddDreamView()
+    AddDreamView(audio: AudioRecorder())
         .modelContainer(for: Dream.self, inMemory: true)
 }
 //

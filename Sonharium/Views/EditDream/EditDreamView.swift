@@ -15,9 +15,11 @@ struct EditDreamView: View {
     @Environment(\.dismiss) var dismiss
     //
     @State private var showAlert = false
+    @State private var createDrawDream = false
     //
     @Bindable var dream: Dream
     //
+   // @State private var lines: [Line] = []
     var body: some View {
         NavigationStack {
             //
@@ -137,12 +139,17 @@ struct EditDreamView: View {
                                 }
                                 .foregroundStyle(Color("AccentColor"))
                         } // STATUS SONHO
-                        HStack(spacing: 8) {
-                            Button("Gravar áudio") {
-                                // colocar ação GRAVAR ÁUDIO
-                            }
-                            .buttonStyle(.borderedProminent)
-                        } // GRAVAR - BOTÕES
+//                        HStack(spacing: 8) {
+//                            Button("Desenhar") {
+//                                // colocar ação DESENHAR
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                            //
+//                            Button("Gravar áudio") {
+//                                // colocar ação GRAVAR ÁUDIO
+//                            }
+//                            .buttonStyle(.borderedProminent)
+//                        } // DESENHAR + GRAVAR - BOTÕES
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -179,7 +186,10 @@ struct EditDreamView: View {
         }
     }
     //
-    func updateDream() {       // FUNÇÃO SALVAR SONHO
+    @MainActor
+    func updateDream() { // FUNÇÃO SALVAR SONHO
+//        let draw = ImageRenderer(content: DrawView(lines: lines)).uiImage?.pngData()
+//        dream.draw = draw
         try? context.save()
         dismiss()
     }
@@ -193,7 +203,6 @@ struct EditDreamView: View {
 }
 #Preview {
     Group {
-        // swiftlint:disable force_try
         let container = try! ModelContainer(for: Dream.self, configurations: .init(isStoredInMemoryOnly: true))
         EditDreamView(
            dream: Dream.init(dreamDate: .now,

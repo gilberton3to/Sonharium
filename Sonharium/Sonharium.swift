@@ -10,6 +10,7 @@ import SwiftData
 @main
 struct Sonharium: App {
     @StateObject private var authManager = AuthenticationManager()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             SplashScreenView()

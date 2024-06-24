@@ -10,7 +10,12 @@
 		122C5AE72C20B0BB00FC1D02 /* InfoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */; };
 		122C5AE92C20BC1F00FC1D02 /* InfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */; };
 		122C5AEB2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */; };
+		129835472C25AE3300CA8CD9 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129835462C25AE3300CA8CD9 /* DrawView.swift */; };
 		30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCD852C234662009A1D38 /* NoDrems.swift */; };
+		BB16ACAE2C25A18800F17508 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACAD2C25A18800F17508 /* NotificationManager.swift */; };
+		BB16ACB22C25A28800F17508 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB12C25A28800F17508 /* DateHelper.swift */; };
+		BB16ACB42C25A48000F17508 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB32C25A48000F17508 /* AppDelegate.swift */; };
+		BB16ACB82C2730F900F17508 /* TheAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
@@ -45,7 +50,13 @@
 		122C5AE62C20B0BB00FC1D02 /* InfoButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonView.swift; sourceTree = "<group>"; };
 		122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCardView.swift; sourceTree = "<group>"; };
 		122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBeneficiosCardView.swift; sourceTree = "<group>"; };
+		129835462C25AE3300CA8CD9 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		30FDCD852C234662009A1D38 /* NoDrems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDrems.swift; sourceTree = "<group>"; };
+		BB16ACAD2C25A18800F17508 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		BB16ACB12C25A28800F17508 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		BB16ACB32C25A48000F17508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BB16ACB52C25CB4400F17508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheAudioRecorder.swift; sourceTree = "<group>"; };
 		BBDD59E72C209D1600A5DE9C /* Sonharium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonharium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonharium.swift; sourceTree = "<group>"; };
 		BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +108,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB16ACAC2C259B6500F17508 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				BB16ACAD2C25A18800F17508 /* NotificationManager.swift */,
+				BB16ACB12C25A28800F17508 /* DateHelper.swift */,
+				BB16ACB32C25A48000F17508 /* AppDelegate.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		BB16ACB62C2730EB00F17508 /* AudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */,
+			);
+			path = AudioRecorder;
+			sourceTree = "<group>";
+		};
 		BBDD59DE2C209D1600A5DE9C = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +154,7 @@
 				BBDD5A162C209E0A00A5DE9C /* Views */,
 				BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */,
 				BBDD59F02C209D1700A5DE9C /* Sonharium.entitlements */,
+				BB16ACB52C25CB4400F17508 /* Info.plist */,
 				BBDD59F12C209D1700A5DE9C /* Preview Content */,
 			);
 			path = Sonharium;
@@ -166,11 +196,13 @@
 		BBDD5A162C209E0A00A5DE9C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BB16ACB62C2730EB00F17508 /* AudioRecorder */,
 				BBDD5A182C209E2200A5DE9C /* HomeDream */,
 				BBDD5A172C209E1100A5DE9C /* AddDream */,
 				BBDD5A192C209E2C00A5DE9C /* MyDreams */,
 				BBDD5A1A2C209E3900A5DE9C /* EditDream */,
 				BBDD5A1B2C209E4400A5DE9C /* InfoDream */,
+				BB16ACAC2C259B6500F17508 /* Notifications */,
 				BBDD5A1E2C209E6700A5DE9C /* Settings */,
 			);
 			path = Views;
@@ -180,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				BBDD5A2F2C209F2B00A5DE9C /* AddDreamView.swift */,
+				129835462C25AE3300CA8CD9 /* DrawView.swift */,
 			);
 			path = AddDream;
 			sourceTree = "<group>";
@@ -386,10 +419,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBDD5A352C20BDB600A5DE9C /* SettingsView.swift in Sources */,
+				BB16ACB22C25A28800F17508 /* DateHelper.swift in Sources */,
+				BBDD5A352C20BDB600A5DE9C /* CustomCellView.swift in Sources */,
 				BBDD5A392C2210AD00A5DE9C /* FaceIdView.swift in Sources */,
+				129835472C25AE3300CA8CD9 /* DrawView.swift in Sources */,
 				BBDD5A3D2C235A4200A5DE9C /* SplashScreenView.swift in Sources */,
 				BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */,
+				BB16ACAE2C25A18800F17508 /* NotificationManager.swift in Sources */,
+				BB16ACB42C25A48000F17508 /* AppDelegate.swift in Sources */,
 				BBDD5A302C209F2B00A5DE9C /* AddDreamView.swift in Sources */,
 				BBDD5A2E2C209F1500A5DE9C /* DreamCardView.swift in Sources */,
 				122C5AE92C20BC1F00FC1D02 /* InfoCardView.swift in Sources */,
@@ -402,6 +439,7 @@
 				BBDD5A2C2C209F0800A5DE9C /* CalendarView.swift in Sources */,
 				BBDD5A262C209ED900A5DE9C /* MyDreamsView.swift in Sources */,
 				BBDD5A282C209EE600A5DE9C /* MyDreamCardView.swift in Sources */,
+				BB16ACB82C2730F900F17508 /* TheAudioRecorder.swift in Sources */,
 				122C5AEB2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift in Sources */,
 				122C5AE72C20B0BB00FC1D02 /* InfoButtonView.swift in Sources */,
 				BBDD5A322C209F4300A5DE9C /* Dream.swift in Sources */,
@@ -461,6 +499,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -522,6 +561,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -549,12 +589,15 @@
 				CODE_SIGN_ENTITLEMENTS = Sonharium/Sonharium.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Sonharium/Preview Content\"";
-				DEVELOPMENT_TEAM = NNJL9DUU4V;
+				DEVELOPMENT_TEAM = R2RLCGND43;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sonharium/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock the phone";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You need to allow microphone in order to record";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -588,12 +631,15 @@
 				CODE_SIGN_ENTITLEMENTS = Sonharium/Sonharium.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Sonharium/Preview Content\"";
-				DEVELOPMENT_TEAM = NNJL9DUU4V;
+				DEVELOPMENT_TEAM = R2RLCGND43;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sonharium/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock the phone";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You need to allow microphone in order to record";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -626,6 +672,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
@@ -649,6 +696,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
@@ -671,6 +719,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
@@ -693,6 +742,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = A464MN4KY4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;

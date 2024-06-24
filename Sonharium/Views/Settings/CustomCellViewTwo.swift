@@ -36,9 +36,8 @@ struct ContentViewTwo: View {
     //
     var body: some View {
                 List {
-                    //
-                    Section(header: Text("Desenvolvedores").foregroundColor(Color("AccentColor"))) {
-                            AboutView(profileImage: "gil", name: "Gilberto Neto")
+                    Section(header: Text("Desenvolvedores").foregroundColor(.standard)) {
+                            CustomCellViewTwo(profileImage: "gil", name: "Gilberto Neto")
                                 .frame(height: 30)
                             AboutView(profileImage: "marcelle", name: "Marcelle Queiroz")
                                 .frame(height: 30)
@@ -47,21 +46,20 @@ struct ContentViewTwo: View {
                             AboutView(profileImage: "rafi", name: "Rafí Teixeira")
                                 .frame(height: 30)
                         }
-                    //
-//                    Section(header: Text("App").foregroundColor(Color("AccentColor"))) {
-//                        ContentView
-//                    }
-                    //
-//                    Section(header: Text("Mais informações").foregroundColor(Color("AccentColor"))) {
-//                        ContentView(iconName: "at.circle.fill", text: "Site")
-//                            .frame(height: 30)
-//                    }
+                    Section(header: Text("App").foregroundColor(.accentColor)) {
+                                    CustomCellView(iconName: "star.fill", text: "Escreva uma avaliação")
+                                        .frame(height: 30)
+                    }
+                    Section(header: Text("Mais informações").foregroundColor(.accentColor)) {
+                        CustomCellView(iconName: "at.circle.fill", text: "Site")
+                            .frame(height: 30)
+                    }
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Sobre")
                 .navigationBarBackButtonHidden()
                 .scrollContentBackground(.hidden)
-                .background(Color("fundo"))
+                .background(.fundo)
                 .scrollDisabled(true)
     }
 }

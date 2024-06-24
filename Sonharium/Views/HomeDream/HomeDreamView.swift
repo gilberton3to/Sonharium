@@ -60,7 +60,7 @@ struct HomeDreamView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .sheet(isPresented: $createNewDream) {
-                    AddDreamView()
+                    AddDreamView(audio: AudioRecorder())
                         .presentationDetents([.large])
                 } // MODAL CRIAR SONHO
             }
