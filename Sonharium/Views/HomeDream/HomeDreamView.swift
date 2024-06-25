@@ -65,11 +65,11 @@ struct HomeDreamView: View {
                     }
                 }// MODAL CRIAR SONHO
             }
-        }.navigationBarBackButtonHidden()
-        .background(Color.fundo.ignoresSafeArea())
+            .background(Color.fundo.ignoresSafeArea())
+        }
+        .navigationBarBackButtonHidden()
         .onChange(of: dreams, initial: true) { _, newValue in
             viewModel.models = newValue
-        }
     }
 }
 #Preview {
