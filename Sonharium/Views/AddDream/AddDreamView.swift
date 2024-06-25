@@ -36,14 +36,12 @@ struct AddDreamView: View {
                 // FUNDO
                 Image("fundo")
                     .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea(.all)
                 //
                 VStack(alignment: .center, spacing: 16) {
                     HStack(spacing: 8) {
                         //
                         VStack(alignment: .center) {
-                            Text("Sonhei no dia...")
+                            Text("Sonhei no dia:  ")
                                 .font(.system(size: 17, design: .rounded))
                                 .fontWeight(.semibold)
                                 .foregroundStyle(Color("AccentColor"))
@@ -83,12 +81,18 @@ struct AddDreamView: View {
                         // .border(Color.green)
                     } // DATA E HORAS
                     //
+                    Text("Escolha um título para o seu sonho:")
+                        .font(.system(size: 17, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color("AccentColor"))
+                        .padding(.trailing, 63)
+                        .padding(.bottom, -7)
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
                             .fill(Color("card"))
                             .frame(width: 360, height: 45)
                         //
-                        TextField("Escolha um título para o seu sonho",
+                        TextField("Título",
                                   text: $title,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
@@ -97,12 +101,18 @@ struct AddDreamView: View {
                             .frame(width: 350, height: 40, alignment: .leading)
                     } // TÍTULO
                     //
+                    Text("O que aconteceu? Descreva como foi...")
+                        .font(.system(size: 17, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color("AccentColor"))
+                        .padding(.trailing, 36)
+                        .padding(.bottom, -7)
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
                             .fill(Color("card"))
                             .frame(width: 360, height: 205)
                         //
-                        TextField("O que aconteceu? Descreva como foi...",
+                        TextField("Descrição",
                                   text: $desc,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
@@ -185,6 +195,8 @@ struct AddDreamView: View {
                 }
                 .padding(.top, 16)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Novo sonho")
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Cancelar") {
@@ -229,6 +241,7 @@ struct AddDreamView: View {
 #Preview {
     AddDreamView(audio: AudioRecorder())
         .modelContainer(for: Dream.self, inMemory: true)
+        .scrollDismissesKeyboard(.automatic)
 }
 //
 //    func addDream() {  // CRIA O SONHO

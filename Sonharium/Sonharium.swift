@@ -15,6 +15,7 @@ struct Sonharium: App {
         WindowGroup {
             SplashScreenView()
                 .environmentObject(authManager)
+                .preferredColorScheme(.light)
         }
         .modelContainer(for: Dream.self)
     }

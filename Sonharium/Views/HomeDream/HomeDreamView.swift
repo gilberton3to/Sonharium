@@ -72,7 +72,7 @@ struct HomeDreamView: View {
                     }
                 }
             }
-        }
+        }.navigationBarBackButtonHidden()
     }
 }
 #Preview {
