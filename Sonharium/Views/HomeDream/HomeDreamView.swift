@@ -1,5 +1,5 @@
 //
-//  AddDreamView.swift
+//  HomeDreamView.swift
 //
 //  Created by Marcelle Ribeiro Queiroz on 10/06/24.
 //
@@ -70,6 +70,7 @@ struct HomeDreamView: View {
         .navigationBarBackButtonHidden()
         .onChange(of: dreams, initial: true) { _, newValue in
             viewModel.models = newValue
+        }
     }
 }
 #Preview {
