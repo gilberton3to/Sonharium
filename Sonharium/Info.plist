@@ -2,11 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict/>
-    </array>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Este aplicativo precisa acessar o microfone para gravar áudios dos seus sonhos.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict/>
+	</array>
 </dict>
 </plist>
