@@ -18,6 +18,8 @@
 		BB16ACB22C25A28800F17508 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB12C25A28800F17508 /* DateHelper.swift */; };
 		BB16ACB42C25A48000F17508 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB32C25A48000F17508 /* AppDelegate.swift */; };
 		BB16ACB82C2730F900F17508 /* TheAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */; };
+		BB47DBAB2C2AE78A003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAA2C2AE78A003E9003 /* CalendarWeek */; };
+		BB47DBAD2C2AE7A7003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAC2C2AE7A7003E9003 /* CalendarWeek */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
@@ -97,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB47DBAB2C2AE78A003E9003 /* CalendarWeek in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB47DBAD2C2AE7A7003E9003 /* CalendarWeek in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +320,9 @@
 				BBDD59FA2C209D1700A5DE9C /* PBXTargetDependency */,
 			);
 			name = SonhariumTests;
+			packageProductDependencies = (
+				BB47DBAA2C2AE78A003E9003 /* CalendarWeek */,
+			);
 			productName = SonhariumTests;
 			productReference = BBDD59F82C209D1700A5DE9C /* SonhariumTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -332,6 +339,9 @@
 			dependencies = (
 			);
 			name = SonhariumUITests;
+			packageProductDependencies = (
+				BB47DBAC2C2AE7A7003E9003 /* CalendarWeek */,
+			);
 			productName = SonhariumUITests;
 			productReference = BBDD5A022C209D1700A5DE9C /* SonhariumUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -833,6 +843,14 @@
 		12D0AB7F2C29A141006A5547 /* CalendarWeek */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12D0AB7D2C29A0F1006A5547 /* XCRemoteSwiftPackageReference "CalendarWeek" */;
+			productName = CalendarWeek;
+		};
+		BB47DBAA2C2AE78A003E9003 /* CalendarWeek */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CalendarWeek;
+		};
+		BB47DBAC2C2AE7A7003E9003 /* CalendarWeek */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = CalendarWeek;
 		};
 /* End XCSwiftPackageProductDependency section */

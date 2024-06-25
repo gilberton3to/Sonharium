@@ -40,7 +40,6 @@ struct FaceIdView: View {
                             }
                         }
                     }
-                    .padding(24)
                 }
                 .navigationDestination(isPresented: $authManager.isUnlocked) {
                     HomeDreamView()

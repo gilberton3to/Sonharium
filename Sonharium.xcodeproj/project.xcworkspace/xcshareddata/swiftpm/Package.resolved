@@ -1,5 +1,5 @@
 {
-  "originHash" : "9869613ee4dc86c6d0994c9a1d557e216cdbfe10a28ee06668737a19858ccfc8",
+  "originHash" : "dbd32556fbc72a6984ebe9b9aac7e4a6fb3df89c21c1e5661e81403b4f902eef",
   "pins" : [
     {
       "identity" : "calendarweek",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/GabrielaBezerra/CalendarWeek",
       "state" : {
         "branch" : "main",
-        "revision" : "ac51ac4229c47edf0f20971966f158741f9db099"
+        "revision" : "f2b1e8d510ab507decb68494e9965bb636de5794"
       }
     }
   ],
