@@ -54,13 +54,13 @@ enum Status: Int, Codable, Identifiable, CaseIterable {
     var iconName: String { // COLOCAR AS IMAGENS DO MASCOTE PARA CADA TIPO DE SONHO
         switch self {
         case .normalDream:          // HABITUAL
-            "cloud"
+            "mascoteHabitual"
         case .lucidDream:           // LÚCIDO
-            "brain.head.profile"
+            "mascoteLucido"
         case .dayDream:             // VÍVIDO
-            "sun.max"
+            "mascoteVivido"
         case .nightmare:            // PESADELO
-            "heart.slash"
+            "mascotePesadelo"
         }
     }
 }

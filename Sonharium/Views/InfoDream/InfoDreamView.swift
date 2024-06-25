@@ -56,37 +56,37 @@ struct InfoDreamView: View {
     var array: [Test] = [
         Test(
             content: "O que é ter um sonho Lúcido?",
-            color: .lucido,
+            color: .white,
             label: "Lúcido",
             desc: "Os sonhos lúcidos acontecem \n quando permanecemos conscientes \n enquanto dormimos. Ou seja, você \n sabe que está dormindo durante o sonho. Eles tipicamente ocorrem \n durante o sono REM, um estágio mais pesado de sono.",
             tips: "Reduz a ansiedade",
             tips2: "Traz reflexões",
             background: .fundo,
-            fontColor: .standard,
+            fontColor: .accentColor,
             strokeColor: .standard,
-            cardColor: .vivido,
-            fontCardColor: .white,
-            image: "mascoteSemFundo",
+            cardColor: .white,
+            fontCardColor: .accent,
+            image: "mascoteLucido",
             imageCard: "mascoteSemFundo"
         ),
         Test(
             content: "O que é ter um sonho Vívido?",
-            color: .vivido,
+            color: .white,
             label: "Vívido",
             desc: "O sonho vivido é uma experiência que\n ocorre durante o sono, na qual a pessoa\n tem a sensação de estar vivenciando uma situação real. Durante esse tipo de sonho, os sentidos e emoções são intensos, fazendo com que a pessoa sinta, veja, ouça e até mesmo cheire coisas que não estão presentes no ambiente físico.",
             tips: "Resolução de problemas",
             tips2: "Melhora da memória",
             background: .fundo,
-            fontColor: .standard,
+            fontColor: .accentColor,
             strokeColor: .standard,
-            cardColor: .vivido,
-            fontCardColor: .white,
-            image: "mascoteSemFundo",
+            cardColor: .white,
+            fontCardColor: .accentColor,
+            image: "mascoteVivido",
             imageCard: "mascoteSemFundo"
         ),
         Test(
             content: "O que é ter um Pesadelo?",
-            color: .pesadelo,
+            color: .white,
             label: "Pesadelo",
             desc: "Os pesadelos podem ser definidos como versões muito intensas de um sonho ruim. Sim, há uma diferença entre os dois. Um pesadelo é um sonho vívido com uma narrativa que pode ser ameaçadora e inquietante. Eles prejudicam o sono de quem passa por eles. Da mesma forma que os sonhos bons, os pesadelos acontecem geralmente durante o sono REM. Eles são intensos o suficiente para acordar uma pessoa. Já os sonhos ruins não têm esse poder.",
             tips: "Perturbação do sono",
@@ -94,14 +94,14 @@ struct InfoDreamView: View {
             background: .fundo,
             fontColor: .standard,
             strokeColor: .standard,
-            cardColor: .vivido,
-            fontCardColor: .white,
-            image: "mascoteSemFundo",
+            cardColor: .white,
+            fontCardColor: .accentColor,
+            image: "mascotePesadelo",
             imageCard: "mascoteSemFundo"
         ),
         Test(
             content: "O que é ter um sonho Habitual?",
-            color: .habitual,
+            color: .white,
             label: "Habitual",
             desc: "Os sonhos recorrentes são produzidos \ncom frequência durante períodos de estresse, embora haja pessoas que o experimentam durante anos ou até por toda a vida. Em alguns casos, eles desaparecem quando o estado de ânimo da pessoa melhora, mas reaparecem quando ele volta a piorar.",
             tips: "Insights pessoais",
@@ -109,9 +109,9 @@ struct InfoDreamView: View {
             background: .fundo,
             fontColor: .standard,
             strokeColor: .standard,
-            cardColor: .vivido,
-            fontCardColor: .white,
-            image: "mascoteSemFundo",
+            cardColor: .white,
+            fontCardColor: .accentColor,
+            image: "mascoteHabitual",
             imageCard: "mascoteSemFundo"
         )
     ]
@@ -135,19 +135,19 @@ struct InfoDreamView: View {
                                     selectedModel = model
                                 } label: {
                                     HStack(spacing: 8) {
-                                        Image(model.image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 80, height: 80)
-                                            .background {
-                                                ZStack {
-                                                    RoundedRectangle(cornerRadius: 11).fill(.white)
-                                                    RoundedRectangle(cornerRadius: 11)
-                                                        .fill(model.color.opacity(20))
-                                                        .stroke(selectedModel == model ? .card : .clear, lineWidth: 5)
-                                                }
+                                        ZStack {
+                                            Image(model.image)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 70, height: 70)
+                                            
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 11)
+                                                    .stroke(selectedModel == model ? .standard : .clear, lineWidth: 5)
+                                                    .stroke(selectedModel == model ? .clear : .standard, lineWidth: 1)
                                             }
-                                            .frame(width: 90, height: 90)
+                                            .frame(width: 88, height: 88)
+                                        }
                                     }
                                 }
                                 .buttonStyle(PlainButtonStyle())

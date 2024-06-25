@@ -143,11 +143,14 @@ struct AddDreamView: View {
                                     }
                                 }
                             }
-                            Image(systemName: selectedStatus.iconName) // MASCOTE
-                                .font(.largeTitle)
+                            Image(selectedStatus.iconName)
+                                .resizable()
+                                .frame(width: 115, height: 100)
+                            // MASCOTE
                                 .frame(width: 160, height: 152)
                                 .background {
                                     RoundedRectangle(cornerRadius: 8)
+                                        .stroke(.accent, lineWidth: 2)
                                         .fill(Color("card"))
                                 }
                                 .foregroundStyle(Color("AccentColor"))

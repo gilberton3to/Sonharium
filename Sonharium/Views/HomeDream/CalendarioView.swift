@@ -9,9 +9,7 @@ extension Dream: CalendarModel {
 }
 
 struct CalendarioView: View {
-    
     @Environment(\.modelContext) var modelContext
-    
     @Query(sort: \Dream.dreamDate, order: .reverse) private var dreams: [Dream]
 
     @State var viewModel = CalendarViewModel<Dream>(models: [])
