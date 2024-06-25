@@ -6,6 +6,7 @@
 
 import SwiftUI
 import SwiftData
+import CalendarWeek
 //
 struct HomeDreamView: View {
     //
@@ -17,62 +18,58 @@ struct HomeDreamView: View {
     @State private var editDream = false
     @State private var dreamSelected: Dream?
     //
+    @State var viewModel = CalendarViewModel<Dream>(models: [])
+    //
     var body: some View {
         NavigationStack {
-            ZStack {
-                //
-                Color.fundo
-                    .ignoresSafeArea(.all)
-                //
-                VStack {
-                    //
-                    ScrollView(.horizontal) {
-                        HStack(spacing: 8) {
-                            ForEach(dreams) { dream in
-                                Button {
-                                    dreamSelected = dream
-                                } label: {
-                                    DreamCardView(dream: dream)
-                                }
-                            }
-                        }
-                        .sheet(item: $dreamSelected) { dream in
-                            EditDreamView(dream: dream)
-                                .presentationDetents([.large])
-                        }
-                    } // CARDS DOS SONHOS
-                    //
-                    Button("Tive um sonho!") {
-                        createNewDream = true
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .sheet(isPresented: $createNewDream) {
-                        AddDreamView(audio: AudioRecorder())
-                            .presentationDetents([.large])
-                    } // MODAL CRIAR SONHO
-                    .toolbar {
-                        HStack(spacing: 16) {
-                            //
-                            NavigationLink(destination: MyDreamsView()) {
-                                Image(systemName: "magnifyingglass")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .foregroundColor(.standard)
-                                    .fontWeight(.bold)
-                            } // PESQUISA
-                            //
-                            NavigationLink(destination: ContentView()) {
-                                Image(systemName: "gearshape")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .foregroundColor(.standard)
-                                    .fontWeight(.bold)
-                            } // CONFIGURAÇÕES
-                        }
-                    }
+            VStack {
+                // CALENDÁRIO
+                CalendarView(
+                    contentMargins: 50.0,
+                    weekDaySpacing: 20
+                ) { day in
+                    HeaderView(selectedDay: day)
+                } weekDayView: { day in
+                    DayComponentView(day: day)
+                } weekBackground: {
+                    RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.9))
+                } dayContentView: { dream in
+                    DreamCardView(dream: dream)
+                } dayEmptyStateView: {
+                    DreamCardView(dream: nil)
                 }
+                .environment(viewModel)
+
+                Button("Tive um sonho!") {
+                    createNewDream = true
+                }
+                .buttonStyle(.borderedProminent)
+                .sheet(isPresented: $createNewDream) {
+                    AddDreamView(audio: AudioRecorder())
+                        .presentationDetents([.large])
+                }
+                .toolbar {
+                    HStack(spacing: 16) {
+                        NavigationLink(destination: MyDreamsView()) {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.standard)
+                        } // PESQUISA
+                        NavigationLink(destination: ContentView()) {
+                            Image(systemName: "gearshape")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.standard)
+                        } // CONFIGURAÇÕES
+                    }
+                }// MODAL CRIAR SONHO
             }
         }.navigationBarBackButtonHidden()
+        .background(Color.fundo.ignoresSafeArea())
+        .onChange(of: dreams, initial: true) { _, newValue in
+            viewModel.models = newValue
+        }
     }
 }
 #Preview {

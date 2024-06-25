@@ -1,9 +1,3 @@
-//
-//  AddDream.swift
-//
-//  Created by Marcelle Ribeiro Queiroz on 11/06/24.
-//
-
 import Foundation
 import SwiftUI
 import SwiftData
@@ -16,8 +10,7 @@ struct AddDreamView: View {
     @Environment(\.dismiss) var dismiss
     //
     @State private var showAlert = false
-   // @State private var createDrawDream = false
-    @State private var infoDream = false
+    @State private var createDrawDream = false
     //
     @State private var dreamDate = Date()
     @State private var slept = Date()
@@ -43,7 +36,7 @@ struct AddDreamView: View {
                         VStack(alignment: .center) {
                             Text("Sonhei no dia:  ")
                                 .font(.system(size: 17, design: .rounded))
-                                .fontWeight(.semibold)
+                                .bold()
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dreamDate,
@@ -56,7 +49,7 @@ struct AddDreamView: View {
                         VStack(alignment: .center) {
                             Text("Dormi às:")
                                 .font(.system(size: 17, design: .rounded))
-                                .fontWeight(.semibold)
+                                .bold()
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $slept,
@@ -69,7 +62,7 @@ struct AddDreamView: View {
                         VStack(alignment: .center) {
                             Text("Acordei às:")
                                 .font(.system(size: 17, design: .rounded))
-                                .fontWeight(.semibold)
+                                .bold()
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $wokeUp,
@@ -96,7 +89,7 @@ struct AddDreamView: View {
                                   text: $title,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.secondary)
                             .padding(8)
                             .frame(width: 350, height: 40, alignment: .leading)
                     } // TÍTULO
@@ -116,16 +109,15 @@ struct AddDreamView: View {
                                   text: $desc,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.secondary)
                             .padding(8)
                             .frame(width: 350, height: 200, alignment: .topLeading)
                     } // DESCRIÇÃO
                     //
                     Text("Qual tipo de sonho você teve hoje?")
-                        .font(.system(size: 20, design: .rounded))
+                        .font(.system(size: 17, design: .rounded))
                         .foregroundStyle(Color("AccentColor"))
-                        .fontWeight(.semibold)
-                    //
+                        .bold()
                     VStack(spacing: 50) {
                         HStack(spacing: 24) {
                             // TIPOS DE SONHO
@@ -182,18 +174,7 @@ struct AddDreamView: View {
 //                                .foregroundStyle(audio.recording ? .green : .blue)
 //                        } // DESENHAR + GRAVAR - BOTÕES
                     }
-                    //
-                    Button("Saiba mais sobre os tipos de sonho") {
-                        infoDream = true
-                    }
-                    .padding()
-                    .buttonStyle(.bordered)
-                    .sheet(isPresented: $infoDream) {
-                        InfoDreamView()
-                            .presentationDetents([.large])
-                    }
                 }
-                .padding(.top, 16)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Novo sonho")

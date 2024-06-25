@@ -10,7 +10,7 @@ import SwiftData
 
 struct DreamCardView: View {
     //
-    let dream: Dream
+    let dream: Dream?
     //
     var body: some View {
         ZStack {
@@ -33,12 +33,12 @@ struct DreamCardView: View {
                     //
                     VStack(alignment: .center, spacing: -5) {
                         // dia
-                        Text(dream.dreamDate.formatted(.dateTime.day()))
+                        Text((dream?.dreamDate.formatted(.dateTime.day())) ?? "")
                             .font(.system(size: 32, design: .rounded))
                             .foregroundStyle(Color("AccentColor"))
                             .fontWeight(.heavy)
                         // mês
-                        Text(dream.dreamDate.formatted(.dateTime.month()))
+                        Text((dream?.dreamDate.formatted(.dateTime.month())) ?? "")
                             .font(.system(size: 17, design: .rounded))
                             .foregroundStyle(Color("AccentColor"))
                             .fontWeight(.heavy)
@@ -46,14 +46,14 @@ struct DreamCardView: View {
                     .offset(x: -90, y: -40)
                 } // DATA + MASCOTE
                 //
-                Text(dream.title)
+                Text(dream?.title ?? "Ops!")
                     .font(.system(size: 25, design: .rounded))
                     .foregroundStyle(Color("card"))
                     .bold()
                     .frame(width: 255, alignment: .leading)
                     .padding(.leading)
                 //
-                Text(dream.desc)
+                Text(dream?.desc ?? "Não há sonhos cadastrados nesse dia")
                     .lineLimit(6) // número máx de linhas da descrição
                     .font(.system(size: 17, design: .rounded))
                     .fontWeight(.regular)
@@ -62,6 +62,7 @@ struct DreamCardView: View {
                     .padding(.leading)
             }
         }
+        .opacity(dream == nil ? 0.25 : 1)
     }
 }
  #Preview {
