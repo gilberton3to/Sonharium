@@ -5,6 +5,7 @@
 //  Created by Gilberto Neto on 17/06/24.
 //
 import SwiftUI
+//
 class Test: Identifiable, Equatable {
     var image: String
     var background: Color
@@ -50,11 +51,12 @@ class Test: Identifiable, Equatable {
         && lhs.imageCard == lhs.imageCard
     }
 }
+//
 struct InfoDreamView: View {
     var array: [Test] = [
         Test(
-            content: "O que é ter um sonho lúcido?",
-            color: .standard,
+            content: "O que é ter um sonho Lúcido?",
+            color: .lucido,
             label: "Lúcido",
             desc: "Os sonhos lúcidos acontecem \n quando permanecemos conscientes \n enquanto dormimos. Ou seja, você \n sabe que está dormindo durante o sonho. Eles tipicamente ocorrem \n durante o sono REM, um estágio mais pesado de sono.",
             tips: "Reduz a ansiedade",
@@ -64,12 +66,12 @@ struct InfoDreamView: View {
             strokeColor: .standard,
             cardColor: .vivido,
             fontCardColor: .white,
-            image: "mascote",
-            imageCard: "mascote"
+            image: "mascoteSemFundo",
+            imageCard: "mascoteSemFundo"
         ),
         Test(
-            content: "O que é ter um sonho vívido?",
-            color: .standard,
+            content: "O que é ter um sonho Vívido?",
+            color: .vivido,
             label: "Vívido",
             desc: "O sonho vivido é uma experiência que\n ocorre durante o sono, na qual a pessoa\n tem a sensação de estar vivenciando uma situação real. Durante esse tipo de sonho, os sentidos e emoções são intensos, fazendo com que a pessoa sinta, veja, ouça e até mesmo cheire coisas que não estão presentes no ambiente físico.",
             tips: "Resolução de problemas",
@@ -79,12 +81,12 @@ struct InfoDreamView: View {
             strokeColor: .standard,
             cardColor: .vivido,
             fontCardColor: .white,
-            image: "mascote",
-            imageCard: "mascote"
+            image: "mascoteSemFundo",
+            imageCard: "mascoteSemFundo"
         ),
         Test(
-            content: "O que é ter um pesadelo?",
-            color: .standard,
+            content: "O que é ter um Pesadelo?",
+            color: .pesadelo,
             label: "Pesadelo",
             desc: "Os pesadelos podem ser definidos como versões muito intensas de um sonho ruim. Sim, há uma diferença entre os dois. Um pesadelo é um sonho vívido com uma narrativa que pode ser ameaçadora e inquietante. Eles prejudicam o sono de quem passa por eles. Da mesma forma que os sonhos bons, os pesadelos acontecem geralmente durante o sono REM. Eles são intensos o suficiente para acordar uma pessoa. Já os sonhos ruins não têm esse poder.",
             tips: "Perturbação do sono",
@@ -94,12 +96,12 @@ struct InfoDreamView: View {
             strokeColor: .standard,
             cardColor: .vivido,
             fontCardColor: .white,
-            image: "mascote",
-            imageCard: "mascote"
+            image: "mascoteSemFundo",
+            imageCard: "mascoteSemFundo"
         ),
         Test(
-            content: "O que é ter um sonho habitual?",
-            color: .standard,
+            content: "O que é ter um sonho Habitual?",
+            color: .habitual,
             label: "Habitual",
             desc: "Os sonhos recorrentes são produzidos \ncom frequência durante períodos de estresse, embora haja pessoas que o experimentam durante anos ou até por toda a vida. Em alguns casos, eles desaparecem quando o estado de ânimo da pessoa melhora, mas reaparecem quando ele volta a piorar.",
             tips: "Insights pessoais",
@@ -109,127 +111,129 @@ struct InfoDreamView: View {
             strokeColor: .standard,
             cardColor: .vivido,
             fontCardColor: .white,
-            image: "mascote",
-            imageCard: "mascote"
+            image: "mascoteSemFundo",
+            imageCard: "mascoteSemFundo"
         )
     ]
     @State var selectedModel: Test?
     var body: some View {
+        //
         NavigationView {
-            VStack(alignment: .center) {
-                ScrollView(.horizontal) {
-                    VStack {
-                        HStack(spacing: 10) {
-                            ForEach(array) { model in
-                                VStack {
-                                    Button {
-                                        selectedModel = model
-                                    } label: {
-                                        HStack(spacing: 8) {
-                                            Image(model.image)
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 80, height: 80)
-                                                .background {
-                                                    ZStack {
-                                                        RoundedRectangle(cornerRadius: 11).fill(.white)
-                                                        RoundedRectangle(cornerRadius: 11)
-                                                            .fill(model.color.opacity(20))
-                                                            .stroke(selectedModel == model ? .black : .clear, lineWidth: 5)
-                                                    }
+            //
+            ZStack {
+                //
+                Color(.fundo)
+                    .scaledToFill()
+                    .ignoresSafeArea(.all)
+                //
+                VStack(alignment: .center) {
+                    //
+                    HStack(spacing: 4) {
+                        ForEach(array) { model in
+                            VStack {
+                                Button {
+                                    selectedModel = model
+                                } label: {
+                                    HStack(spacing: 8) {
+                                        Image(model.image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 80, height: 80)
+                                            .background {
+                                                ZStack {
+                                                    RoundedRectangle(cornerRadius: 11).fill(.white)
+                                                    RoundedRectangle(cornerRadius: 11)
+                                                        .fill(model.color.opacity(20))
+                                                        .stroke(selectedModel == model ? .card : .clear, lineWidth: 5)
                                                 }
-                                                .frame(width: 90, height: 90)
-                                        }
+                                            }
+                                            .frame(width: 90, height: 90)
                                     }
-                                    .buttonStyle(PlainButtonStyle())
-                                    Text(model.label)
-                                        .foregroundColor(model.strokeColor)
-                                        .font(.system(size: 14, weight: .heavy, design: .rounded))
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                                //
+                                Text(model.label)
+                                    .foregroundColor(model.strokeColor)
+                                    .font(.system(size: 14, weight: .bold, design: .rounded))
+                            }
+                        }
+                        .padding(.vertical)
+                    }
+                    //
+                    ScrollView(.vertical) {
+                        VStack(spacing: 24) {
+                            //
+                            Text(selectedModel?.content ?? "Sem tips")
+                                .fontWeight(.bold)
+                                .frame(width: 342, height: 84)
+                                // .border(Color.black)
+                                .font(.system(size: 35, design: .rounded))
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(selectedModel?.fontColor ?? .black)
+                           //
+                            Text(selectedModel?.desc ?? "Sem tips")
+                                .fontWeight(.medium)
+                                .frame(maxWidth: 320)
+                                // .border(Color.black)
+                                .font(.system(size: 17, design: .rounded))
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(selectedModel?.fontColor ?? .black)
+                            //
+                            VStack(spacing: 16) {
+                                ZStack {
+                                    //
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .fill(selectedModel?.cardColor ?? .black)
+                                        .frame(width: 320, height: 150)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 24)
+                                                .stroke(selectedModel?.strokeColor ?? .black, lineWidth: 5)
+                                        )
+                                    //
+                                    VStack {
+                                        Text(selectedModel?.tips ?? "Sem tips")
+                                            .fontWeight(.bold)
+                                            .padding(.top, 8)
+                                            .font(.system(size: 22, design: .rounded))
+                                            .foregroundColor(selectedModel?.fontCardColor ?? .black)
+                                        //
+                                        Image(selectedModel?.imageCard ?? "")
+                                            .resizable()
+                                            .frame(width: 80, height: 80)
+                                    }
+                                }
+                                //
+                                ZStack {
+                                    //
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .fill(selectedModel?.cardColor ?? .black)
+                                        .frame(width: 320, height: 150)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 24)
+                                                .stroke(selectedModel?.strokeColor ?? .black, lineWidth: 5)
+                                        )
+                                    //
+                                    VStack {
+                                        Text(selectedModel?.tips2 ?? "Sem tips")
+                                            .fontWeight(.bold)
+                                            .padding(.top, 8)
+                                            .font(.system(size: 22, design: .rounded))
+                                            .foregroundColor(selectedModel?.fontCardColor ?? .black)
+                                        //
+                                        Image(selectedModel?.imageCard ?? "")
+                                            .resizable()
+                                            .frame(width: 80, height: 80)
+                                    }
                                 }
                             }
-                            .padding(.vertical)
                         }
                     }
                 }
-                .scrollIndicators(.hidden)
-                .contentMargins(.leading, 10, for: .scrollContent)
-                .contentMargins(.trailing, 10, for: .scrollContent)
-                ScrollView(.vertical) {
-                    VStack {
-                        Text(selectedModel?.content ?? "Sem tips")
-                            .fontWeight(.heavy)
-                            .frame(width: 342, height: 84)
-                            .font(.system(size: 35, design: .rounded))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(selectedModel?.fontColor ?? .black)
-                        Spacer()
-                        Text(selectedModel?.desc ?? "Sem tips")
-                            .fontWeight(.heavy)
-                            .font(.system(size: 18, design: .rounded))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(selectedModel?.fontColor ?? .black)
-                            .padding()
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 30)
-                                .fill(selectedModel?.cardColor ?? .black)
-                                .frame(width: 349, height: 230)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 30)
-                                        .stroke(selectedModel?.strokeColor ?? .black, lineWidth: 5)
-                                )
-                            VStack {
-                                Text(selectedModel?.tips ?? "Sem tips")
-                                    .fontWeight(.bold)
-                                    .padding(.bottom, 8)
-                                    .font(.system(.title, design: .rounded))
-                                    .foregroundColor(selectedModel?.fontCardColor ?? .black)
-                                Image(selectedModel?.imageCard ?? "")
-                            }
-                        }
-                        .padding()
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 30)
-                                .fill(selectedModel?.cardColor ?? .black)
-                                .frame(width: 349, height: 230)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 30)
-                                        .stroke(selectedModel?.strokeColor ?? .black, lineWidth: 5)
-                                )
-                            VStack {
-                                Text(selectedModel?.tips2 ?? "Sem tips")
-                                    .fontWeight(.bold)
-                                    .padding(.bottom, 8)
-                                    .font(.system(.title, design: .rounded))
-                                    .foregroundColor(selectedModel?.fontCardColor ?? .black)
-                                Image(selectedModel?.imageCard ?? "")
-                            }
-                        }
-                    }
-                }
+                .background(selectedModel?.background ?? .white)
+                .onAppear {
+                    selectedModel = array.first
             }
-            .background(selectedModel?.background ?? .white)
-            .onAppear {
-                selectedModel = array.first
             }
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    HStack {
-//                        NavigationLink(destination: MyDreamsView()) {
-//                            InfoButtonView(label: "Sonhos", action: {})
-//                        }
-//                            .padding(5)
-//                        InfoButtonView(label: "Informações", action: {})
-//                    }
-//                }
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    HStack {
-//                        Image(systemName: "magnifyingglass").font(.system(size: 20, weight: .semibold, design: .rounded))
-//                            .foregroundColor(.standard)
-//                        Image(systemName: "gear").font(.system(size: 20, weight: .semibold, design: .rounded))
-//                            .foregroundColor(.standard)
-//                    }
-//                }
-            // }
         }
     }
 }

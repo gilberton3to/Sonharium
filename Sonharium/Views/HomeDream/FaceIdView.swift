@@ -14,20 +14,24 @@ struct FaceIdView: View {
         NavigationStack {
             ZStack {
                 Color.fundo
-                    .ignoresSafeArea()
+                    .ignoresSafeArea(.all)
+                //
                 VStack {
                     Image(systemName: "lock.fill")
                         .resizable()
                         .frame(width: 25, height: 36)
                         .foregroundStyle(Color.standard)
+                    //
                     Text(authManager.statusMessage)
                         .bold()
                         .foregroundStyle(Color.standard)
                         .padding()
+                    //
                     ZStack {
-                        RoundedRectangle(cornerRadius: 30)
+                        RoundedRectangle(cornerRadius: 8)
                             .frame(width: 120, height: 30)
                             .foregroundColor(.white)
+                        //
                         Button("Desbloquear") {
                             if authManager.isFaceIDEnabled {
                                 authManager.authenticate()
@@ -36,6 +40,7 @@ struct FaceIdView: View {
                             }
                         }
                     }
+                    .padding(24)
                 }
                 .navigationDestination(isPresented: $authManager.isUnlocked) {
                     HomeDreamView()

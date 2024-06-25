@@ -32,14 +32,16 @@ struct DreamCardView: View {
                         .frame(width: 140, height: 140)
                     //
                     VStack(alignment: .center, spacing: -5) {
+                        // dia
                         Text(dream.dreamDate.formatted(.dateTime.day()))
                             .font(.system(size: 32, design: .rounded))
                             .foregroundStyle(Color("AccentColor"))
-                            .bold()
+                            .fontWeight(.heavy)
+                        // mês
                         Text(dream.dreamDate.formatted(.dateTime.month()))
                             .font(.system(size: 17, design: .rounded))
                             .foregroundStyle(Color("AccentColor"))
-                            .bold()
+                            .fontWeight(.heavy)
                     }
                     .offset(x: -90, y: -40)
                 } // DATA + MASCOTE
@@ -54,6 +56,7 @@ struct DreamCardView: View {
                 Text(dream.desc)
                     .lineLimit(6) // número máx de linhas da descrição
                     .font(.system(size: 17, design: .rounded))
+                    .fontWeight(.regular)
                     .foregroundStyle(Color("card"))
                     .frame(width: 255, height: 125, alignment: .topLeading)
                     .padding(.leading)
