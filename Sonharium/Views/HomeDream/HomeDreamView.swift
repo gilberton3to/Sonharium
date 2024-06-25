@@ -20,11 +20,17 @@ struct HomeDreamView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                //
                 Color.fundo
-                    .ignoresSafeArea(.all)
-                //
+                    .ignoresSafeArea()
                 VStack {
+                    HStack(spacing: 150) {
+                        //                    NavigationLink(destination: InfoDreamView()) {
+                        //                        Text("Informações")
+                        //                    } // INFORMAÇÕES
+                        //                    .buttonStyle(.borderedProminent)
+                        //
+                    }
+                    // CALENDÁRIO
                     //
                     ScrollView(.horizontal) {
                         HStack(spacing: 8) {
@@ -36,10 +42,6 @@ struct HomeDreamView: View {
                                 }
                             }
                         }
-                        .sheet(item: $dreamSelected) { dream in
-                            EditDreamView(dream: dream)
-                                .presentationDetents([.large])
-                        }
                     } // CARDS DOS SONHOS
                     //
                     Button("Tive um sonho!") {
@@ -49,27 +51,23 @@ struct HomeDreamView: View {
                     .sheet(isPresented: $createNewDream) {
                         AddDreamView(audio: AudioRecorder())
                             .presentationDetents([.large])
-                    } // MODAL CRIAR SONHO
+                    }
                     .toolbar {
                         HStack(spacing: 16) {
-                            //
                             NavigationLink(destination: MyDreamsView()) {
                                 Image(systemName: "magnifyingglass")
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(.standard)
-                                    .fontWeight(.bold)
                             } // PESQUISA
-                            //
                             NavigationLink(destination: ContentView()) {
                                 Image(systemName: "gearshape")
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(.standard)
-                                    .fontWeight(.bold)
                             } // CONFIGURAÇÕES
                         }
-                    }
+                    }// MODAL CRIAR SONHO
                 }
             }
         }
