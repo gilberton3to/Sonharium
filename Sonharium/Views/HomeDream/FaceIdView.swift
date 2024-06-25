@@ -46,10 +46,10 @@ struct FaceIdView: View {
                 }
             }
         }
-        .scrollDisabled(true)
     }
 }
 //
 #Preview {
-    FaceIdView().environmentObject(AuthenticationManager())
+    FaceIdView()
+        .environmentObject(AuthenticationManager())
 }
