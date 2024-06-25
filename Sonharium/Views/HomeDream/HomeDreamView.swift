@@ -65,8 +65,8 @@ struct HomeDreamView: View {
                     }
                 }// MODAL CRIAR SONHO
             }
-            .background(Color.fundo.ignoresSafeArea())
-        }
+        }.navigationBarBackButtonHidden()
+        .background(Color.fundo.ignoresSafeArea())
         .onChange(of: dreams, initial: true) { _, newValue in
             viewModel.models = newValue
         }

@@ -16,6 +16,7 @@ struct Sonharium: App {
 //            CalendarioView()
             SplashScreenView()
                 .environmentObject(authManager)
+                .preferredColorScheme(.light)
         }
         .modelContainer(for: Dream.self)
     }

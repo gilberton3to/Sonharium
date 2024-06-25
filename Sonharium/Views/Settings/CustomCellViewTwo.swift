@@ -39,20 +39,35 @@ struct ContentViewTwo: View {
                     Section(header: Text("Desenvolvedores").foregroundColor(.standard)) {
                             CustomCellViewTwo(profileImage: "gil", name: "Gilberto Neto")
                                 .frame(height: 30)
+                                .onTapGesture {
+                                    openURL(urlString: "https://www.linkedin.com/in/gilberto-neto21/")
+                                }
                             CustomCellViewTwo(profileImage: "marcelle", name: "Marcelle Queiroz")
                                 .frame(height: 30)
-                        CustomCellViewTwo(profileImage: "melissa", name: "Melissa Guedes")
-                                .frame(height: 30)
-                        CustomCellViewTwo(profileImage: "rafi", name: "Rafí Teixeira")
-                                .frame(height: 30)
+                                .onTapGesture {
+                                    openURL(urlString: "https://www.linkedin.com/in/marcellerq/")
+                                }
+                            CustomCellViewTwo(profileImage: "melissa", name: "Melissa Guedes")
+                                    .frame(height: 30)
+                                    .onTapGesture {
+                                        openURL(urlString: "https://www.linkedin.com/in/melissa-guedes-a05560216/")
+                                    }
+                            CustomCellViewTwo(profileImage: "rafi", name: "Rafí Teixeira")
+                                    .frame(height: 30)
+                                    .onTapGesture {
+                                        openURL(urlString: "https://br.linkedin.com/in/rafaelaateixxeira")
+                                    }
                         }
                     Section(header: Text("App").foregroundColor(.accentColor)) {
                                     CustomCellView(iconName: "star.fill", text: "Escreva uma avaliação")
                                         .frame(height: 30)
                     }
                     Section(header: Text("Mais informações").foregroundColor(.accentColor)) {
-                        CustomCellView(iconName: "at.circle.fill", text: "Site")
+                        CustomCellView(iconName: "globe", text: "Site")
                             .frame(height: 30)
+                            .onTapGesture {
+                                openURL(urlString: "https://readymag.website/u4147325997/sonharium/")
+                            }
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
@@ -64,6 +79,13 @@ struct ContentViewTwo: View {
     }
 }
 
+func openURL(urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
+    }
+
 #Preview {
-    ContentViewTwo().environmentObject(AuthenticationManager())
+    ContentViewTwo()
+        .environmentObject(AuthenticationManager())
 }
