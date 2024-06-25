@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,7 @@
 		122C5AE92C20BC1F00FC1D02 /* InfoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AE82C20BC1F00FC1D02 /* InfoCardView.swift */; };
 		122C5AEB2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122C5AEA2C20C00A00FC1D02 /* InfoBeneficiosCardView.swift */; };
 		129835472C25AE3300CA8CD9 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129835462C25AE3300CA8CD9 /* DrawView.swift */; };
-		12D0AB802C29A141006A5547 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = 12D0AB7F2C29A141006A5547 /* CalendarWeek */; };
+		12C280682C2B0CB80027596D /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = 12C280672C2B0CB80027596D /* CalendarWeek */; };
 		12D0AB862C29A4BC006A5547 /* CalendarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0AB852C29A4BC006A5547 /* CalendarioView.swift */; };
 		30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCD852C234662009A1D38 /* NoDrems.swift */; };
 		BB16ACAE2C25A18800F17508 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACAD2C25A18800F17508 /* NotificationManager.swift */; };
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D0AB802C29A141006A5547 /* CalendarWeek in Frameworks */,
+				12C280682C2B0CB80027596D /* CalendarWeek in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +300,7 @@
 			);
 			name = Sonharium;
 			packageProductDependencies = (
-				12D0AB7F2C29A141006A5547 /* CalendarWeek */,
+				12C280672C2B0CB80027596D /* CalendarWeek */,
 			);
 			productName = Sonharium;
 			productReference = BBDD59E72C209D1600A5DE9C /* Sonharium.app */;
@@ -379,7 +379,7 @@
 			);
 			mainGroup = BBDD59DE2C209D1600A5DE9C;
 			packageReferences = (
-				12D0AB7D2C29A0F1006A5547 /* XCRemoteSwiftPackageReference "CalendarWeek" */,
+				12C280662C2B0C8B0027596D /* XCLocalSwiftPackageReference "CalendarWeek" */,
 			);
 			productRefGroup = BBDD59E82C209D1600A5DE9C /* Products */;
 			projectDirPath = "";
@@ -828,21 +828,17 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		12D0AB7D2C29A0F1006A5547 /* XCRemoteSwiftPackageReference "CalendarWeek" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GabrielaBezerra/CalendarWeek";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		12C280662C2B0C8B0027596D /* XCLocalSwiftPackageReference "CalendarWeek" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = CalendarWeek;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		12D0AB7F2C29A141006A5547 /* CalendarWeek */ = {
+		12C280672C2B0CB80027596D /* CalendarWeek */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 12D0AB7D2C29A0F1006A5547 /* XCRemoteSwiftPackageReference "CalendarWeek" */;
+			package = 12C280662C2B0C8B0027596D /* XCLocalSwiftPackageReference "CalendarWeek" */;
 			productName = CalendarWeek;
 		};
 		BB47DBAA2C2AE78A003E9003 /* CalendarWeek */ = {
