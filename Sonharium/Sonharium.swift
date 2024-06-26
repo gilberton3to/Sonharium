@@ -13,7 +13,6 @@ struct Sonharium: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-//            CalendarioView()
             SplashScreenView()
                 .environmentObject(authManager)
                 .preferredColorScheme(.light)

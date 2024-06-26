@@ -46,7 +46,7 @@ struct MyDreamCardView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     //
                     Text(dream.title)
-                        .font(.system(size: 22,weight: .heavy, design: .rounded))
+                        .font(.system(size: 22, weight: .heavy, design: .rounded))
                         .foregroundStyle(Color.standard)
                         .padding(.trailing, 16)
                         .frame(maxWidth: 280, alignment: .topLeading)
