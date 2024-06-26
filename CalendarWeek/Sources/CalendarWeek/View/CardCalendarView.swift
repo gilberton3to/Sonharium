@@ -20,32 +20,35 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
     var body: some View {
         @Bindable var viewModel = viewModel
         ZStack {
-            ScrollView(.horizontal) {
-                LazyHStack {
-                    ForEach(viewModel.selectedWeek.days, id: \.self) { day in
-                        Group {
-                            if let model = viewModel.model(for: day) {
-                                cardView(model)
-                            } else {
-                                emptyCardView()
+            if !viewModel.models.isEmpty {
+                ScrollView(.horizontal) {
+                    LazyHStack {
+                        ForEach(viewModel.selectedWeek.days, id: \.self) { day in
+                            Group {
+                                if let model = viewModel.model(for: day) {
+                                    cardView(model)
+                                } else {
+                                    emptyCardView()
+                                }
                             }
                         }
                     }
+                    .scrollTargetLayout()
+                    .opacity(viewModel.models.isEmpty ? 0 : 1)
                 }
-                .scrollTargetLayout()
-                .opacity(viewModel.models.isEmpty ? 0 : 1)
-            }
-            .contentMargins(contentMarginsForScrollContent, for: .scrollContent)
-            .scrollTargetBehavior(.viewAligned)
-            .scrollIndicators(.hidden)
-            .scrollPosition(id: $viewModel.selectedDay)
-            .animation(.easeInOut, value: viewModel.selectedDay)
-            // TO_DO: Empty state aqui
-            Text("Adicione novos sonhos!")
+                .contentMargins(contentMarginsForScrollContent, for: .scrollContent)
+                .scrollTargetBehavior(.viewAligned)
+                .scrollIndicators(.hidden)
+                .scrollPosition(id: $viewModel.selectedDay)
+                .animation(.easeInOut, value: viewModel.selectedDay)
+            } else {
+                // TO_DO: Empty state aqui
+                Text("Adicione novos sonhos!")
                     .fontDesign(.rounded)
                     .fontWeight(.medium)
                     .foregroundStyle(Color.accentColor)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
         }
     }
 }
