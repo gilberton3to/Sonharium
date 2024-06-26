@@ -40,15 +40,23 @@ struct HomeDreamView: View {
                         DreamCardView(dream: nil)
                     }
                     .environment(viewModel)
-
-                    Button("Tive um sonho!") {
-                        createNewDream = true
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .sheet(isPresented: $createNewDream) {
-                        AddDreamView(audio: AudioRecorder())
-                            .presentationDetents([.large])
-                    }
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 60)
+                            .foregroundStyle(Color.accentColor)
+                            .frame(width: 190)
+                            .frame(height: 60)
+                        Button("Tive um sonho!") {
+                            createNewDream = true
+                        }
+                        .foregroundStyle(Color.white)
+                        .fontDesign(.rounded)
+                        .fontWeight(.semibold)
+                        .font(.system(size: 23))
+                        .sheet(isPresented: $createNewDream) {
+                            AddDreamView(audio: AudioRecorder())
+                                .presentationDetents([.large])
+                        }
+                    }.padding(.vertical, 30)
                     .toolbar {
                         HStack(spacing: 16) {
                             NavigationLink(destination: MyDreamsView()) {

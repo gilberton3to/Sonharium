@@ -43,12 +43,17 @@ struct MyDreamsView: View {
                             }
                             .listRowBackground(Color.clear)
                         }
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
                     }
                     .listRowSeparator(.hidden)
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                     .background(Color.fundo)
                 }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .background(Color.fundo)
             }
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always),

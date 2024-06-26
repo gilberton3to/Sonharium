@@ -188,6 +188,8 @@ struct EditDreamView: View {
                 }  // DELETAR E SALVAR SONHO
             }
             .background(Color("fundo"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Seu sonho")
         }
     }
     //
