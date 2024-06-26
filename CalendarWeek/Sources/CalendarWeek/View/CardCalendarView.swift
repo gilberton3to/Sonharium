@@ -19,28 +19,31 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
 
     var body: some View {
         @Bindable var viewModel = viewModel
-        ScrollView(.horizontal) {
-            if !viewModel.models.isEmpty {
+        ZStack {
+            ScrollView(.horizontal) {
                 LazyHStack {
                     ForEach(viewModel.selectedWeek.days, id: \.self) { day in
-                        if let model = viewModel.model(for: day) {
-                            cardView(model)
-                        } else {
-                            emptyCardView()
+                        Group {
+                            if let model = viewModel.model(for: day) {
+                                cardView(model)
+                            } else {
+                                emptyCardView()
+                            }
                         }
                     }
                 }
                 .scrollTargetLayout()
-            } else {
-                // TO_DO: Empty state aqui
-                Text("Adicione novos sonhos 😴")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .opacity(viewModel.models.isEmpty ? 0 : 1)
             }
+            .contentMargins(contentMarginsForScrollContent, for: .scrollContent)
+            .scrollTargetBehavior(.viewAligned)
+            .scrollIndicators(.hidden)
+            .scrollPosition(id: $viewModel.selectedDay)
+            .animation(.easeInOut, value: viewModel.selectedDay)
+            // TO_DO: Empty state aqui
+            Text("Adicione novos sonhos 😴")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .opacity(viewModel.models.isEmpty ? 1 : 0)
         }
-        .contentMargins(contentMarginsForScrollContent, for: .scrollContent)
-        .scrollTargetBehavior(.viewAligned)
-        .scrollIndicators(.hidden)
-        .scrollPosition(id: $viewModel.selectedDay)
-        .animation(.easeInOut, value: viewModel.selectedDay)
     }
 }
