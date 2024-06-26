@@ -20,7 +20,6 @@
 		BB16ACB82C2730F900F17508 /* TheAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */; };
 		BB47DBAB2C2AE78A003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAA2C2AE78A003E9003 /* CalendarWeek */; };
 		BB47DBAD2C2AE7A7003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAC2C2AE7A7003E9003 /* CalendarWeek */; };
-		BB4BEAE52C2C82B600044599 /* LilitaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4BEAE42C2C82B600044599 /* LilitaOne-Regular.ttf */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
@@ -62,7 +61,7 @@
 		BB16ACB32C25A48000F17508 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB16ACB52C25CB4400F17508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheAudioRecorder.swift; sourceTree = "<group>"; };
-		BB4BEAE42C2C82B600044599 /* LilitaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LilitaOne-Regular.ttf"; path = "../../../../Downloads/Lilita_One/LilitaOne-Regular.ttf"; sourceTree = "<group>"; };
+		BB4BEAE62C2C8F4800044599 /* LilitaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LilitaOne-Regular.ttf"; sourceTree = "<group>"; };
 		BBDD59E72C209D1600A5DE9C /* Sonharium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonharium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonharium.swift; sourceTree = "<group>"; };
 		BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,7 +170,7 @@
 				BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */,
 				BBDD59F02C209D1700A5DE9C /* Sonharium.entitlements */,
 				BB16ACB52C25CB4400F17508 /* Info.plist */,
-				BB4BEAE42C2C82B600044599 /* LilitaOne-Regular.ttf */,
+				BB4BEAE62C2C8F4800044599 /* LilitaOne-Regular.ttf */,
 				BBDD59F12C209D1700A5DE9C /* Preview Content */,
 			);
 			path = Sonharium;
@@ -401,7 +400,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */,
-				BB4BEAE52C2C82B600044599 /* LilitaOne-Regular.ttf in Resources */,
 				BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
