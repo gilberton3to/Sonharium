@@ -108,7 +108,7 @@ struct EditDreamView: View {
                         .foregroundStyle(Color("AccentColor"))
                         .fontWeight(.semibold)
                     //
-                    VStack(spacing: 50) {
+                    VStack(spacing: 16) {
                         HStack(spacing: 24) {
                             // TIPOS DE SONHO
                             VStack(alignment: .leading) {
@@ -144,30 +144,20 @@ struct EditDreamView: View {
                                         .fill(Color("card"))
                                 }
                         } // STATUS SONHO
-//                        HStack(spacing: 8) {
-//                            Button("Desenhar") {
-//                                // colocar ação DESENHAR
-//                            }
-//                            .buttonStyle(.borderedProminent)
-//                            //
-//                            Button("Gravar áudio") {
-//                                // colocar ação GRAVAR ÁUDIO
-//                            }
-//                            .buttonStyle(.borderedProminent)
-//                        } // DESENHAR + GRAVAR - BOTÕES
-                    }
-                    //
-                    Button("Saiba mais sobre os tipos de sonho") {
-                        infoDream = true
-                    }
-                    .padding()
-                    .buttonStyle(.bordered)
-                    .sheet(isPresented: $infoDream) {
-                        InfoDreamView()
-                            .presentationDetents([.large])
+                        //
+                        Button("Saiba mais sobre os tipos de sonho") {
+                            infoDream = true
+                        }
+                        .padding()
+                        .buttonStyle(.bordered)
+                        .sheet(isPresented: $infoDream) {
+                            InfoDreamView()
+                                .presentationDetents([.large])
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .padding(.top, 16)
                 .toolbar {
                     //
                     ToolbarItem(placement: .topBarLeading) {
