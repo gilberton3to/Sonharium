@@ -36,6 +36,9 @@ struct HomeDreamView: View {
                         RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.9))
                     } dayContentView: { dream in
                         DreamCardView(dream: dream)
+                            .onTapGesture {
+                                dreamSelected = dream
+                            }
                     } dayEmptyStateView: {
                         DreamCardView(dream: nil)
                     }
@@ -67,6 +70,10 @@ struct HomeDreamView: View {
                     }// MODAL CRIAR SONHO
                 }
                 .background(Color.fundo.ignoresSafeArea())
+                .sheet(item: $dreamSelected) { dream in
+                    EditDreamView(dream: dream)
+                        .presentationDetents([.large])
+                }
             }
         }
         .navigationBarBackButtonHidden()
