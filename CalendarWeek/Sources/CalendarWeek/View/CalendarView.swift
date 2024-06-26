@@ -10,9 +10,9 @@ import Foundation
 import SwiftUI
 
 public struct CalendarView<Model: CalendarModel, HeaderContent: View, DayContent: View, WeekBackgroundContent: View, ModelContent: View, EmptyStateModelContent: View>: View {
-
+    
     @Environment(CalendarViewModel<Model>.self) var viewModel: CalendarViewModel<Model>
-
+    
     public let daySpacing: Double
     public let contentMargins: Double
     @ViewBuilder public var headerView: (Day) -> HeaderContent
@@ -20,7 +20,7 @@ public struct CalendarView<Model: CalendarModel, HeaderContent: View, DayContent
     @ViewBuilder public var weekBackground: () -> WeekBackgroundContent
     @ViewBuilder public var dayContentView: (Model) -> ModelContent
     @ViewBuilder public var dayEmptyStateView: () -> EmptyStateModelContent
-
+    
     /// View with calendar, weekly perspective, and internal content linked to each date
     /// - Parameters:
     ///   - models: Array with model linked to each date. Model must conform to `CalendarModel` protocol
@@ -47,7 +47,7 @@ public struct CalendarView<Model: CalendarModel, HeaderContent: View, DayContent
         self.dayEmptyStateView = dayEmptyStateView
         self.contentMargins = contentMargins
     }
-
+    
     public var body: some View {
         VStack {
             WeekCalendarView<Model, HeaderContent, DayContent, WeekBackgroundContent>(
@@ -63,10 +63,10 @@ public struct CalendarView<Model: CalendarModel, HeaderContent: View, DayContent
             )
         }
         .environment(viewModel)
-        .task {
-            try? await Task.sleep(for: .nanoseconds(1))
-            viewModel.selectedDay = Day(from: .now)
-        }
+//        .task {
+//            try? await Task.sleep(for: .nanoseconds(1))
+//            viewModel.selectedDay = Day(from: .now)
+//        }
         .onChange(of: viewModel.selectedWeek) { _, _ in
             viewModel.updateSelectedDayForSelectedWeek()
         }

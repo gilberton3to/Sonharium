@@ -22,62 +22,59 @@ struct HomeDreamView: View {
     //
     var body: some View {
         NavigationStack {
-            VStack {
-                // CALENDÁRIO
-                CalendarView(
-                    contentMargins: 50.0,
-                    weekDaySpacing: 20
-                ) { day in
-                    HeaderView(selectedDay: day)
-                } weekDayView: { day in
-                    DayComponentView(day: day)
-                } weekBackground: {
-                    RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.9))
-                } dayContentView: { dream in
-                    DreamCardView(dream: dream)
-                } dayEmptyStateView: {
-                    DreamCardView(dream: nil)
-                }
-                .environment(viewModel)
-                ZStack {
-                    RoundedRectangle(cornerRadius: 60)
-                        .foregroundStyle(Color.accentColor)
-                        .frame(width: 190)
-                        .frame(height: 60)
+            GeometryReader { proxy in
+                VStack {
+                    // CALENDÁRIO
+                    CalendarView(
+                        contentMargins: proxy.size.width * 0.097,
+                        weekDaySpacing: proxy.size.width * 0.05
+                    ) { day in
+                        HeaderView(selectedDay: day)
+                    } weekDayView: { day in
+                        DayComponentView(day: day)
+                    } weekBackground: {
+                        RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.9))
+                    } dayContentView: { dream in
+                        DreamCardView(dream: dream)
+                    } dayEmptyStateView: {
+                        DreamCardView(dream: nil)
+                    }
+                    .environment(viewModel)
+
                     Button("Tive um sonho!") {
                         createNewDream = true
                     }
-                    .foregroundStyle(Color.white)
-                    .fontDesign(.rounded)
-                    .fontWeight(.semibold)
-                    .font(.system(size: 23))
+                    .buttonStyle(.borderedProminent)
                     .sheet(isPresented: $createNewDream) {
                         AddDreamView(audio: AudioRecorder())
                             .presentationDetents([.large])
                     }
-                }.padding(.vertical, 30)
-                .toolbar {
-                    HStack(spacing: 16) {
-                        NavigationLink(destination: MyDreamsView()) {
-                            Image(systemName: "magnifyingglass")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.standard)
-                        } // PESQUISA
-                        NavigationLink(destination: ContentView()) {
-                            Image(systemName: "gearshape")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.standard)
-                        } // CONFIGURAÇÕES
-                    }
-                }// MODAL CRIAR SONHO
+                    .toolbar {
+                        HStack(spacing: 16) {
+                            NavigationLink(destination: MyDreamsView()) {
+                                Image(systemName: "magnifyingglass")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.standard)
+                            } // PESQUISA
+                            NavigationLink(destination: ContentView()) {
+                                Image(systemName: "gearshape")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.standard)
+                            } // CONFIGURAÇÕES
+                        }
+                    }// MODAL CRIAR SONHO
+                }
+                .background(Color.fundo.ignoresSafeArea())
             }
-            .background(Color.fundo.ignoresSafeArea())
         }
         .navigationBarBackButtonHidden()
         .onChange(of: dreams, initial: true) { _, newValue in
-            viewModel.models = newValue
+            Task {
+                viewModel.models = newValue
+                viewModel.selectedDay = viewModel.models.isEmpty ? Day(from: .now) : viewModel.models.last?.day
+            }
         }
     }
 }

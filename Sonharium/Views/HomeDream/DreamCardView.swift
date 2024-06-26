@@ -16,31 +16,32 @@ struct DreamCardView: View {
         ZStack {
             // FUNDO DO CARD
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(Color("AccentColor"))
+                .fill(Color("card"))
+                .stroke(.accent, lineWidth: 2)
                 .frame(width: 316, height: 441)
-//                .border(Color.pink)
             //
             VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 24, style: .continuous)
                         .fill(Color("card"))
+                        .stroke(.accent, lineWidth: 2)
                         .frame(width: 255, height: 160)
                     //
                     Image("mascote")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 140, height: 140)
+                        .frame(width: 120, height: 120)
                     //
                     VStack(alignment: .center, spacing: -5) {
                         // dia
                         Text((dream?.dreamDate.formatted(.dateTime.day())) ?? "")
                             .font(.system(size: 32, design: .rounded))
-                            .foregroundStyle(Color("AccentColor"))
+                            .foregroundStyle(Color.accentColor)
                             .fontWeight(.heavy)
                         // mês
                         Text((dream?.dreamDate.formatted(.dateTime.month())) ?? "")
                             .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(Color("AccentColor"))
+                            .foregroundStyle(Color.accentColor)
                             .fontWeight(.heavy)
                     }
                     .offset(x: -90, y: -40)
@@ -48,7 +49,7 @@ struct DreamCardView: View {
                 //
                 Text(dream?.title ?? "Ops!")
                     .font(.system(size: 25, design: .rounded))
-                    .foregroundStyle(Color("card"))
+                    .foregroundStyle(Color.accentColor)
                     .bold()
                     .frame(width: 255, alignment: .leading)
                     .padding(.leading)
@@ -57,7 +58,7 @@ struct DreamCardView: View {
                     .lineLimit(6) // número máx de linhas da descrição
                     .font(.system(size: 17, design: .rounded))
                     .fontWeight(.regular)
-                    .foregroundStyle(Color("card"))
+                    .foregroundStyle(Color.accentColor)
                     .frame(width: 255, height: 125, alignment: .topLeading)
                     .padding(.leading)
             }

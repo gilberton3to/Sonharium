@@ -113,7 +113,7 @@ struct DayComponentView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("\(day.number)")
-                .foregroundStyle(viewModel.modelExists(for: day) ? .fundo : .gray)
+                .foregroundStyle(viewModel.modelExists(for: day) ? .accent : .gray)
                 .fontWeight(.semibold)
                 .bold(viewModel.selectedDay == day)
                 .background {
