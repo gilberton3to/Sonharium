@@ -33,7 +33,10 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
                 .scrollTargetLayout()
             } else {
                 // TO_DO: Empty state aqui
-                Text("Adicione novos sonhos 😴")
+                Text("Adicione novos sonhos!")
+                    .fontDesign(.rounded)
+                    .fontWeight(.medium)
+                    .foregroundStyle(Color.accentColor)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
