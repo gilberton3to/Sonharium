@@ -27,7 +27,7 @@ struct DreamCardView: View {
                         .stroke(.accent, lineWidth: 2)
                         .frame(width: 255, height: 160)
                     //
-                    Image("mascote")
+                    Image(dream?.status.iconName ?? "mascote")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 120, height: 120)
