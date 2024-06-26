@@ -7,6 +7,7 @@
 import SwiftUI
 //
 class Test: Identifiable, Equatable {
+    //
     var image: String
     var background: Color
     var content: String
@@ -17,10 +18,9 @@ class Test: Identifiable, Equatable {
     var tips2: String
     var fontColor: Color
     var strokeColor: Color
-    var cardColor: Color
     var fontCardColor: Color
-    var imageCard: String
-    init(content: String, color: Color, label: String, desc: String, tips: String, tips2: String, background: Color, fontColor: Color, strokeColor: Color, cardColor: Color, fontCardColor: Color, image: String, imageCard: String) {
+    //
+    init(content: String, color: Color, label: String, desc: String, tips: String, tips2: String, background: Color, fontColor: Color, strokeColor: Color, fontCardColor: Color, image: String) {
         self.image = image
         self.content = content
         self.color = color
@@ -31,9 +31,7 @@ class Test: Identifiable, Equatable {
         self.background = background
         self.fontColor = fontColor
         self.strokeColor = strokeColor
-        self.cardColor = cardColor
         self.fontCardColor = fontCardColor
-        self.imageCard = imageCard
     }
     static func == (_ lhs: Test, _ rhs: Test) -> Bool {
         lhs.content == rhs.content
@@ -45,10 +43,8 @@ class Test: Identifiable, Equatable {
         && lhs.background == rhs.background
         && lhs.fontColor == rhs.fontColor
         && lhs.strokeColor == rhs.strokeColor
-        && lhs.cardColor == rhs.cardColor
         && lhs.fontCardColor == rhs.fontCardColor
         && lhs.image == rhs.image
-        && lhs.imageCard == lhs.imageCard
     }
 }
 //
@@ -64,10 +60,8 @@ struct InfoDreamView: View {
             background: .fundo,
             fontColor: .accentColor,
             strokeColor: .standard,
-            cardColor: .white,
-            fontCardColor: .accent,
-            image: "mascoteLucido",
-            imageCard: "mascoteSemFundo"
+            fontCardColor: .card,
+            image: "mascoteLucido"
         ),
         Test(
             content: "O que é ter um sonho Vívido?",
@@ -79,10 +73,8 @@ struct InfoDreamView: View {
             background: .fundo,
             fontColor: .accentColor,
             strokeColor: .standard,
-            cardColor: .white,
-            fontCardColor: .accentColor,
-            image: "mascoteVivido",
-            imageCard: "mascoteSemFundo"
+            fontCardColor: .card,
+            image: "mascoteVivido"
         ),
         Test(
             content: "O que é ter um Pesadelo?",
@@ -94,10 +86,8 @@ struct InfoDreamView: View {
             background: .fundo,
             fontColor: .standard,
             strokeColor: .standard,
-            cardColor: .white,
-            fontCardColor: .accentColor,
-            image: "mascotePesadelo",
-            imageCard: "mascoteSemFundo"
+            fontCardColor: .card,
+            image: "mascotePesadelo"
         ),
         Test(
             content: "O que é ter um sonho Habitual?",
@@ -109,10 +99,8 @@ struct InfoDreamView: View {
             background: .fundo,
             fontColor: .standard,
             strokeColor: .standard,
-            cardColor: .white,
-            fontCardColor: .accentColor,
-            image: "mascoteHabitual",
-            imageCard: "mascoteSemFundo"
+            fontCardColor: .card,
+            image: "mascoteHabitual"
         )
     ]
     @State var selectedModel: Test?
@@ -126,9 +114,14 @@ struct InfoDreamView: View {
                     .scaledToFill()
                     .ignoresSafeArea(.all)
                 //
-                VStack(alignment: .center) {
+                VStack(alignment: .center, spacing: 8) {
                     //
-                    HStack(spacing: 4) {
+                    Text("Informações")
+                        .font(.system(size: 25, design: .rounded))
+                        .foregroundStyle(Color("AccentColor"))
+                        .bold()
+                    //
+                    HStack(spacing: 8) {
                         ForEach(array) { model in
                             VStack {
                                 Button {
@@ -178,56 +171,39 @@ struct InfoDreamView: View {
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(selectedModel?.fontColor ?? .black)
                             //
-                            VStack(spacing: 16) {
+                            VStack(alignment: .center, spacing: 24) {
+                                //
                                 ZStack {
+                                    Image("fundoInfo")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .cornerRadius(30)
+                                        .frame(width: 320, height: 95)
                                     //
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .fill(selectedModel?.cardColor ?? .black)
-                                        .frame(width: 320, height: 150)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 24)
-                                                .stroke(selectedModel?.strokeColor ?? .black, lineWidth: 5)
-                                        )
-                                    //
-                                    VStack {
-                                        Text(selectedModel?.tips ?? "Sem tips")
-                                            .fontWeight(.bold)
-                                            .padding(.top, 8)
-                                            .font(.system(size: 22, design: .rounded))
-                                            .foregroundColor(selectedModel?.fontCardColor ?? .black)
-                                        //
-                                        Image(selectedModel?.imageCard ?? "")
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                    }
+                                    Text(selectedModel?.tips ?? "Sem tips")
+                                        .fontWeight(.heavy)
+                                        .font(.system(size: 25, design: .rounded))
+                                        .foregroundColor(selectedModel?.fontCardColor ?? .black)
                                 }
                                 //
                                 ZStack {
+                                    Image("fundoInfo")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .cornerRadius(30)
+                                        .frame(width: 320, height: 95)
                                     //
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .fill(selectedModel?.cardColor ?? .black)
-                                        .frame(width: 320, height: 150)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 24)
-                                                .stroke(selectedModel?.strokeColor ?? .black, lineWidth: 5)
-                                        )
-                                    //
-                                    VStack {
-                                        Text(selectedModel?.tips2 ?? "Sem tips")
-                                            .fontWeight(.bold)
-                                            .padding(.top, 8)
-                                            .font(.system(size: 22, design: .rounded))
-                                            .foregroundColor(selectedModel?.fontCardColor ?? .black)
-                                        //
-                                        Image(selectedModel?.imageCard ?? "")
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                    }
+                                    Text(selectedModel?.tips2 ?? "Sem tips")
+                                        .fontWeight(.heavy)
+                                        .font(.system(size: 25, design: .rounded))
+                                        .foregroundColor(selectedModel?.fontCardColor ?? .black)
                                 }
-                            }
+                            } // TIPS
                         }
                     }
+                    .scrollIndicators(.hidden)
                 }
+                .padding(.top, 16)
                 .background(selectedModel?.background ?? .white)
                 .onAppear {
                     selectedModel = array.first

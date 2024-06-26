@@ -42,13 +42,12 @@ struct MyDreamsView: View {
                                 MyDreamCardView(dream: dream)
                             }
                             .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
                         }
                     }
-                    .listRowSeparator(.hidden)
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                     .background(Color.fundo)
-                }
             }
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .always),

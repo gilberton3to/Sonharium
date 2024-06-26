@@ -118,7 +118,7 @@ struct AddDreamView: View {
                     } // DESCRIÇÃO
                     //
                     Text("Qual tipo de sonho você teve hoje?")
-                        .font(.system(size: 17, design: .rounded))
+                        .font(.system(size: 20, design: .rounded))
                         .foregroundStyle(Color("AccentColor"))
                         .bold()
                     VStack(spacing: 16) {
