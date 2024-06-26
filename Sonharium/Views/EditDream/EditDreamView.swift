@@ -133,14 +133,16 @@ struct EditDreamView: View {
                                     }
                                 }
                             }
-                            Image(systemName: dream.status.iconName) // MASCOTE
-                                .font(.largeTitle)
+                            Image(dream.status.iconName)
+                                .resizable()
+                                .frame(width: 115, height: 100)
+                            // MASCOTE
                                 .frame(width: 160, height: 152)
                                 .background {
                                     RoundedRectangle(cornerRadius: 8)
+                                        .stroke(.accent, lineWidth: 2)
                                         .fill(Color("card"))
                                 }
-                                .foregroundStyle(Color("AccentColor"))
                         } // STATUS SONHO
 //                        HStack(spacing: 8) {
 //                            Button("Desenhar") {
