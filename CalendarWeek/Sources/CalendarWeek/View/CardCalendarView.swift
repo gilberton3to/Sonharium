@@ -34,6 +34,13 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
                 }
                 .scrollTargetLayout()
                 .opacity(viewModel.models.isEmpty ? 0 : 1)
+            } else {
+                // TO_DO: Empty state aqui
+                Text("Adicione novos sonhos!")
+                    .fontDesign(.rounded)
+                    .fontWeight(.medium)
+                    .foregroundStyle(Color.accentColor)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .contentMargins(contentMarginsForScrollContent, for: .scrollContent)
             .scrollTargetBehavior(.viewAligned)

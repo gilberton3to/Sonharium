@@ -60,7 +60,7 @@ struct WeekCalendarView<Model: CalendarModel, HeaderContent: View, DayContent: V
                 }
             }
             .containerRelativeFrame([.horizontal])
-            .containerRelativeFrame([.vertical], count: 100, span: 10, spacing: 0)
+            .containerRelativeFrame([.vertical], count: 100, span: 10, spacing: 10)
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
     }

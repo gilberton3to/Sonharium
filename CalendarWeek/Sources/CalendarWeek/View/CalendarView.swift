@@ -77,5 +77,4 @@ public struct CalendarView<Model: CalendarModel, HeaderContent: View, DayContent
                 }
         )
     }
-    
 }
