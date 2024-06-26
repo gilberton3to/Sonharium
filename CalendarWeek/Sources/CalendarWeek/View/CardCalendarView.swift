@@ -34,13 +34,6 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
                 }
                 .scrollTargetLayout()
                 .opacity(viewModel.models.isEmpty ? 0 : 1)
-            } else {
-                // TO_DO: Empty state aqui
-                Text("Adicione novos sonhos!")
-                    .fontDesign(.rounded)
-                    .fontWeight(.medium)
-                    .foregroundStyle(Color.accentColor)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .contentMargins(contentMarginsForScrollContent, for: .scrollContent)
             .scrollTargetBehavior(.viewAligned)
@@ -48,9 +41,11 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
             .scrollPosition(id: $viewModel.selectedDay)
             .animation(.easeInOut, value: viewModel.selectedDay)
             // TO_DO: Empty state aqui
-            Text("Adicione novos sonhos 😴")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .opacity(viewModel.models.isEmpty ? 1 : 0)
+            Text("Adicione novos sonhos!")
+                    .fontDesign(.rounded)
+                    .fontWeight(.medium)
+                    .foregroundStyle(Color.accentColor)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
