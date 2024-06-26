@@ -32,14 +32,10 @@ struct WeekCalendarView<Model: CalendarModel, HeaderContent: View, DayContent: V
 
     var body: some View {
         @Bindable var viewModel = viewModel
-
-
         VStack {
-
             if let day = viewModel.selectedDay {
                 headerView(day)
             }
-
             TabView(selection: $viewModel.selectedWeek) {
                 ForEach(viewModel.weeks) { week in
                     HStack(spacing: daySpacing.isFinite ? daySpacing : 0) {

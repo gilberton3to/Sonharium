@@ -140,7 +140,6 @@ struct InfoDreamView: View {
                                                 .resizable()
                                                 .scaledToFit()
                                                 .frame(width: 70, height: 70)
-                                            
                                             ZStack {
                                                 RoundedRectangle(cornerRadius: 11)
                                                     .stroke(selectedModel == model ? .standard : .clear, lineWidth: 5)

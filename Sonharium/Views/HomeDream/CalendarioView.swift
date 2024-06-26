@@ -74,8 +74,8 @@ struct CalendarioView: View {
 
 // MARK: - Modelo utilizado pra representar conteúdo atrelado a um dia do calendario
 
-// TODO: Mudar modelo e manter assinatura do protocolo CalendarModel e variavel day (IMPORTANTE)
-//class Card: Identifiable, CalendarModel {
+// TO_DO: Mudar modelo e manter assinatura do protocolo CalendarModel e variavel day (IMPORTANTE)
+// class Card: Identifiable, CalendarModel {
 //    let text: String
 //    let day: Day
 //    let dream: Dream
@@ -85,10 +85,10 @@ struct CalendarioView: View {
 //        self.day = day
 //        self.dream = dream
 //    }
-//}
+// }
 // MARK: - Views de Exemplo! Modificar e colocar em arquivos separados
 
-// TODO: Mudar view que mostra título da semana.
+// TO_DO: Mudar view que mostra título da semana.
 // No caso, ta mostrando mes e ano.
 struct HeaderView: View {
 
@@ -101,7 +101,7 @@ struct HeaderView: View {
 
 }
 
-// TODO: Mudar view que mostra dias
+// TO_DO: Mudar view que mostra dias
 // usar viewModel.modelExists(for: day) pra ver se tem card para o dia (day)
 // usar viewModel.selectedDay == day pra ver se o dia selecionado é o que ta sendo recarregado
 struct DayComponentView: View {
@@ -131,7 +131,7 @@ struct DayComponentView: View {
     }
 }
 
-// TODO: Mudar view do Card quando NAO tem conteudo
+// TO_DO: Mudar view do Card quando NAO tem conteudo
 struct EmptyCardView: View {
     var body: some View {
         Text("Nada aqui...")
@@ -143,7 +143,7 @@ struct EmptyCardView: View {
         }
     }
 }
-// TODO: Mudar view do Card quando tem conteudo
+// TO_DO: Mudar view do Card quando tem conteudo
 // struct DreamCardView: View {
 //
 //    @Environment(CalendarViewModel<Card>.self) var viewModel

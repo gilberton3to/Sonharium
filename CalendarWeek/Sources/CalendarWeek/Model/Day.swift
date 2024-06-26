@@ -40,11 +40,9 @@ public struct Day: Identifiable, Equatable, Hashable {
         self.year = year
         self.date = date
     }
-    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
     public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.number == rhs.number && lhs.weekDay == rhs.weekDay
     }
