@@ -17,7 +17,7 @@ struct NoDrems: View {
                 .ignoresSafeArea(.all)
             //
             VStack(spacing: 24) {
-                Image("mascoteSemFundo")
+                Image("mascote")
                 //
                 Text("Ainda não há sonhos!")
                     .font(.system(size: 30, design: .rounded))

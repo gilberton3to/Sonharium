@@ -11,6 +11,7 @@ struct AddDreamView: View {
     //
     @State private var showAlert = false
     @State private var createDrawDream = false
+    @State private var infoDream = false
     //
     @State private var dreamDate = Date()
     @State private var slept = Date()
@@ -80,6 +81,7 @@ struct AddDreamView: View {
                         .foregroundStyle(Color("AccentColor"))
                         .padding(.trailing, 63)
                         .padding(.bottom, -7)
+                    //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
                             .fill(Color("card"))
@@ -100,6 +102,7 @@ struct AddDreamView: View {
                         .foregroundStyle(Color("AccentColor"))
                         .padding(.trailing, 36)
                         .padding(.bottom, -7)
+                    //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
                             .fill(Color("card"))
@@ -118,7 +121,7 @@ struct AddDreamView: View {
                         .font(.system(size: 17, design: .rounded))
                         .foregroundStyle(Color("AccentColor"))
                         .bold()
-                    VStack(spacing: 50) {
+                    VStack(spacing: 16) {
                         HStack(spacing: 24) {
                             // TIPOS DE SONHO
                             VStack(alignment: .leading) {
@@ -155,32 +158,22 @@ struct AddDreamView: View {
                                 }
                                 .foregroundStyle(Color("AccentColor"))
                         } // STATUS SONHO
-//                        HStack(spacing: 8) {
-//                            Button("Desenhar") {
-//                                // colocar ação DESENHAR
-//                            }
-//                            .buttonStyle(.borderedProminent)
-//                            //
-//                            Button(action: {
-//                                if audio.recording {
-//                                    audio.stopRecording()
-//                                } else {
-//                                    audio.startRecording()
-//                                }
-//                            }, label: {
-//                                Text("Gravar Áudio")
-//                            })
-//                            .buttonStyle(.borderedProminent)
-//                            Text(audio.recording ? "Recording..." : "Click to record")
-//                                .font(.caption)
-//                                .bold()
-//                                .foregroundStyle(audio.recording ? .green : .blue)
-//                        } // DESENHAR + GRAVAR - BOTÕES
+                        //
+                        Button("Saiba mais sobre os tipos de sonho") {
+                            infoDream = true
+                        }
+                        .padding()
+                        .buttonStyle(.bordered)
+                        .sheet(isPresented: $infoDream) {
+                            InfoDreamView()
+                                .presentationDetents([.large])
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Novo sonho")
+                .padding(.top, 16)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("Cancelar") {

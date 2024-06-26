@@ -235,10 +235,10 @@
 			isa = PBXGroup;
 			children = (
 				BBDD5A292C209EF500A5DE9C /* HomeDreamView.swift */,
-				BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */,
+				12D0AB852C29A4BC006A5547 /* CalendarioView.swift */,
 				BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */,
 				BBDD5A382C2210AD00A5DE9C /* FaceIdView.swift */,
-				12D0AB852C29A4BC006A5547 /* CalendarioView.swift */,
+				BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */,
 			);
 			path = HomeDream;
 			sourceTree = "<group>";

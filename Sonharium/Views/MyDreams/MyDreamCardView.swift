@@ -15,7 +15,8 @@ struct MyDreamCardView: View {
         ZStack {
             // fundo roxo
             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(Color("AccentColor"))
+                .fill(Color("card"))
+                .stroke(Color.standard, lineWidth: 2)
                 // .border(Color.pink)
             //
             HStack(alignment: .top, spacing: 0) {
@@ -24,42 +25,40 @@ struct MyDreamCardView: View {
                         //
                         Text(dream.dreamDate.formatted(.dateTime.day()))
                             .font(.system(size: 35, design: .rounded))
-                            .foregroundStyle(Color.white)
+                            .foregroundStyle(Color.standard)
                             .fontWeight(.heavy)
-                            .padding(.top, 16)
+                            .padding(.top, 7)
                             // .border(Color.green)
                         //
                         Text(dream.dreamDate.formatted(.dateTime.month(.abbreviated)))
                             .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(Color.white)
+                            .foregroundStyle(Color.standard)
                             .fontWeight(.bold)
                             // .border(Color.green)
                     }  // DATA E MÊS
-//                    Image("mascote")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .padding(.bottom, 16)
+                    Image(dream.status.iconName)
+                        .resizable()
+                        .frame(width: 45, height: 40)
                         // .border(Color.red)
                 } // DATA + MÊS + MASCOTE
-                .frame(width: 89, alignment: .center)
+                .frame(width: 69, alignment: .center)
                 //
                 VStack(alignment: .leading, spacing: 8) {
                     //
                     Text(dream.title)
-                        .font(.system(size: 22, design: .rounded))
-                        .foregroundStyle(Color.white)
-                        .bold()
+                        .font(.system(size: 22,weight: .heavy, design: .rounded))
+                        .foregroundStyle(Color.standard)
                         .padding(.trailing, 16)
-                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                        .frame(maxWidth: 280, alignment: .topLeading)
                         // .border(Color.yellow)
                     //
                     Text(dream.desc)
                         .lineLimit(3) // número máx de linhas da descrição
                         .font(.system(size: 17, design: .rounded))
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(Color.standard)
                         .padding(.bottom, 16)
                         .padding(.trailing, 16)
-                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                        .frame(maxWidth: 280, alignment: .topLeading)
                         // .border(Color.orange)
                 } // TÍTULO + DESCRIÇÃO
                 .padding(8)
