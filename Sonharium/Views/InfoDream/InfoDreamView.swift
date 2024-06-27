@@ -135,8 +135,8 @@ struct InfoDreamView: View {
                                                 .frame(width: 70, height: 70)
                                             ZStack {
                                                 RoundedRectangle(cornerRadius: 11)
-                                                    .stroke(selectedModel == model ? .standard : .clear, lineWidth: 5)
-                                                    .stroke(selectedModel == model ? .clear : .standard, lineWidth: 1)
+                                                    .stroke(selectedModel == model ? .standard : .clear, lineWidth: 4)
+                                                    .stroke(selectedModel == model ? .clear : .lightPurple, lineWidth: 2)
                                             }
                                             .frame(width: 88, height: 88)
                                         }

@@ -28,47 +28,45 @@ struct EditDreamView: View {
                 // fundo
                 Image("fundo")
                     .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea(.all)
                 //
                 VStack(alignment: .center, spacing: 16) {
-                    HStack(spacing: 8) {
+                    HStack(alignment: .center, spacing: 2) {
                         //
                         VStack(alignment: .center) {
                             Text("Sonhei no dia...")
-                                .font(.system(size: 17, design: .rounded))
+                                .font(.system(size: 16, design: .rounded))
                                 .fontWeight(.semibold)
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.dreamDate,
                                        displayedComponents: DatePickerComponents.date)
-                            .padding(.trailing, 16)
+                            .padding(.leading, 3)
                             .colorScheme(.light)
                         } // sonhei no dia
                         .frame(width: 140)
                         // .border(Color.green)
-                        VStack(alignment: .center) {
+                        VStack(alignment: .trailing) {
                             Text("Dormi às:")
-                                .font(.system(size: 17, design: .rounded))
+                                .font(.system(size: 16, design: .rounded))
                                 .fontWeight(.semibold)
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.slept,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
-                            .padding(.trailing, 16)
+//                            .padding(.trailing, 16)
                             .colorScheme(.light)
                         } // dormi às
                         .frame(width: 100)
                         // .border(Color.green)
-                        VStack(alignment: .center) {
+                        VStack(alignment: .trailing) {
                             Text("Acordei às:")
-                                .font(.system(size: 17, design: .rounded))
+                                .font(.system(size: 16, design: .rounded))
                                 .fontWeight(.semibold)
                                 .foregroundStyle(Color("AccentColor"))
                             DatePicker("",
                                        selection: $dream.wokeUp,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
-                            .padding(.trailing, 16)
+                            .padding(.trailing, 6)
                             .colorScheme(.light)
                         } // acordei às
                         .frame(width: 100)
@@ -218,5 +216,6 @@ struct EditDreamView: View {
                              status: .nightmare
                             )
                        ).modelContainer(container)
+            .scrollDismissesKeyboard(.automatic)
     }
 }

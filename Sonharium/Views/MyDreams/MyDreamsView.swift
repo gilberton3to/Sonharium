@@ -7,16 +7,6 @@
 import SwiftUI
 import SwiftData
 
-struct GradientBackgroundView: View {
-    let startColor = Color.white
-    let endColor = Color.black
-    var body: some View {
-        LinearGradient(gradient: Gradient(colors: [startColor, endColor]), startPoint: .top, endPoint: .bottom)
-            .edgesIgnoringSafeArea(.all) // Para preencher toda a tela
-            // Adicione o conteúdo da sua view aqui
-    }
-}
-
 struct MyDreamsView: View {
     //
     @Environment(\.modelContext) private var modelContext
@@ -27,44 +17,41 @@ struct MyDreamsView: View {
     @State private var dreamSelected: Dream?
     //
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
-            VStack {
-                if dreams.isEmpty {
-                    NoDrems()
-                } else {
-                    List {
-                        ForEach(filterDreams) { dream in
-                            Button {
-                                dreamSelected = dream
-                            } label: {
-                                MyDreamCardView(dream: dream)
-                            }
-                            .listRowBackground(Color.clear)
-                            .listRowSeparator(.hidden)
+        VStack {
+            if dreams.isEmpty {
+                NoDrems()
+            } else {
+                List {
+                    ForEach(filterDreams) { dream in
+                        Button {
+                           dreamSelected = dream
+                        } label: {
+                            MyDreamCardView(dream: dream)
                         }
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
                     }
-                    .listStyle(.plain)
-                    .scrollContentBackground(.hidden)
-                    .background(Color.fundo)
+                }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .background(Color.clear)
             }
-            .searchable(text: $searchText,
-                        placement: .navigationBarDrawer(displayMode: .always),
-                        prompt: "Pesquisar sonho")
-            .sheet(item: $dreamSelected) { dream in
-                EditDreamView(dream: dream)
-                    .presentationDetents([.large])
-            }
-            .navigationTitle("Meus Sonhos")
         }
-        var filterDreams: [Dream] {
-            if searchText.isEmpty { // se não pesquisar nada, mostrar a lista com todos os sonhos
-                return dreams
-            }
-            return dreams.filter { // filtra por Título e Descrição
-                $0.title.localizedCaseInsensitiveContains(searchText) || $0.desc.localizedCaseInsensitiveContains(searchText)  }
+        .searchable(text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Pesquisar sonho")
+        .sheet(item: $dreamSelected) { dream in
+            EditDreamView(dream: dream)
+                .presentationDetents([.large])
         }
+        .navigationTitle("Meus Sonhos")
+    }
+    var filterDreams: [Dream] {
+        if searchText.isEmpty { // se não pesquisar nada, mostrar a lista com todos os sonhos
+            return dreams
+        }
+        return dreams.filter { // filtra por Título e Descrição
+            $0.title.localizedCaseInsensitiveContains(searchText) || $0.desc.localizedCaseInsensitiveContains(searchText)  }
     }
 }
 #Preview {

@@ -6,9 +6,9 @@
 	<array>
 		<dict/>
 	</array>
-    <key>UIAppFonts</key>
-    <array>
-        <string>LilitaOne-Regular.ttf</string>
-    </array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LilitaOne-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

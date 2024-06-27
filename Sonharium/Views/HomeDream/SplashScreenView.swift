@@ -48,7 +48,7 @@ struct SplashScreenView: View {
 //                        .foregroundColor(.blue)
                     Text("Sonharium")
                         .foregroundColor(.white)
-                        .font(Font.custom("LilitaOne", size: 28))
+                        .font(Font.custom("Lilita One", size: 28))
                         .fontWeight(.bold)
                         .padding(.vertical, 15)
                 }
@@ -67,12 +67,9 @@ struct SplashScreenView: View {
         }
     }
 }
-
-struct SplashScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashScreenView()
-            .environmentObject(AuthenticationManager())
-    }
+#Preview {
+    SplashScreenView()
+        .environmentObject(AuthenticationManager())
 }
 // ZStack {
 //    Color.purplelight

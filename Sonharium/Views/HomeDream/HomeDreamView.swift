@@ -22,6 +22,12 @@ struct HomeDreamView: View {
     //
     var body: some View {
         NavigationStack {
+            ZStack {
+                LinearGradient(stops: [
+                    .init(color: .fundo, location: 0.90),
+                    .init(color: .accentColor, location: 1.03)
+                ], startPoint: .bottom, endPoint: .top)
+                .ignoresSafeArea()
             GeometryReader { proxy in
                 VStack {
                     // CALENDÁRIO
@@ -34,6 +40,7 @@ struct HomeDreamView: View {
                         DayComponentView(day: day)
                     } weekBackground: {
                         RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.9))
+                            .stroke(Color.standard, lineWidth: 2)
                     } dayContentView: { dream in
                         DreamCardView(dream: dream)
                             .onTapGesture {
@@ -60,24 +67,27 @@ struct HomeDreamView: View {
                                 .presentationDetents([.large])
                         }
                     }.padding(.vertical, 30)
-                    .toolbar {
-                        HStack(spacing: 16) {
-                            NavigationLink(destination: MyDreamsView()) {
-                                Image(systemName: "magnifyingglass")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .foregroundColor(.standard)
-                            } // PESQUISA
-                            NavigationLink(destination: ContentView()) {
-                                Image(systemName: "gearshape")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .foregroundColor(.standard)
-                            } // CONFIGURAÇÕES
-                        }
-                    }// MODAL CRIAR SONHO
+                        .toolbar {
+                            HStack(spacing: 16) {
+                                NavigationLink(destination: MyDreamsView()) {
+                                    Image(systemName: "magnifyingglass")
+                                        .resizable()
+                                        .fontWeight(.medium)
+                                        .frame(width: 25, height: 25)
+                                        .foregroundColor(.standard)
+                                } // PESQUISA
+                                NavigationLink(destination: ContentView()) {
+                                    Image(systemName: "gearshape")
+                                        .resizable()
+                                        .fontWeight(.medium)
+                                        .frame(width: 25, height: 25)
+                                        .foregroundColor(.standard)
+                                } // CONFIGURAÇÕES
+                            }
+                        }// MODAL CRIAR SONHO
                 }
-                .background(Color.fundo.ignoresSafeArea())
+                }
+                .background(Color.clear.ignoresSafeArea())
                 .sheet(item: $dreamSelected) { dream in
                     EditDreamView(dream: dream)
                         .presentationDetents([.large])

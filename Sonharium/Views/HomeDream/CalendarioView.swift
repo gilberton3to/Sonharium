@@ -97,6 +97,8 @@ struct HeaderView: View {
     var body: some View {
         Text("\(selectedDay.month) \(selectedDay.year)".uppercased())
             .bold()
+            .fontDesign(.rounded)
+            .foregroundStyle(Color.accentColor)
     }
 
 }
@@ -115,17 +117,20 @@ struct DayComponentView: View {
             Text("\(day.number)")
                 .foregroundStyle(viewModel.modelExists(for: day) ? .accent : .gray)
                 .fontWeight(.semibold)
+                .fontDesign(.rounded)
                 .bold(viewModel.selectedDay == day)
                 .background {
                     Circle()
-                        .fill(.fundo)
+                        .stroke(.standard, lineWidth: 3)
+                        .fill(.backPurple)
                         .frame(width: 30, height: 30)
                         .opacity(day == viewModel.selectedDay ? 1 : 0)
                 }
 
             Text(day.weekDay.description)
                 .font(.caption)
-                .fontWeight(.light)
+                .fontDesign(.rounded)
+                .fontWeight(.regular)
         }
         .foregroundStyle(.standard)
     }

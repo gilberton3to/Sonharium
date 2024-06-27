@@ -13,8 +13,11 @@ struct FaceIdView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.fundo
-                    .ignoresSafeArea(.all)
+                LinearGradient(stops: [
+                    .init(color: .fundo, location: 0.90),
+                    .init(color: .accentColor, location: 1.03)
+                ], startPoint: .bottom, endPoint: .top)
+                .ignoresSafeArea()
                 //
                 VStack {
                     Image(systemName: "lock.fill")

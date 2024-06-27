@@ -20,6 +20,7 @@
 		BB16ACB82C2730F900F17508 /* TheAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */; };
 		BB47DBAB2C2AE78A003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAA2C2AE78A003E9003 /* CalendarWeek */; };
 		BB47DBAD2C2AE7A7003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAC2C2AE7A7003E9003 /* CalendarWeek */; };
+		BB879ED92C2CE29700C54A86 /* LilitaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4BEAE62C2C8F4800044599 /* LilitaOne-Regular.ttf */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
@@ -373,11 +374,11 @@
 			};
 			buildConfigurationList = BBDD59E22C209D1600A5DE9C /* Build configuration list for PBXProject "Sonharium" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = BBDD59DE2C209D1600A5DE9C;
 			packageReferences = (
@@ -400,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */,
+				BB879ED92C2CE29700C54A86 /* LilitaOne-Regular.ttf in Resources */,
 				BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,7 +618,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sonharium/Sonharium.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Sonharium/Preview Content\"";
 				DEVELOPMENT_TEAM = A464MN4KY4;
@@ -624,6 +626,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sonharium/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sonharium;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock the phone";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Este aplicativo precisa acessar o microfone para gravar áudios dos seus sonhos.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -659,7 +663,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sonharium/Sonharium.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Sonharium/Preview Content\"";
 				DEVELOPMENT_TEAM = A464MN4KY4;
@@ -667,6 +671,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sonharium/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sonharium;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use this to unlock the phone";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Este aplicativo precisa acessar o microfone para gravar áudios dos seus sonhos.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

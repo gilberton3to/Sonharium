@@ -64,5 +64,4 @@ struct WeekCalendarView<Model: CalendarModel, HeaderContent: View, DayContent: V
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
     }
-
 }
