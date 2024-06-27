@@ -19,6 +19,7 @@ struct AddDreamView: View {
     @State private var title = ""
     @State private var desc = ""
     @State private var selectedStatus = Status.normalDream
+    @FocusState private var isFocused: Bool
     // @State private var lines: [Line] = []
     //
     var closedRange = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
@@ -92,6 +93,11 @@ struct AddDreamView: View {
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
                             .foregroundStyle(.secondary)
+                            .background(Color.clear)
+                                        .focused($isFocused)
+                                        .onTapGesture {
+                                            isFocused = true
+                                        }
                             .padding(8)
                             .frame(width: 350, height: 40, alignment: .leading)
                     } // TÍTULO
@@ -218,7 +224,7 @@ struct AddDreamView: View {
 #Preview {
     AddDreamView(audio: AudioRecorder())
         .modelContainer(for: Dream.self, inMemory: true)
-        .scrollDismissesKeyboard(.automatic)
+        .scrollDismissesKeyboard(.immediately)
 }
 //
 //    func addDream() {  // CRIA O SONHO

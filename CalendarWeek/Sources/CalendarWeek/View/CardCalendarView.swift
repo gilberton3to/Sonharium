@@ -42,11 +42,11 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
             .animation(.easeInOut, value: viewModel.selectedDay)
             // TO_DO: Empty state aqui
             if viewModel.models.isEmpty {
-                VStack {
+                VStack(spacing: 29) {
                     Image("mascote")
                     //
                     Text("Ainda não há sonhos!")
-                        .font(.system(size: 30, design: .rounded))
+                        .font(.system(size: 23, design: .rounded))
                         .foregroundStyle(Color("AccentColor"))
                         .bold()
                 }

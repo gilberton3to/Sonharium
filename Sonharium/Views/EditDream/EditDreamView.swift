@@ -19,6 +19,7 @@ struct EditDreamView: View {
     @State private var infoDream = false
     //
     @Bindable var dream: Dream
+    @FocusState private var isFocused: Bool
     //
    // @State private var lines: [Line] = []
     var body: some View {
@@ -83,6 +84,11 @@ struct EditDreamView: View {
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
                             .foregroundStyle(.black)
+                            .background(Color.clear)
+                                        .focused($isFocused)
+                                        .onTapGesture {
+                                            isFocused = true
+                                        }
                             .padding(8)
                             .frame(width: 350, height: 40, alignment: .leading)
                     } // TÍTULO

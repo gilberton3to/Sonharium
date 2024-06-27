@@ -38,7 +38,7 @@ struct MyDreamCardView: View {
                     }  // DATA E MÊS
                     Image(dream.status.iconName)
                         .resizable()
-                        .frame(width: 45, height: 40)
+                        .frame(width: 41, height: 36)
                         // .border(Color.red)
                 } // DATA + MÊS + MASCOTE
                 .frame(width: 69, alignment: .center)

@@ -17,11 +17,11 @@ struct NoDrems: View {
             ], startPoint: .bottom, endPoint: .top)
             .ignoresSafeArea()
             //
-            VStack(spacing: 24) {
+            VStack(spacing: 29) {
                 Image("mascote")
                 //
                 Text("Ainda não há sonhos!")
-                    .font(.system(size: 30, design: .rounded))
+                    .font(.system(size: 23, design: .rounded))
                     .foregroundStyle(Color("AccentColor"))
                     .bold()
             }
