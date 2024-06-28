@@ -57,69 +57,68 @@ struct ContentView: View {
     }
     //
     var body: some View {
-        NavigationView {
-            ZStack {
-            LinearGradient(stops: [
-                .init(color: .fundo, location: 0.90),
-                .init(color: .accentColor, location: 1.03)
-            ], startPoint: .bottom, endPoint: .top)
-            .ignoresSafeArea()
-                List {
-                    Section(header: Text("Notificações").foregroundColor(.standard)) {
-                        Toggle(isOn: $isScheduled) {
-                            HStack {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 6)
-                                        .fill(Color.accentColor)
-                                        .frame(width: 30, height: 30)
-                                    Image(systemName: "bell.fill")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 18))
-                                }
-                                Text("Lembrete Diário")
+        ZStack {
+        LinearGradient(stops: [
+            .init(color: .fundo, location: 0.90),
+            .init(color: .accentColor, location: 1.03)
+        ], startPoint: .bottom, endPoint: .top)
+        .ignoresSafeArea()
+            List {
+                Section(header: Text("Notificações").foregroundColor(.standard)) {
+                    Toggle(isOn: $isScheduled) {
+                        HStack {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(Color.accentColor)
+                                    .frame(width: 30, height: 30)
+                                Image(systemName: "bell.fill")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 18))
                             }
-                        }
-                        .tint(.accentColor)
-                        .onChange(of: isScheduled) {
-                            handleIsScheduledChange(isScheduled: isScheduled)
-                        }
-                        if isScheduled {
-                            DatePicker("Horário", selection: Binding(
-                                get: {
-                                    // Get the notification time schedule set by user
-                                    DateHelper.dateFormatter.date(from: notificationTimeString) ?? Date()
-                                },
-                                set: {
-                                    // On value set, change the notification time
-                                    notificationTimeString = DateHelper.dateFormatter.string(from: $0)
-                                    handleNotificationTimeChange()
-                                }
-                            ), displayedComponents: .hourAndMinute)
-                            .datePickerStyle(WheelDatePickerStyle())
-                            .padding(.leading, 20)
-                            .padding(.trailing, 20)
+                            Text("Lembrete Diário")
                         }
                     }
-                    Section(header: Text("Segurança").foregroundColor(.accentColor)) {
-                        Toggle(isOn: $authManager.isFaceIDEnabled) {
-                            CustomCellView(iconName: "lock.fill", text: "Bloqueio com Face ID")
-                                .frame(height: 30)
-                        }
-                        .tint(.accentColor)
+                    .tint(.accentColor)
+                    .onChange(of: isScheduled) {
+                        handleIsScheduledChange(isScheduled: isScheduled)
                     }
-                    Section(header: Text("Desenvolvimento").foregroundColor(.standard)) {
-                        NavigationLink(destination: ContentViewTwo()) {
-                            CustomCellView(iconName: "info.circle.fill", text: "Sobre")
-                                .frame(height: 30)
-                        }
+                    if isScheduled {
+                        DatePicker("Horário", selection: Binding(
+                            get: {
+                                // Get the notification time schedule set by user
+                                DateHelper.dateFormatter.date(from: notificationTimeString) ?? Date()
+                            },
+                            set: {
+                                // On value set, change the notification time
+                                notificationTimeString = DateHelper.dateFormatter.string(from: $0)
+                                handleNotificationTimeChange()
+                            }
+                        ), displayedComponents: .hourAndMinute)
+                        .datePickerStyle(WheelDatePickerStyle())
+                        .padding(.leading, 20)
+                        .padding(.trailing, 20)
+                    }
+                }
+                Section(header: Text("Segurança").foregroundColor(.accentColor)) {
+                    Toggle(isOn: $authManager.isFaceIDEnabled) {
+                        CustomCellView(iconName: "lock.fill", text: "Bloqueio do App")
+                            .frame(height: 30)
+                    }
+                    .tint(.accentColor)
+                }
+                Section(header: Text("Desenvolvimento").foregroundColor(.standard)) {
+                    NavigationLink(destination: ContentViewTwo()) {
+                        CustomCellView(iconName: "info.circle.fill", text: "Sobre")
+                            .frame(height: 30)
                     }
                 }
             }
-            .scrollContentBackground(.hidden)
-            .background(.fundo)
-            .navigationTitle("Configurações")
-            .scrollDisabled(true)
         }
+        .scrollContentBackground(.hidden)
+        .background(.fundo)
+        .navigationBarTitleDisplayMode(.large)
+        .navigationTitle("Configurações")
+        .scrollDisabled(false)
     }
 }
 

@@ -76,13 +76,13 @@ struct ContentViewTwo: View {
                         }
                 }
             }
-                }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Sobre")
+        }
+        .navigationTitle("Sobre")
+        .navigationBarTitleDisplayMode(.inline)
 //                .navigationBarBackButtonHidden()
-                .scrollContentBackground(.hidden)
-                .background(.fundo)
-                .scrollDisabled(true)
+        .scrollContentBackground(.hidden)
+        .background(.fundo)
+        .scrollDisabled(false)
     }
 }
 

@@ -39,7 +39,7 @@ struct FaceIdView: View {
                             if authManager.isFaceIDEnabled {
                                 authManager.authenticate()
                             } else {
-                                authManager.statusMessage = "O Face ID está desabilitado!"
+                                authManager.statusMessage = "A Biometria está desabilitada!"
                             }
                         }
                     }

@@ -21,20 +21,27 @@ struct MyDreamsView: View {
             if dreams.isEmpty {
                 NoDrems()
             } else {
-                List {
-                    ForEach(filterDreams) { dream in
-                        Button {
-                           dreamSelected = dream
-                        } label: {
-                            MyDreamCardView(dream: dream)
+                ZStack {
+                    LinearGradient(stops: [
+                        .init(color: .fundo, location: 0.90),
+                        .init(color: .accentColor, location: 1.03)
+                    ], startPoint: .bottom, endPoint: .top)
+                    .ignoresSafeArea()
+                    List {
+                        ForEach(filterDreams) { dream in
+                            Button {
+                                dreamSelected = dream
+                            } label: {
+                                MyDreamCardView(dream: dream)
+                            }
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
                         }
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
                     }
+                    .listStyle(.plain)
+                    .scrollContentBackground(.hidden)
+                    .background(Color.clear)
                 }
-                .listStyle(.plain)
-                .scrollContentBackground(.hidden)
-                .background(Color.clear)
             }
         }
         .searchable(text: $searchText,
