@@ -27,8 +27,8 @@ struct EditDreamView: View {
             //
             ZStack {
                 // fundo
-                Image("fundo")
-                    .resizable()
+                Color.fundoSheet
+                    .ignoresSafeArea()
                 //
                 VStack(alignment: .center, spacing: 16) {
                     HStack(alignment: .center, spacing: 2) {
@@ -42,7 +42,6 @@ struct EditDreamView: View {
                                        selection: $dream.dreamDate,
                                        displayedComponents: DatePickerComponents.date)
                             .padding(.leading, 3)
-                            .colorScheme(.light)
                         } // sonhei no dia
                         .frame(width: 140)
                         // .border(Color.green)
@@ -55,7 +54,6 @@ struct EditDreamView: View {
                                        selection: $dream.slept,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
 //                            .padding(.trailing, 16)
-                            .colorScheme(.light)
                         } // dormi às
                         .frame(width: 100)
                         // .border(Color.green)
@@ -68,7 +66,6 @@ struct EditDreamView: View {
                                        selection: $dream.wokeUp,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
                             .padding(.trailing, 6)
-                            .colorScheme(.light)
                         } // acordei às
                         .frame(width: 100)
                         // .border(Color.green)
@@ -76,14 +73,14 @@ struct EditDreamView: View {
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("card"))
+                            .fill(Color("TextFieldColor"))
                             .frame(width: 360, height: 45)
                         //
                         TextField("Escolha um título para o seu sonho",
                                   text: $dream.title,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.primary)
                             .background(Color.clear)
                                         .focused($isFocused)
                                         .onTapGesture {
@@ -95,14 +92,15 @@ struct EditDreamView: View {
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("card"))
+                            .fill(Color("TextFieldColor"))
                             .frame(width: 360, height: 205)
                         //
                         TextField("O que aconteceu? Descreva como foi...",
                                   text: $dream.desc,
                                   axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(.black)
+                            .foregroundStyle(.primary)
+                            .background(Color.clear)
                             .padding(8)
                             .frame(width: 350, height: 200, alignment: .topLeading)
                     } // DESCRIÇÃO
@@ -124,9 +122,9 @@ struct EditDreamView: View {
                                             .frame(width: 100, height: 32)
                                             .background {
                                                 RoundedRectangle(cornerRadius: 8)
-                                                    .fill(status == dream.status ? Color("AccentColor") : Color("card"))
+                                                    .fill(status == dream.status ? Color("AccentColor") : Color("TextFieldColor"))
                                             }
-                                            .foregroundStyle(status == dream.status ? Color("card") : Color("AccentColor"))
+                                            .foregroundStyle(status == dream.status ? Color.white : Color("AccentColor"))
                                             .font(
                                                 .system(
                                                     size: 17,
@@ -143,9 +141,9 @@ struct EditDreamView: View {
                             // MASCOTE
                                 .frame(width: 160, height: 152)
                                 .background {
-                                    RoundedRectangle(cornerRadius: 8)
+                                    RoundedRectangle(cornerRadius: 25)
                                         .stroke(.accent, lineWidth: 2)
-                                        .fill(Color("card"))
+                                        .fill(Color("TextFieldColor"))
                                 }
                         } // STATUS SONHO
                         //

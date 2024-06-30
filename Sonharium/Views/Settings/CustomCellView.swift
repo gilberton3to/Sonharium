@@ -58,11 +58,19 @@ struct ContentView: View {
     //
     var body: some View {
         ZStack {
-        LinearGradient(stops: [
-            .init(color: .fundo, location: 0.90),
-            .init(color: .accentColor, location: 1.03)
-        ], startPoint: .bottom, endPoint: .top)
-        .ignoresSafeArea()
+//            if (ColorScheme(.light) != nil) {
+                LinearGradient(stops: [
+                    .init(color: .fundo, location: 0.90),
+                    .init(color: .fundoGradiente, location: 1.02)
+                ], startPoint: .bottom, endPoint: .top)
+                .ignoresSafeArea()
+//            } else {
+//                    LinearGradient(stops: [
+//                        .init(color: .fundo, location: 0.90),
+//                        .init(color: .fundoGradiente, location: 1.02)
+//                    ], startPoint: .bottom, endPoint: .top)
+//                    .ignoresSafeArea()
+//            }
             List {
                 Section(header: Text("Notificações").foregroundColor(.standard)) {
                     Toggle(isOn: $isScheduled) {

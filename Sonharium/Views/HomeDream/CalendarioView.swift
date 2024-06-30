@@ -115,7 +115,7 @@ struct DayComponentView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text("\(day.number)")
-                .foregroundStyle(viewModel.modelExists(for: day) ? .accent : .gray)
+                .foregroundStyle(viewModel.modelExists(for: day) ? .accent : .calendarNumbers)
                 .fontWeight(.semibold)
                 .fontDesign(.rounded)
                 .bold(viewModel.selectedDay == day)
@@ -128,7 +128,7 @@ struct DayComponentView: View {
                 }
 
             Text(day.weekDay.description)
-                .font(.caption)
+                .font(.footnote)
                 .fontDesign(.rounded)
                 .fontWeight(.regular)
         }
@@ -142,7 +142,7 @@ struct EmptyCardView: View {
         Text("Nada aqui...")
             .containerRelativeFrame(.horizontal)
             .frame(maxHeight: .infinity)
-            .foregroundStyle(.gray)
+            .foregroundStyle(.calendarNumbers)
             .background {
                 RoundedRectangle(cornerRadius: 11).fill(Color(white: 0.95))
         }

@@ -13,7 +13,7 @@ struct NoDrems: View {
             // fundo
             LinearGradient(stops: [
                 .init(color: .fundo, location: 0.90),
-                .init(color: .accentColor, location: 1.03)
+                .init(color: .fundoGradiente, location: 1.02)
             ], startPoint: .bottom, endPoint: .top)
             .ignoresSafeArea()
             //

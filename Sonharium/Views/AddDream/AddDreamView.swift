@@ -28,9 +28,8 @@ struct AddDreamView: View {
         NavigationStack {
             //
             ZStack {
-                // FUNDO
-                Image("fundo")
-                    .resizable()
+                Color.fundoSheet
+                    .ignoresSafeArea()
                 //
                 VStack(alignment: .center, spacing: 16) {
                     HStack(alignment: .center, spacing: 2) {
@@ -44,7 +43,6 @@ struct AddDreamView: View {
                                        selection: $dreamDate,
                                        displayedComponents: DatePickerComponents.date)
                             .padding(.leading, 3)
-                            .colorScheme(.light)
                         } // sonhei no dia
                         .frame(width: 140)
                         // .border(Color.green)
@@ -57,7 +55,6 @@ struct AddDreamView: View {
                                        selection: $slept,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
 //                            .padding(.trailing, 16)
-                            .colorScheme(.light)
                         } // dormi às
                         .frame(width: 100)
                         // .border(Color.green)
@@ -70,7 +67,6 @@ struct AddDreamView: View {
                                        selection: $wokeUp,
                                        displayedComponents: DatePickerComponents.hourAndMinute)
                             .padding(.trailing, 6)
-                            .colorScheme(.light)
                         } // acordei às
                         .frame(width: 100)
                         // .border(Color.green)
@@ -85,7 +81,7 @@ struct AddDreamView: View {
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("card"))
+                            .fill(Color("TextFieldColor"))
                             .frame(width: 360, height: 45)
                         //
                         TextField("Título",
@@ -111,7 +107,7 @@ struct AddDreamView: View {
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("card"))
+                            .fill(Color("TextFieldColor"))
                             .frame(width: 360, height: 205)
                         //
                         TextField("Descrição",
@@ -139,9 +135,9 @@ struct AddDreamView: View {
                                             .frame(width: 100, height: 32)
                                             .background {
                                                 RoundedRectangle(cornerRadius: 8)
-                                                    .fill(status == selectedStatus ? Color("AccentColor") : Color("card"))
+                                                    .fill(status == selectedStatus ? Color("AccentColor") : Color("TextFieldColor"))
                                             }
-                                            .foregroundStyle(status == selectedStatus ? Color("card") : Color("AccentColor"))
+                                            .foregroundStyle(status == selectedStatus ? Color.white : Color("AccentColor"))
                                             .font(
                                                 .system(
                                                     size: 17,
@@ -158,9 +154,9 @@ struct AddDreamView: View {
                             // MASCOTE
                                 .frame(width: 160, height: 152)
                                 .background {
-                                    RoundedRectangle(cornerRadius: 8)
+                                    RoundedRectangle(cornerRadius: 25)
                                         .stroke(.accent, lineWidth: 2)
-                                        .fill(Color("card"))
+                                        .fill(Color("TextFieldColor"))
                                 }
                                 .foregroundStyle(Color("AccentColor"))
                         } // STATUS SONHO
@@ -200,7 +196,7 @@ struct AddDreamView: View {
                     }
                 }  // CANCELAR E SALVAR SONHO
             }
-            .background(Color("fundo"))
+            .background(Color("fundoSheet"))
         }
     }
     //

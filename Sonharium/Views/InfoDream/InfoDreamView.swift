@@ -57,10 +57,10 @@ struct InfoDreamView: View {
             desc: "Os sonhos lúcidos acontecem \n quando permanecemos conscientes \n enquanto dormimos. Ou seja, você \n sabe que está dormindo durante o sonho. Eles tipicamente ocorrem \n durante o sono REM, um estágio mais pesado de sono.",
             tips: "Reduz a ansiedade",
             tips2: "Traz reflexões",
-            background: .fundo,
+            background: .fundoSheet,
             fontColor: .accentColor,
-            strokeColor: .standard,
-            fontCardColor: .card,
+            strokeColor: .accentColor,
+            fontCardColor: .white,
             image: "mascoteLucido"
         ),
         Test(
@@ -70,10 +70,10 @@ struct InfoDreamView: View {
             desc: "O sonho vivido é uma experiência que\n ocorre durante o sono, na qual a pessoa\n tem a sensação de estar vivenciando uma situação real. Durante esse tipo de sonho, os sentidos e emoções são intensos, fazendo com que a pessoa sinta, veja, ouça e até mesmo cheire coisas que não estão presentes no ambiente físico.",
             tips: "Resolução de problemas",
             tips2: "Melhora da memória",
-            background: .fundo,
+            background: .fundoSheet,
             fontColor: .accentColor,
-            strokeColor: .standard,
-            fontCardColor: .card,
+            strokeColor: .accentColor,
+            fontCardColor: .white,
             image: "mascoteVivido"
         ),
         Test(
@@ -83,10 +83,10 @@ struct InfoDreamView: View {
             desc: "Os pesadelos podem ser definidos como versões muito intensas de um sonho ruim. Sim, há uma diferença entre os dois. Um pesadelo é um sonho vívido com uma narrativa que pode ser ameaçadora e inquietante. Eles prejudicam o sono de quem passa por eles. Da mesma forma que os sonhos bons, os pesadelos acontecem geralmente durante o sono REM. Eles são intensos o suficiente para acordar uma pessoa. Já os sonhos ruins não têm esse poder.",
             tips: "Perturbação do sono",
             tips2: "Estresse",
-            background: .fundo,
+            background: .fundoSheet,
             fontColor: .standard,
-            strokeColor: .standard,
-            fontCardColor: .card,
+            strokeColor: .accentColor,
+            fontCardColor: .white,
             image: "mascotePesadelo"
         ),
         Test(
@@ -96,10 +96,10 @@ struct InfoDreamView: View {
             desc: "Os sonhos recorrentes são produzidos \ncom frequência durante períodos de estresse, embora haja pessoas que o experimentam durante anos ou até por toda a vida. Em alguns casos, eles desaparecem quando o estado de ânimo da pessoa melhora, mas reaparecem quando ele volta a piorar.",
             tips: "Insights pessoais",
             tips2: "Ansiedade",
-            background: .fundo,
+            background: .fundoSheet,
             fontColor: .standard,
-            strokeColor: .standard,
-            fontCardColor: .card,
+            strokeColor: .accentColor,
+            fontCardColor: .white,
             image: "mascoteHabitual"
         )
     ]
@@ -110,7 +110,7 @@ struct InfoDreamView: View {
             //
             ZStack {
                 //
-                Color(.fundo)
+                Color(.fundoSheet)
                     .scaledToFill()
                     .ignoresSafeArea(.all)
                 //
@@ -134,7 +134,7 @@ struct InfoDreamView: View {
                                                 .scaledToFit()
                                                 .frame(width: 70, height: 70)
                                             ZStack {
-                                                RoundedRectangle(cornerRadius: 11)
+                                                RoundedRectangle(cornerRadius: 18)
                                                     .stroke(selectedModel == model ? .standard : .clear, lineWidth: 4)
                                                     .stroke(selectedModel == model ? .clear : .lightPurple, lineWidth: 2)
                                             }

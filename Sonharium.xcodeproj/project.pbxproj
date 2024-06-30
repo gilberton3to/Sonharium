@@ -21,7 +21,6 @@
 		BB47DBAB2C2AE78A003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAA2C2AE78A003E9003 /* CalendarWeek */; };
 		BB47DBAD2C2AE7A7003E9003 /* CalendarWeek in Frameworks */ = {isa = PBXBuildFile; productRef = BB47DBAC2C2AE7A7003E9003 /* CalendarWeek */; };
 		BB879ED92C2CE29700C54A86 /* LilitaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4BEAE62C2C8F4800044599 /* LilitaOne-Regular.ttf */; };
-		BB879EDB2C2EF8FE00C54A86 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB879EDA2C2EF8FE00C54A86 /* NotificationsView.swift */; };
 		BBDD59ED2C209D1600A5DE9C /* Sonharium.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */; };
 		BBDD59EF2C209D1700A5DE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */; };
 		BBDD59F32C209D1700A5DE9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDD59F22C209D1700A5DE9C /* Preview Assets.xcassets */; };
@@ -64,7 +63,6 @@
 		BB16ACB52C25CB4400F17508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BB16ACB72C2730F900F17508 /* TheAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheAudioRecorder.swift; sourceTree = "<group>"; };
 		BB4BEAE62C2C8F4800044599 /* LilitaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LilitaOne-Regular.ttf"; sourceTree = "<group>"; };
-		BB879EDA2C2EF8FE00C54A86 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		BBDD59E72C209D1600A5DE9C /* Sonharium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sonharium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDD59EC2C209D1600A5DE9C /* Sonharium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sonharium.swift; sourceTree = "<group>"; };
 		BBDD59EE2C209D1700A5DE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				BB16ACAD2C25A18800F17508 /* NotificationManager.swift */,
 				BB16ACB12C25A28800F17508 /* DateHelper.swift */,
 				BB16ACB32C25A48000F17508 /* AppDelegate.swift */,
-				BB879EDA2C2EF8FE00C54A86 /* NotificationsView.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -240,9 +237,9 @@
 		BBDD5A182C209E2200A5DE9C /* HomeDream */ = {
 			isa = PBXGroup;
 			children = (
+				BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */,
 				BBDD5A292C209EF500A5DE9C /* HomeDreamView.swift */,
 				12D0AB852C29A4BC006A5547 /* CalendarioView.swift */,
-				BBDD5A3C2C235A4200A5DE9C /* SplashScreenView.swift */,
 				BBDD5A382C2210AD00A5DE9C /* FaceIdView.swift */,
 				BBDD5A2D2C209F1500A5DE9C /* DreamCardView.swift */,
 			);
@@ -468,7 +465,6 @@
 				BBDD5A2A2C209EF500A5DE9C /* HomeDreamView.swift in Sources */,
 				30FDCD862C234662009A1D38 /* NoDrems.swift in Sources */,
 				BBDD5A372C21F9A300A5DE9C /* CustomCellViewTwo.swift in Sources */,
-				BB879EDB2C2EF8FE00C54A86 /* NotificationsView.swift in Sources */,
 				BBDD5A222C209EB300A5DE9C /* InfoDreamView.swift in Sources */,
 				BBDD5A3B2C2314A300A5DE9C /* AuthenticationManager.swift in Sources */,
 				BBDD5A262C209ED900A5DE9C /* MyDreamsView.swift in Sources */,

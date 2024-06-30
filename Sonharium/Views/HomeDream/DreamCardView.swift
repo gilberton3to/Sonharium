@@ -15,7 +15,7 @@ struct DreamCardView: View {
     var body: some View {
         ZStack {
             // FUNDO DO CARD
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
+            RoundedRectangle(cornerRadius: 26, style: .continuous)
                 .fill(Color("card"))
                 .stroke(.accent, lineWidth: 2)
                 .frame(width: 316, height: 441)

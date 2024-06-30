@@ -25,7 +25,7 @@ struct HomeDreamView: View {
             ZStack {
                 LinearGradient(stops: [
                     .init(color: .fundo, location: 0.90),
-                    .init(color: .accentColor, location: 1.03)
+                    .init(color: .fundoGradiente, location: 1.02)
                 ], startPoint: .bottom, endPoint: .top)
                 .ignoresSafeArea()
             GeometryReader { proxy in
@@ -39,7 +39,7 @@ struct HomeDreamView: View {
                     } weekDayView: { day in
                         DayComponentView(day: day)
                     } weekBackground: {
-                        RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.9))
+                        RoundedRectangle(cornerRadius: 20).fill(Color.card)
                             .stroke(Color.standard, lineWidth: 2)
                     } dayContentView: { dream in
                         DreamCardView(dream: dream)

@@ -15,11 +15,11 @@ struct FaceIdView: View {
             ZStack {
                 LinearGradient(stops: [
                     .init(color: .fundo, location: 0.90),
-                    .init(color: .accentColor, location: 1.03)
+                    .init(color: .fundoGradiente, location: 1.02)
                 ], startPoint: .bottom, endPoint: .top)
                 .ignoresSafeArea()
                 //
-                VStack {
+                VStack(alignment: .center) {
                     Image(systemName: "lock.fill")
                         .resizable()
                         .frame(width: 25, height: 36)
@@ -32,8 +32,8 @@ struct FaceIdView: View {
                     //
                     ZStack {
                         RoundedRectangle(cornerRadius: 8)
+                            .fill(Color("TextFieldColor"))
                             .frame(width: 120, height: 30)
-                            .foregroundColor(.white)
                         //
                         Button("Desbloquear") {
                             if authManager.isFaceIDEnabled {

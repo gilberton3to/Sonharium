@@ -26,7 +26,7 @@ struct SplashScreenView: View {
         } else {
             ZStack {
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.standard, Color.lightPurple]),
+                    gradient: Gradient(colors: [Color.fundoGradiente, Color.fundoGradienteDois]),
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
