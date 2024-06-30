@@ -19,7 +19,7 @@ struct MyDreamCardView: View {
                 .stroke(Color.standard, lineWidth: 2)
                 // .border(Color.pink)
             //
-            HStack(alignment: .top, spacing: 0) {
+            HStack(alignment: .top, spacing: 7) {
                 VStack(alignment: .center, spacing: 8) {
                     VStack {
                         //
@@ -35,15 +35,17 @@ struct MyDreamCardView: View {
                             .foregroundStyle(Color.standard)
                             .fontWeight(.bold)
                             // .border(Color.green)
-                    }  // DATA E MÊS
+                    }
+                    // DATA E MÊS
                     Image(dream.status.iconName)
                         .resizable()
                         .frame(width: 41, height: 36)
                         // .border(Color.red)
                 } // DATA + MÊS + MASCOTE
+                .padding(.leading)
                 .frame(width: 69, alignment: .center)
                 //
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 9) {
                     //
                     Text(dream.title)
                         .font(.system(size: 22, weight: .heavy, design: .rounded))
@@ -64,7 +66,7 @@ struct MyDreamCardView: View {
                 .padding(8)
             }
         }
-        .frame(height: 145) // fixa só a altura do card!
+        .frame(minWidth: 300, idealWidth: 350, maxWidth: .infinity, minHeight: 145, idealHeight: 145, maxHeight: 145, alignment: .center)
     }
 }
  #Preview {

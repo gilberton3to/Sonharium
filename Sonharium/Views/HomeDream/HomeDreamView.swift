@@ -66,9 +66,9 @@ struct HomeDreamView: View {
                             AddDreamView(audio: AudioRecorder())
                                 .presentationDetents([.large])
                         }
-                    }.padding(.vertical, 30)
+                    }.padding(.bottom, 30)
                         .toolbar {
-                            HStack(spacing: 16) {
+                            HStack(spacing: 17) {
                                 NavigationLink(destination: MyDreamsView()) {
                                     Image(systemName: "magnifyingglass")
                                         .resizable()

@@ -17,7 +17,7 @@ struct MyDreamsView: View {
     @State private var dreamSelected: Dream?
     //
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             if dreams.isEmpty {
                 NoDrems()
             } else {

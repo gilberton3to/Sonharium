@@ -67,6 +67,9 @@ struct ContentViewTwo: View {
                 Section(header: Text("App").foregroundColor(.accentColor)) {
                     CustomCellView(iconName: "star.fill", text: "Escreva uma avaliação")
                         .frame(height: 30)
+                        .onTapGesture {
+                            openURL(urlString: "https://apps.apple.com/br/app/sonharium/id6504766911")
+                        }
                 }
                 Section(header: Text("Mais informações").foregroundColor(.accentColor)) {
                     CustomCellView(iconName: "globe", text: "Site")

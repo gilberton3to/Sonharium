@@ -91,17 +91,29 @@ struct CalendarioView: View {
 // TO_DO: Mudar view que mostra título da semana.
 // No caso, ta mostrando mes e ano.
 struct HeaderView: View {
-
     let selectedDay: Day
 
     var body: some View {
-        Text("\(selectedDay.month) \(selectedDay.year)".uppercased())
-            .bold()
-            .fontDesign(.rounded)
-            .foregroundStyle(Color.accentColor)
+        HStack(alignment: .center, spacing: 15) {
+            Image(systemName: "chevron.left.2")
+                .imageScale(.small)
+                .foregroundStyle(Color.chevronHome)
+                .symbolEffect(.pulse, options: .repeat(5).speed(1.6))
+            Text("\(selectedDay.month) \(selectedDay.year)".uppercased())
+                .bold()
+                .fontDesign(.rounded)
+                .foregroundStyle(Color.accentColor)
+            Image(systemName: "chevron.right.2")
+                .imageScale(.small)
+                .foregroundStyle(Color.chevronHome)
+                .symbolEffect(.pulse, options: .repeat(5).speed(1.6))
+        }
     }
 
 }
+// @State private var value = 0
+//    .symbolEffect(.bounce, options: .repeat(3), value: value)
+//    .onAppear { value += 1 }
 
 // TO_DO: Mudar view que mostra dias
 // usar viewModel.modelExists(for: day) pra ver se tem card para o dia (day)

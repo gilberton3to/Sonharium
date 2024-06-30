@@ -18,21 +18,21 @@ struct DreamCardView: View {
             RoundedRectangle(cornerRadius: 26, style: .continuous)
                 .fill(Color("card"))
                 .stroke(.accent, lineWidth: 2)
-                .frame(width: 316, height: 441)
+                .frame(minWidth: 216, idealWidth: 316, maxWidth: 316, minHeight: 361, idealHeight: 441, maxHeight: 441)
             //
-            VStack {
+            VStack(spacing: 14) {
                 ZStack {
                     RoundedRectangle(cornerRadius: 24, style: .continuous)
                         .fill(Color("card"))
                         .stroke(.accent, lineWidth: 2)
-                        .frame(width: 255, height: 160)
+                        .frame(minWidth: 155, idealWidth: 255, maxWidth: 255, minHeight: 130, idealHeight: 155, maxHeight: 155)
                     //
                     Image(dream?.status.iconName ?? "mascote")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 120, height: 120)
                     //
-                    VStack(alignment: .center, spacing: -5) {
+                    VStack(alignment: .center, spacing: -4) {
                         // dia
                         Text((dream?.dreamDate.formatted(.dateTime.day())) ?? "")
                             .font(.system(size: 32, design: .rounded))
@@ -55,7 +55,7 @@ struct DreamCardView: View {
                     .padding(.leading)
                 //
                 Text(dream?.desc ?? "Não há sonhos cadastrados nesse dia")
-                    .lineLimit(6) // número máx de linhas da descrição
+                    .lineLimit(5) // número máx de linhas da descrição
                     .font(.system(size: 17, design: .rounded))
                     .fontWeight(.regular)
                     .foregroundStyle(Color.accentColor)
@@ -72,7 +72,7 @@ struct DreamCardView: View {
          DreamCardView(
             dream: Dream.init(dreamDate: .now,
                             title: "titulo titulo titulo",
-                            desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçaodescriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
+                            desc: "descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao descriçao")
                         ).modelContainer(container)
      }
  }

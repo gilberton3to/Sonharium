@@ -20,6 +20,7 @@ struct EditDreamView: View {
     //
     @Bindable var dream: Dream
     @FocusState private var isFocused: Bool
+    @FocusState private var descFocused: Bool
     //
    // @State private var lines: [Line] = []
     var body: some View {
@@ -29,169 +30,176 @@ struct EditDreamView: View {
                 // fundo
                 Color.fundoSheet
                     .ignoresSafeArea()
-                //
-                VStack(alignment: .center, spacing: 16) {
-                    HStack(alignment: .center, spacing: 2) {
-                        //
-                        VStack(alignment: .center) {
-                            Text("Sonhei no dia...")
-                                .font(.system(size: 16, design: .rounded))
-                                .fontWeight(.semibold)
-                                .foregroundStyle(Color("AccentColor"))
-                            DatePicker("",
-                                       selection: $dream.dreamDate,
-                                       displayedComponents: DatePickerComponents.date)
-                            .padding(.leading, 3)
-                        } // sonhei no dia
-                        .frame(width: 140)
-                        // .border(Color.green)
-                        VStack(alignment: .trailing) {
-                            Text("Dormi às:")
-                                .font(.system(size: 16, design: .rounded))
-                                .fontWeight(.semibold)
-                                .foregroundStyle(Color("AccentColor"))
-                            DatePicker("",
-                                       selection: $dream.slept,
-                                       displayedComponents: DatePickerComponents.hourAndMinute)
-//                            .padding(.trailing, 16)
-                        } // dormi às
-                        .frame(width: 100)
-                        // .border(Color.green)
-                        VStack(alignment: .trailing) {
-                            Text("Acordei às:")
-                                .font(.system(size: 16, design: .rounded))
-                                .fontWeight(.semibold)
-                                .foregroundStyle(Color("AccentColor"))
-                            DatePicker("",
-                                       selection: $dream.wokeUp,
-                                       displayedComponents: DatePickerComponents.hourAndMinute)
-                            .padding(.trailing, 6)
-                        } // acordei às
-                        .frame(width: 100)
-                        // .border(Color.green)
-                    } // DATA E HORAS
+                ScrollView {
                     //
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("TextFieldColor"))
-                            .frame(width: 360, height: 45)
+                    VStack(alignment: .center, spacing: 16) {
+                        HStack(alignment: .center) {
+                            //
+                            VStack(alignment: .center) {
+                                Text("Sonhei no dia:")
+                                    .font(.system(size: 16, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(Color("AccentColor"))
+                                DatePicker("",
+                                           selection: $dream.dreamDate,
+                                           displayedComponents: DatePickerComponents.date)
+                            } // sonhei no dia
+                            VStack(alignment: .center) {
+                                Text("Dormi às:")
+                                    .font(.system(size: 16, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(Color("AccentColor"))
+                                DatePicker("",
+                                           selection: $dream.slept,
+                                           displayedComponents: DatePickerComponents.hourAndMinute)
+                            } // dormi às
+                            VStack(alignment: .center) {
+                                Text("Acordei:")
+                                    .font(.system(size: 16, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(Color("AccentColor"))
+                                DatePicker("",
+                                           selection: $dream.wokeUp,
+                                           displayedComponents: DatePickerComponents.hourAndMinute)
+                            } // acordei às
+                        }.padding(.horizontal)
+                        // DATA E HORAS
                         //
-                        TextField("Escolha um título para o seu sonho",
-                                  text: $dream.title,
-                                  axis: .vertical)
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(Color("TextFieldColor"))
+                                .frame(width: 360, height: 45)
+                                .focused($isFocused)
+                                .onTapGesture {
+                                    isFocused.toggle()
+                                }
+                            //
+                            TextField("Título do sonho",
+                                      text: $dream.title,
+                                      axis: .vertical)
                             .font(.system(size: 17, design: .rounded))
                             .foregroundStyle(.primary)
                             .background(Color.clear)
-                                        .focused($isFocused)
-                                        .onTapGesture {
-                                            isFocused = true
-                                        }
+                            .focused($isFocused)
+                            .onTapGesture {
+                                isFocused.toggle()
+                            }
                             .padding(8)
                             .frame(width: 350, height: 40, alignment: .leading)
-                    } // TÍTULO
-                    //
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(Color("TextFieldColor"))
-                            .frame(width: 360, height: 205)
+                        } // TÍTULO
                         //
-                        TextField("O que aconteceu? Descreva como foi...",
-                                  text: $dream.desc,
-                                  axis: .vertical)
-                            .font(.system(size: 17, design: .rounded))
-                            .foregroundStyle(.primary)
-                            .background(Color.clear)
-                            .padding(8)
-                            .frame(width: 350, height: 200, alignment: .topLeading)
-                    } // DESCRIÇÃO
-                    //
-                    Text("Qual tipo de sonho você teve hoje?")
-                        .font(.system(size: 20, design: .rounded))
-                        .foregroundStyle(Color("AccentColor"))
-                        .fontWeight(.semibold)
-                    //
-                    VStack(spacing: 16) {
-                        HStack(spacing: 24) {
-                            // TIPOS DE SONHO
-                            VStack(alignment: .leading) {
-                                ForEach(Status.allCases, id: \.rawValue) { status in
-                                    Button {
-                                        dream.status = status
-                                    } label: {
-                                        Text(status.descr)
-                                            .frame(width: 100, height: 32)
-                                            .background {
-                                                RoundedRectangle(cornerRadius: 8)
-                                                    .fill(status == dream.status ? Color("AccentColor") : Color("TextFieldColor"))
-                                            }
-                                            .foregroundStyle(status == dream.status ? Color.white : Color("AccentColor"))
-                                            .font(
-                                                .system(
-                                                    size: 17,
-                                                    weight: status == dream.status ? .semibold : .medium,
-                                                    design: .rounded
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(Color("TextFieldColor"))
+                                .frame(width: 360, height: 205)
+                                .focused($descFocused)
+                                .onTapGesture {
+                                    descFocused.toggle()
+                                }
+                            //
+                            TextField("Descrição do sonho",
+                                      text: $dream.desc,
+                                      axis: .vertical)
+                                .font(.system(size: 17, design: .rounded))
+                                .foregroundStyle(.primary)
+                                .background(Color.clear)
+                                .focused($descFocused)
+                                .onTapGesture {
+                                    descFocused.toggle()
+                                }
+                                .padding(8)
+                                .frame(width: 350, height: 200, alignment: .topLeading)
+                        } // DESCRIÇÃO
+                        //
+                        Text("O tipo de sonho você teve")
+                            .font(.system(size: 20, design: .rounded))
+                            .foregroundStyle(Color("AccentColor"))
+                            .fontWeight(.semibold)
+                        //
+                        VStack(spacing: 16) {
+                            HStack(spacing: 24) {
+                                // TIPOS DE SONHO
+                                VStack(alignment: .leading) {
+                                    ForEach(Status.allCases, id: \.rawValue) { status in
+                                        Button {
+                                            dream.status = status
+                                        } label: {
+                                            Text(status.descr)
+                                                .frame(width: 100, height: 32)
+                                                .background {
+                                                    RoundedRectangle(cornerRadius: 8)
+                                                        .fill(status == dream.status ? Color("AccentColor") : Color("TextFieldColor"))
+                                                }
+                                                .foregroundStyle(status == dream.status ? Color.white : Color("AccentColor"))
+                                                .font(
+                                                    .system(
+                                                        size: 17,
+                                                        weight: status == dream.status ? .semibold : .medium,
+                                                        design: .rounded
+                                                    )
                                                 )
-                                            )
+                                        }
                                     }
                                 }
+                                Image(dream.status.iconName)
+                                    .resizable()
+                                    .frame(width: 115, height: 100)
+                                // MASCOTE
+                                    .frame(width: 160, height: 152)
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 25)
+                                            .stroke(.accent, lineWidth: 3)
+                                            .fill(Color("TextFieldColor"))
+                                    }
+                            } // STATUS SONHO
+                            //
+                            Button("Saiba mais sobre os tipos de sonho") {
+                                infoDream = true
                             }
-                            Image(dream.status.iconName)
-                                .resizable()
-                                .frame(width: 115, height: 100)
-                            // MASCOTE
-                                .frame(width: 160, height: 152)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 25)
-                                        .stroke(.accent, lineWidth: 2)
-                                        .fill(Color("TextFieldColor"))
-                                }
-                        } // STATUS SONHO
-                        //
-                        Button("Saiba mais sobre os tipos de sonho") {
-                            infoDream = true
-                        }
-                        .padding()
-                        .buttonStyle(.bordered)
-                        .sheet(isPresented: $infoDream) {
-                            InfoDreamView()
-                                .presentationDetents([.large])
+                            .padding()
+                            .buttonStyle(.bordered)
+                            .sheet(isPresented: $infoDream) {
+                                InfoDreamView()
+                                    .presentationDetents([.large])
+                            }
                         }
                     }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .padding(.top, 16)
-                .toolbar {
-                    //
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button("Deletar") {
-                            showAlert = true
-                        }
-                        .alert(isPresented: $showAlert) {
-                            Alert(
-                                title: Text("Deletar sonho"),
-                                message: Text("Todos os dados deste sonho vão ser apagados do histórico."),
-                                primaryButton: .default(
-                                    Text("Cancelar"),
-                                    action: cancelAlert
-                                ),
-                                secondaryButton: .destructive(
-                                    Text("Deletar"),
-                                    action: deleteDream
+                    .frame(maxWidth: 370, maxHeight: .infinity, alignment: .top)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle("Seu sonho")
+                    .padding(.top, 16)
+                    .toolbar {
+                        //
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("Deletar") {
+                                showAlert = true
+                            }
+                            .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Deletar sonho"),
+                                    message: Text("Todos os dados deste sonho vão ser apagados do histórico."),
+                                    primaryButton: .default(
+                                        Text("Cancelar"),
+                                        action: cancelAlert
+                                    ),
+                                    secondaryButton: .destructive(
+                                        Text("Deletar"),
+                                        action: deleteDream
+                                    )
                                 )
-                            )
-                        }
-                    } // DELETAR
-                    //
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button("Ok") {
-                            updateDream()
-                        }
-                    } // OK
-                }  // DELETAR E SALVAR SONHO
+                            }
+                        } // DELETAR
+                        //
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("Ok") {
+                                updateDream()
+                            }
+                        } // OK
+                    }  // DELETAR E SALVAR SONHO
+                }
+                .scrollIndicators(.hidden)
             }
             .background(Color("fundo"))
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Seu sonho")
         }
     }
     //
