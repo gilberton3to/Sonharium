@@ -35,7 +35,8 @@ struct CardCalendarView<Model: CalendarModel, CardContent: View, EmptyCardConten
                 .scrollTargetLayout()
                 .opacity(viewModel.models.isEmpty ? 0 : 1)
             }
-            .contentMargins(contentMarginsForScrollContent, for: .scrollContent)
+            .scrollClipDisabled() // tira o scroll vertical
+            .contentMargins(.horizontal, contentMarginsForScrollContent, for: .scrollContent) // tira o scroll vertical
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
             .scrollPosition(id: $viewModel.selectedDay)
